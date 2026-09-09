@@ -19,7 +19,9 @@ Install R, RStudio or Positron, download this repository, run the install script
 |---|---|---|
 | [Follow-along](follow_along.qmd) | 5 (core path) | What we run together in the room: one propensity score model, global and within-site matching, balance at both levels, two effect estimates, one sensitivity analysis. Runs in under a minute. Ends with a "Try it" block and an own-data template. |
 | [MIAD](05_miad.qmd) | 5 | Students assigned to treatment within schools: seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis |
+| [Decision flowcharts](flowcharts.qmd) | 3 | The guiding questions and options at each stage for the MIAD and CAD, for use with your own study |
 | [CAD](06_cad.qmd) | 6 | Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis |
+| [MCAD](07_mcad.qmd) | 7 | Teachers assigned to treatment within schools, with students nested in teachers: the design that combines the two, not walked through in the session but included for reference |
 
 Each document follows the same six stages: define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis.
 

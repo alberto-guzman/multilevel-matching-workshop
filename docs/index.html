@@ -142,12 +142,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Follow-along</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="./flowcharts.html"> 
+<span class="menu-text">Flowcharts</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./05_miad.html"> 
 <span class="menu-text">Ch5: MIAD</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./06_cad.html"> 
 <span class="menu-text">Ch6: CAD</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./07_mcad.html"> 
+<span class="menu-text">Ch7: MCAD</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -235,9 +243,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Students assigned to treatment within schools: seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis</td>
 </tr>
 <tr class="odd">
+<td><a href="./flowcharts.html">Decision flowcharts</a></td>
+<td>3</td>
+<td>The guiding questions and options at each stage for the MIAD and CAD, for use with your own study</td>
+</tr>
+<tr class="even">
 <td><a href="./06_cad.html">CAD</a></td>
 <td>6</td>
 <td>Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis</td>
+</tr>
+<tr class="odd">
+<td><a href="./07_mcad.html">MCAD</a></td>
+<td>7</td>
+<td>Teachers assigned to treatment within schools, with students nested in teachers: the design that combines the two, not walked through in the session but included for reference</td>
 </tr>
 </tbody>
 </table>
@@ -729,17 +747,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Follow-along</span><span class="co">](follow_along.qmd)</span> <span class="pp">|</span> 5 (core path) <span class="pp">|</span> What we run together in the room: one propensity score model, global and within-site matching, balance at both levels, two effect estimates, one sensitivity analysis. Runs in under a minute. Ends with a "Try it" block and an own-data template. <span class="pp">|</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">MIAD</span><span class="co">](05_miad.qmd)</span> <span class="pp">|</span> 5 <span class="pp">|</span> Students assigned to treatment within schools: seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis <span class="pp">|</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">CAD</span><span class="co">](06_cad.qmd)</span> <span class="pp">|</span> 6 <span class="pp">|</span> Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis <span class="pp">|</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Each document follows the same six stages: define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Decision flowcharts</span><span class="co">](flowcharts.qmd)</span> <span class="pp">|</span> 3 <span class="pp">|</span> The guiding questions and options at each stage for the MIAD and CAD, for use with your own study <span class="pp">|</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">CAD</span><span class="co">](06_cad.qmd)</span> <span class="pp">|</span> 6 <span class="pp">|</span> Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis <span class="pp">|</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">MCAD</span><span class="co">](07_mcad.qmd)</span> <span class="pp">|</span> 7 <span class="pp">|</span> Teachers assigned to treatment within schools, with students nested in teachers: the design that combines the two, not walked through in the session but included for reference <span class="pp">|</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## The data</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>Each document follows the same six stages: define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis.</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>All examples use <span class="in">`data/timss_df.rds`</span>: TIMSS 2015 Grade 4 mathematics, Canada, 2,478 students nested in teachers nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates in these documents are illustrations of the workflow, not findings. See <span class="in">`data/README.md`</span> for the variable list and caveats.</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## The data</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using the code with your own data</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>All examples use <span class="in">`data/timss_df.rds`</span>: TIMSS 2015 Grade 4 mathematics, Canada, 2,478 students nested in teachers nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates in these documents are illustrations of the workflow, not findings. See <span class="in">`data/README.md`</span> for the variable list and caveats.</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replacing those objects with your own is the intended path from the worked example to your study.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using the code with your own data</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replacing those objects with your own is the intended path from the worked example to your study.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

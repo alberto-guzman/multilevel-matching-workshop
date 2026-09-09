@@ -11,6 +11,8 @@ Chapter 4 (setup and data) is shown from the handbook itself. Each `.qmd` here i
 | `follow_along.qmd` | 5 (core path) | What we run together in the room; ends with exercises and an own-data template |
 | `05_miad.qmd` | 5 | Multisite individual assignment design |
 | `06_cad.qmd` | 6 | Cluster assignment design |
+| `07_mcad.qmd` | 7 | Multisite cluster assignment design (reference only, not walked through) |
+| `flowcharts.qmd` | 3 | Decision flowcharts for the MIAD and CAD |
 
 ## What to bring and have installed
 
@@ -31,7 +33,7 @@ Rendering a document (`quarto render 05_miad.qmd`) runs every chunk. Chapter 5 f
 
 ## Regenerating from the handbook
 
-`tools/build_from_book.py` rebuilds `05_miad.qmd` and `06_cad.qmd` from the handbook source. It keeps code chunks, headers, code annotations, and the "Main takeaways" callouts, and drops everything else. `follow_along.qmd` is maintained by hand.
+`tools/build_from_book.py` rebuilds `05_miad.qmd`, `06_cad.qmd`, and `07_mcad.qmd` from the handbook source. It keeps code chunks, headers, code annotations, and the "Main takeaways" callouts, and drops everything else. `follow_along.qmd` is maintained by hand.
 
 ```
 python3 tools/build_from_book.py /path/to/matching_toolkit

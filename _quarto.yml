@@ -5,8 +5,10 @@ project:
     - index.qmd
     - before_you_come.qmd
     - follow_along.qmd
+    - flowcharts.qmd
     - 05_miad.qmd
     - 06_cad.qmd
+    - 07_mcad.qmd
 
 website:
   title: "Matching Methods for Multilevel Data"
@@ -18,10 +20,14 @@ website:
         text: Before you come
       - href: follow_along.qmd
         text: Follow-along
+      - href: flowcharts.qmd
+        text: Flowcharts
       - href: 05_miad.qmd
         text: "Ch5: MIAD"
       - href: 06_cad.qmd
         text: "Ch6: CAD"
+      - href: 07_mcad.qmd
+        text: "Ch7: MCAD"
     right:
       - icon: github
         href: https://github.com/alberto-guzman/multilevel-matching-workshop

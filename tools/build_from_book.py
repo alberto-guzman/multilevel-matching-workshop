@@ -15,6 +15,7 @@ OUT  = pathlib.Path(__file__).resolve().parent.parent
 CHAPTERS = {
     "chapter_5_multisite.qmd":   ("05_miad.qmd",       "Multisite individual assignment design, MIAD (Chapter 5)"),
     "chapter_6_cluster.qmd":     ("06_cad.qmd",        "Cluster assignment design, CAD (Chapter 6)"),
+    "chapter_7_multisite_cluster.qmd": ("07_mcad.qmd", "Multisite cluster assignment design, MCAD (Chapter 7)"),
 }
 
 # Chunks whose code stays hidden (long reference tables)
@@ -146,8 +147,10 @@ for src,(dst,title) in CHAPTERS.items():
     (OUT/dst).write_text(yaml+HOWTO+'\n'+'\n'.join(lines)+'\n')
     print(f'{src} -> {dst}: {len(lines)} lines')
 
-for png in ('miad_design.png','cad_design.png'):
+for png in ('miad_design.png','cad_design.png','mcad_design.png'):
     p=BOOK/'part2_handbook'/'figures'/png
     if p.exists(): shutil.copy(p, OUT/'figures'/png)
+for png in ('MMT_Chapter3_Figure3_2.png','MMT_Chapter3_Figure3_3.png'):
+    shutil.copy(BOOK/'part1_primer'/'figures'/png, OUT/'figures'/png)
 shutil.copy(BOOK/'data'/'timss_df.rds', OUT/'data'/'timss_df.rds')
 print('copied figures + data')
