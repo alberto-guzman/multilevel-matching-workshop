@@ -7,20 +7,19 @@ subtitle: "A practical guide and illustration of approaches in R"
 
 **Instructors:** Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)
 
-This site holds the hands-on materials for the workshop. Each page is the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*, with the explanatory text removed so the code can be run top to bottom. The handbook itself is at the link in the top bar.
+This site holds the hands-on materials for the workshop. The data and package setup (handbook Chapter 4) is shown from the handbook itself. Each page here is the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*, with the explanatory text removed so the code can be run top to bottom. The handbook itself is at the link in the top bar.
 
 ## Before the workshop
 
 1. Install R (4.3 or later) and RStudio or Positron.
 2. Download or clone this repository: <https://github.com/alberto-guzman/multilevel-matching-workshop>.
 3. Open the folder as a project and run `00_install_packages.R` once. It installs the packages used across the three documents.
-4. Open `04_setup_data.qmd` and run the chunks to confirm the data loads and the packages attach.
+4. Open `05_miad.qmd` and run the first chunk to confirm the data loads and the packages attach.
 
 ## The documents
 
 | Document | Handbook chapter | What it covers |
 |---|---|---|
-| [Setup and data](04_setup_data.qmd) | 4 | Packages, the TIMSS analytic dataset, variable definitions, intraclass correlations |
 | [MIAD](05_miad.qmd) | 5 | Students assigned to treatment within schools: seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis |
 | [CAD](06_cad.qmd) | 6 | Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis |
 

@@ -13,7 +13,6 @@ BOOK = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "~/matching_toolkit").
 OUT  = pathlib.Path(__file__).resolve().parent.parent
 
 CHAPTERS = {
-    "chapter_4_data_intro.qmd":  ("04_setup_data.qmd", "Setup and data (Chapter 4)"),
     "chapter_5_multisite.qmd":   ("05_miad.qmd",       "Multisite individual assignment design, MIAD (Chapter 5)"),
     "chapter_6_cluster.qmd":     ("06_cad.qmd",        "Cluster assignment design, CAD (Chapter 6)"),
 }

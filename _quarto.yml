@@ -3,7 +3,6 @@ project:
   output-dir: docs
   render:
     - index.qmd
-    - 04_setup_data.qmd
     - 05_miad.qmd
     - 06_cad.qmd
 
@@ -13,8 +12,6 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - href: 04_setup_data.qmd
-        text: "Ch4: Setup and data"
       - href: 05_miad.qmd
         text: "Ch5: MIAD"
       - href: 06_cad.qmd
