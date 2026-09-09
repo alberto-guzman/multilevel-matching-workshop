@@ -27,6 +27,10 @@ Do the install at home. Room wifi may be slow. If the install fails, every outpu
 
 Rendering a document (`quarto render 05_miad.qmd`) runs every chunk. Chapter 5 fits GBM, BART, and two logistic mixed models, so expect a few minutes. The follow-along document runs in under a minute.
 
+## Feedback and testers
+
+Workshop feedback form, which also asks whether you would like to be an end-user tester for the handbook: https://forms.cloud.microsoft/r/XZpKK1aEmY
+
 ## Data
 
 `data/timss_df.rds` is TIMSS 2015 Grade 4 mathematics (Canada), 2,478 students nested in teachers nested in schools. The treatment indicators are derived from observed covariates and are not real interventions. See `data/README.md`.

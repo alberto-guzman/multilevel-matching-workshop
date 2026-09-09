@@ -32,3 +32,9 @@ All examples use `data/timss_df.rds`: TIMSS 2015 Grade 4 mathematics, Canada, 2,
 ## Using the code with your own data
 
 The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replacing those objects with your own is the intended path from the worked example to your study.
+
+## Feedback and testers
+
+Tell us what worked and what did not, and say on the form if you would like to be an end-user tester for the handbook before it is finalized: <https://forms.cloud.microsoft/r/XZpKK1aEmY>
+
+![](figures/feedback_qr.png){width=40% fig-align="left"}
