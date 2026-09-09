@@ -25,7 +25,7 @@ The three chapter files are the R code from Chapters 5, 6, and 7 of the handbook
 
 Do the install at home. Room wifi may be slow. If the install fails, every output is on the rendered site and you can follow on screen.
 
-In the room we run `05_miad.qmd` chunk by chunk. In Stage 2, run only the single-level and fixed-effects chunks; the random intercept, random slope, partially-pooled, and machine-learning chunks take several minutes and are not needed for the rest of the page. Everything else runs in seconds. Rendering the whole document (`quarto render 05_miad.qmd`) runs every chunk, so expect a few minutes.
+In the room we run `05_miad.qmd` chunk by chunk. In Stage 2, run only the single-level and fixed-effects chunks; the random intercept, random slope, partially-pooled, and machine-learning chunks take several minutes and are not needed for the rest of the page. Everything else runs in seconds.
 
 ## Feedback and testers
 
