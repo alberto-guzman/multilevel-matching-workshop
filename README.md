@@ -4,14 +4,15 @@ Hands-on materials for the SREE 2026 workshop (Baltimore, September 2026), taugh
 
 Rendered site: https://alberto-guzman.github.io/multilevel-matching-workshop/
 
-Chapter 4 (setup and data) is shown from the handbook itself. Each `.qmd` here is the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*, with the explanatory text removed so it can be run top to bottom.
+The three chapter files are the R code from Chapters 5, 6, and 7 of the handbook *Propensity Score Matching in Multilevel Educational Settings* (draft, https://albertoguz.quarto.pub/draft-propensity-score-matching-in-multilevel-educational-settings/), with the explanatory text removed so the code can be run top to bottom. Chapter 4, the data and package setup, is shown from the handbook during the workshop.
 
-| File | Handbook chapter | Design |
+| File | Handbook chapter | What it is |
 |---|---|---|
-| `05_miad.qmd` | 5 | Multisite individual assignment design; the page we run in the room, with exercises and an own-data template at the end |
+| `05_miad.qmd` | 5 | Multisite individual assignment design. The page we run in the room, with exercises and an own-data template at the end. |
 | `06_cad.qmd` | 6 | Cluster assignment design |
 | `07_mcad.qmd` | 7 | Multisite cluster assignment design (reference only, not walked through) |
-| `flowcharts.qmd` | 3 | Decision flowcharts for the MIAD and CAD |
+| `flowcharts.qmd` | 3 | Decision flowcharts for the MIAD and CAD, for use with your own study |
+| `before_you_come.qmd` | | What to bring and have installed, in full |
 
 ## What to bring and have installed
 
@@ -19,12 +20,12 @@ Chapter 4 (setup and data) is shown from the handbook itself. Each `.qmd` here i
 - R 4.3 or later, and RStudio or Positron.
 - This repository, cloned or downloaded as a zip. Open `multilevel-matching-workshop.Rproj` in RStudio or the folder in Positron.
 - The packages. Run `00_install_packages.R` once. It installs 15 CRAN packages.
-- The check. Run `00_check_setup.R`. It should end with `MatchIt test run: matched ... students`. If not, bring the output to the workshop.
+- The check. Run `00_check_setup.R`. It should end with `MatchIt test run: matched 710 students`. If not, bring the output to the workshop.
 - Basic R (scripts, data frames, the pipe) and the ideas from the first hour, which are potential outcomes, propensity scores, and standardized mean differences.
 
 Do the install at home. Room wifi may be slow. If the install fails, every output is on the rendered site and you can follow on screen.
 
-Rendering a document (`quarto render 05_miad.qmd`) runs every chunk. Chapter 5 fits GBM, BART, and two logistic mixed models in Stage 2, so expect a few minutes. Running the chunks one at a time and skipping those tabs takes under a minute.
+In the room we run `05_miad.qmd` chunk by chunk. In Stage 2, run only the single-level and fixed-effects chunks; the random intercept, random slope, partially-pooled, and machine-learning chunks take several minutes and are not needed for the rest of the page. Everything else runs in seconds. Rendering the whole document (`quarto render 05_miad.qmd`) runs every chunk, so expect a few minutes.
 
 ## Feedback and testers
 
