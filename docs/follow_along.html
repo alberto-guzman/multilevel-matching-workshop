@@ -257,7 +257,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This is the path we run together in the room. It is a subset of the Chapter 5 document: one propensity score model, two matching approaches, the balance checks, two effect estimates, and one sensitivity analysis. Every chunk runs in seconds. The full set of options for each stage is on the Chapter 5 page, with the same object names, so you can move between the two.</p>
+<p>This is the code we run together in the room. It is a subset of the Chapter 5 document, with one propensity score model, two matching approaches, the balance checks, two effect estimates, and one sensitivity analysis. Every chunk runs in seconds. The Chapter 5 page has the full set of options for each stage, with the same object names.</p>
 </div>
 </div>
 <section id="setup" class="level2">
@@ -295,7 +295,7 @@ window.Quarto = {
 </section>
 <section id="stage-1-define-estimand-and-understand-data" class="level2">
 <h2 class="anchored" data-anchor-id="stage-1-define-estimand-and-understand-data">Stage 1: Define estimand and understand data</h2>
-<p>Estimand for this example: the effect on the treated. We estimate the individual-average version first and the site-average version in Stage 5.</p>
+<p>The estimand for this example is the effect on the treated. Stage 5 estimates both the individual-average and the site-average version.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-2"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-label="1"></a>site_diagnostics <span class="ot">&lt;-</span> timss <span class="sc">|&gt;</span></span>
 <span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-label="2"></a>  <span class="fu">summarise</span>(</span>
@@ -332,7 +332,7 @@ window.Quarto = {
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-2" data-code-lines="12" data-code-annotation="3">The smallest treated count flags the school with the noisiest within-site estimate.</span>
+<span data-code-cell="annotated-cell-2" data-code-lines="12" data-code-annotation="3">The smallest treated count identifies the school likely to have the noisiest within-site estimate.</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
 <dd>
@@ -351,23 +351,23 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
 </figcaption>
 <div aria-describedby="tbl-site-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="pyffqezdvd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pyffqezdvd table {
+<div id="xbtfjgavdl" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xbtfjgavdl table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pyffqezdvd thead, #pyffqezdvd tbody, #pyffqezdvd tfoot, #pyffqezdvd tr, #pyffqezdvd td, #pyffqezdvd th {
+#xbtfjgavdl thead, #xbtfjgavdl tbody, #xbtfjgavdl tfoot, #xbtfjgavdl tr, #xbtfjgavdl td, #xbtfjgavdl th {
   border-style: none;
 }
 
-#pyffqezdvd p {
+#xbtfjgavdl p {
   margin: 0;
   padding: 0;
 }
 
-#pyffqezdvd .gt_table {
+#xbtfjgavdl .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -393,12 +393,12 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-left-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_caption {
+#xbtfjgavdl .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pyffqezdvd .gt_title {
+#xbtfjgavdl .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -410,7 +410,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-bottom-width: 0;
 }
 
-#pyffqezdvd .gt_subtitle {
+#xbtfjgavdl .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -422,7 +422,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-top-width: 0;
 }
 
-#pyffqezdvd .gt_heading {
+#xbtfjgavdl .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -434,13 +434,13 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-right-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_bottom_border {
+#xbtfjgavdl .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_col_headings {
+#xbtfjgavdl .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -455,7 +455,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-right-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_col_heading {
+#xbtfjgavdl .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -475,7 +475,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   overflow-x: hidden;
 }
 
-#pyffqezdvd .gt_column_spanner_outer {
+#xbtfjgavdl .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -487,15 +487,15 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 4px;
 }
 
-#pyffqezdvd .gt_column_spanner_outer:first-child {
+#xbtfjgavdl .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pyffqezdvd .gt_column_spanner_outer:last-child {
+#xbtfjgavdl .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pyffqezdvd .gt_column_spanner {
+#xbtfjgavdl .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -507,11 +507,11 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   width: 100%;
 }
 
-#pyffqezdvd .gt_spanner_row {
+#xbtfjgavdl .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pyffqezdvd .gt_group_heading {
+#xbtfjgavdl .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -537,7 +537,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   text-align: left;
 }
 
-#pyffqezdvd .gt_empty_group_heading {
+#xbtfjgavdl .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -552,15 +552,15 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   vertical-align: middle;
 }
 
-#pyffqezdvd .gt_from_md > :first-child {
+#xbtfjgavdl .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pyffqezdvd .gt_from_md > :last-child {
+#xbtfjgavdl .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pyffqezdvd .gt_row {
+#xbtfjgavdl .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -579,7 +579,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   overflow-x: hidden;
 }
 
-#pyffqezdvd .gt_stub {
+#xbtfjgavdl .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -592,7 +592,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#pyffqezdvd .gt_stub_row_group {
+#xbtfjgavdl .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -606,15 +606,15 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   vertical-align: top;
 }
 
-#pyffqezdvd .gt_row_group_first td {
+#xbtfjgavdl .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pyffqezdvd .gt_row_group_first th {
+#xbtfjgavdl .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pyffqezdvd .gt_summary_row {
+#xbtfjgavdl .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -624,16 +624,16 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#pyffqezdvd .gt_first_summary_row {
+#xbtfjgavdl .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_first_summary_row.thick {
+#xbtfjgavdl .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pyffqezdvd .gt_last_summary_row {
+#xbtfjgavdl .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -643,7 +643,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-bottom-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_grand_summary_row {
+#xbtfjgavdl .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -653,7 +653,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#pyffqezdvd .gt_first_grand_summary_row {
+#xbtfjgavdl .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -663,7 +663,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-top-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_last_grand_summary_row_top {
+#xbtfjgavdl .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -673,11 +673,11 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-bottom-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_striped {
+#xbtfjgavdl .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pyffqezdvd .gt_table_body {
+#xbtfjgavdl .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -686,7 +686,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-bottom-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_footnotes {
+#xbtfjgavdl .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -700,7 +700,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-right-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_footnote {
+#xbtfjgavdl .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -709,7 +709,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#pyffqezdvd .gt_sourcenotes {
+#xbtfjgavdl .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -723,7 +723,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-right-color: #D3D3D3;
 }
 
-#pyffqezdvd .gt_sourcenote {
+#xbtfjgavdl .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -731,72 +731,72 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#pyffqezdvd .gt_left {
+#xbtfjgavdl .gt_left {
   text-align: left;
 }
 
-#pyffqezdvd .gt_center {
+#xbtfjgavdl .gt_center {
   text-align: center;
 }
 
-#pyffqezdvd .gt_right {
+#xbtfjgavdl .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pyffqezdvd .gt_font_normal {
+#xbtfjgavdl .gt_font_normal {
   font-weight: normal;
 }
 
-#pyffqezdvd .gt_font_bold {
+#xbtfjgavdl .gt_font_bold {
   font-weight: bold;
 }
 
-#pyffqezdvd .gt_font_italic {
+#xbtfjgavdl .gt_font_italic {
   font-style: italic;
 }
 
-#pyffqezdvd .gt_super {
+#xbtfjgavdl .gt_super {
   font-size: 65%;
 }
 
-#pyffqezdvd .gt_footnote_marks {
+#xbtfjgavdl .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pyffqezdvd .gt_asterisk {
+#xbtfjgavdl .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pyffqezdvd .gt_indent_1 {
+#xbtfjgavdl .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pyffqezdvd .gt_indent_2 {
+#xbtfjgavdl .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pyffqezdvd .gt_indent_3 {
+#xbtfjgavdl .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pyffqezdvd .gt_indent_4 {
+#xbtfjgavdl .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pyffqezdvd .gt_indent_5 {
+#xbtfjgavdl .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pyffqezdvd .katex-display {
+#xbtfjgavdl .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pyffqezdvd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xbtfjgavdl div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -871,7 +871,7 @@ Figure&nbsp;1: One point per school: total sample size and treated share. The da
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="6" data-code-annotation="1">One formula for the propensity score model and for the balance diagnostics later: seven student covariates and seven school covariates.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="6" data-code-annotation="1">One formula, with seven student covariates and seven school covariates, for the propensity score model and for the balance diagnostics later.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
@@ -887,7 +887,7 @@ Figure&nbsp;1: One point per school: total sample size and treated share. The da
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-cell="annotated-cell-4" data-code-lines="15" data-code-annotation="5">Store the score as a column so Stage 3 can pass it as a vector.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="15" data-code-annotation="5">The score is stored as a column so Stage 3 can pass it as a vector.</span>
 </dd>
 </dl>
 </div>
@@ -915,7 +915,7 @@ Figure&nbsp;2: Propensity score overlap before matching.
 </section>
 <section id="stage-3-implement-matching-method" class="level2">
 <h2 class="anchored" data-anchor-id="stage-3-implement-matching-method">Stage 3: Implement matching method</h2>
-<p>Same call twice. One argument changes.</p>
+<p>The same call twice, with one argument changed.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-label="1"></a>m_global <span class="ot">&lt;-</span> <span class="fu">matchit</span>(</span>
 <span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-label="2"></a>  <span class="at">formula  =</span> ps_formula,</span>
@@ -941,11 +941,11 @@ Figure&nbsp;2: Propensity score overlap before matching.
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="4" data-code-annotation="1">1:1 nearest-neighbor matching without replacement.</span>
+<span data-code-cell="annotated-cell-6" data-code-lines="4" data-code-annotation="1"><code>method = "nearest"</code> requests 1:1 nearest-neighbor matching, without replacement.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="5" data-code-annotation="2">The Stage 2 score, passed as a vector.</span>
+<span data-code-cell="annotated-cell-6" data-code-lines="5" data-code-annotation="2"><code>distance =</code> takes the Stage 2 score as a vector.</span>
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="3">3</dt>
 <dd>
@@ -953,7 +953,7 @@ Figure&nbsp;2: Propensity score overlap before matching.
 </dd>
 <dt data-target-cell="annotated-cell-6" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-6" data-code-lines="16" data-code-annotation="4">The within-site constraint: a treated student can only be paired with a comparison student in the same school. Partially-pooled matching changes this to <code>exact = ~school_locale</code>. Preferential within-site matching (same school first, another school as fallback) uses <code>CMatching::MatchPW()</code> and is on the Chapter 5 page.</span>
+<span data-code-cell="annotated-cell-6" data-code-lines="16" data-code-annotation="4"><code>exact = ~school_id</code> is the within-site constraint. A treated student can only be paired with a comparison student in the same school. Partially-pooled matching changes this to <code>exact = ~school_locale</code>. Preferential within-site matching (same school first, another school as fallback) uses <code>CMatching::MatchPW()</code> and is on the Chapter 5 page.</span>
 </dd>
 </dl>
 </div>
@@ -982,23 +982,23 @@ Table&nbsp;2: Treated-student retention under each matching approach.
 </figcaption>
 <div aria-describedby="tbl-retention-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="zoqirsjbft" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zoqirsjbft table {
+<div id="ussnxmpoir" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ussnxmpoir table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zoqirsjbft thead, #zoqirsjbft tbody, #zoqirsjbft tfoot, #zoqirsjbft tr, #zoqirsjbft td, #zoqirsjbft th {
+#ussnxmpoir thead, #ussnxmpoir tbody, #ussnxmpoir tfoot, #ussnxmpoir tr, #ussnxmpoir td, #ussnxmpoir th {
   border-style: none;
 }
 
-#zoqirsjbft p {
+#ussnxmpoir p {
   margin: 0;
   padding: 0;
 }
 
-#zoqirsjbft .gt_table {
+#ussnxmpoir .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1024,12 +1024,12 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-left-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_caption {
+#ussnxmpoir .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zoqirsjbft .gt_title {
+#ussnxmpoir .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1041,7 +1041,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-bottom-width: 0;
 }
 
-#zoqirsjbft .gt_subtitle {
+#ussnxmpoir .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1053,7 +1053,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-top-width: 0;
 }
 
-#zoqirsjbft .gt_heading {
+#ussnxmpoir .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1065,13 +1065,13 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-right-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_bottom_border {
+#ussnxmpoir .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_col_headings {
+#ussnxmpoir .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1086,7 +1086,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-right-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_col_heading {
+#ussnxmpoir .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1106,7 +1106,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   overflow-x: hidden;
 }
 
-#zoqirsjbft .gt_column_spanner_outer {
+#ussnxmpoir .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1118,15 +1118,15 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   padding-right: 4px;
 }
 
-#zoqirsjbft .gt_column_spanner_outer:first-child {
+#ussnxmpoir .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zoqirsjbft .gt_column_spanner_outer:last-child {
+#ussnxmpoir .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zoqirsjbft .gt_column_spanner {
+#ussnxmpoir .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1138,11 +1138,11 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   width: 100%;
 }
 
-#zoqirsjbft .gt_spanner_row {
+#ussnxmpoir .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zoqirsjbft .gt_group_heading {
+#ussnxmpoir .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1168,7 +1168,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   text-align: left;
 }
 
-#zoqirsjbft .gt_empty_group_heading {
+#ussnxmpoir .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1183,15 +1183,15 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   vertical-align: middle;
 }
 
-#zoqirsjbft .gt_from_md > :first-child {
+#ussnxmpoir .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zoqirsjbft .gt_from_md > :last-child {
+#ussnxmpoir .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zoqirsjbft .gt_row {
+#ussnxmpoir .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1210,7 +1210,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   overflow-x: hidden;
 }
 
-#zoqirsjbft .gt_stub {
+#ussnxmpoir .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1223,7 +1223,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   padding-right: 5px;
 }
 
-#zoqirsjbft .gt_stub_row_group {
+#ussnxmpoir .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1237,15 +1237,15 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   vertical-align: top;
 }
 
-#zoqirsjbft .gt_row_group_first td {
+#ussnxmpoir .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zoqirsjbft .gt_row_group_first th {
+#ussnxmpoir .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zoqirsjbft .gt_summary_row {
+#ussnxmpoir .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1255,16 +1255,16 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   padding-right: 5px;
 }
 
-#zoqirsjbft .gt_first_summary_row {
+#ussnxmpoir .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_first_summary_row.thick {
+#ussnxmpoir .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zoqirsjbft .gt_last_summary_row {
+#ussnxmpoir .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1274,7 +1274,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-bottom-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_grand_summary_row {
+#ussnxmpoir .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1284,7 +1284,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   padding-right: 5px;
 }
 
-#zoqirsjbft .gt_first_grand_summary_row {
+#ussnxmpoir .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1294,7 +1294,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-top-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_last_grand_summary_row_top {
+#ussnxmpoir .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1304,11 +1304,11 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-bottom-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_striped {
+#ussnxmpoir .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zoqirsjbft .gt_table_body {
+#ussnxmpoir .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1317,7 +1317,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-bottom-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_footnotes {
+#ussnxmpoir .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1331,7 +1331,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-right-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_footnote {
+#ussnxmpoir .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1340,7 +1340,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   padding-right: 5px;
 }
 
-#zoqirsjbft .gt_sourcenotes {
+#ussnxmpoir .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1354,7 +1354,7 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   border-right-color: #D3D3D3;
 }
 
-#zoqirsjbft .gt_sourcenote {
+#ussnxmpoir .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1362,72 +1362,72 @@ Table&nbsp;2: Treated-student retention under each matching approach.
   padding-right: 5px;
 }
 
-#zoqirsjbft .gt_left {
+#ussnxmpoir .gt_left {
   text-align: left;
 }
 
-#zoqirsjbft .gt_center {
+#ussnxmpoir .gt_center {
   text-align: center;
 }
 
-#zoqirsjbft .gt_right {
+#ussnxmpoir .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zoqirsjbft .gt_font_normal {
+#ussnxmpoir .gt_font_normal {
   font-weight: normal;
 }
 
-#zoqirsjbft .gt_font_bold {
+#ussnxmpoir .gt_font_bold {
   font-weight: bold;
 }
 
-#zoqirsjbft .gt_font_italic {
+#ussnxmpoir .gt_font_italic {
   font-style: italic;
 }
 
-#zoqirsjbft .gt_super {
+#ussnxmpoir .gt_super {
   font-size: 65%;
 }
 
-#zoqirsjbft .gt_footnote_marks {
+#ussnxmpoir .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zoqirsjbft .gt_asterisk {
+#ussnxmpoir .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zoqirsjbft .gt_indent_1 {
+#ussnxmpoir .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zoqirsjbft .gt_indent_2 {
+#ussnxmpoir .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zoqirsjbft .gt_indent_3 {
+#ussnxmpoir .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zoqirsjbft .gt_indent_4 {
+#ussnxmpoir .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zoqirsjbft .gt_indent_5 {
+#ussnxmpoir .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zoqirsjbft .katex-display {
+#ussnxmpoir .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zoqirsjbft div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ussnxmpoir div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1523,7 +1523,7 @@ Figure&nbsp;4: Covariate balance under within-site matching. School covariates a
 </div>
 </div>
 </div>
-<p>A pooled SMD can hide imbalances that run in opposite directions in different schools. The multilevel-specific check is balance within each school.</p>
+<p>A pooled SMD averages over schools, so imbalances in opposite directions in different schools can cancel. The multilevel-specific check is balance within each school.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-1" class="code-annotation-target"><a href="#annotated-cell-9-1" aria-label="1"></a>bal_within <span class="ot">&lt;-</span> <span class="fu">bal.tab</span>(m_within, <span class="at">data =</span> timss, <span class="at">cluster =</span> <span class="st">"school_id"</span>,</span>
 <span id="annotated-cell-9-2"><a href="#annotated-cell-9-2" aria-label="2"></a>                      <span class="at">binary =</span> <span class="st">"std"</span>, <span class="at">abs =</span> <span class="cn">FALSE</span>, <span class="at">un =</span> <span class="cn">FALSE</span>)</span>
@@ -1565,7 +1565,7 @@ Figure&nbsp;4: Covariate balance under within-site matching. School covariates a
 </dd>
 <dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-9" data-code-lines="14" data-code-annotation="2">Flatten the per-school tables into one long tibble, one row per school and covariate, and keep the student covariates.</span>
+<span data-code-cell="annotated-cell-9" data-code-lines="14" data-code-annotation="2">This flattens the per-school tables into one long tibble, one row per school and covariate, and keeps the student covariates.</span>
 </dd>
 </dl>
 </div>
@@ -1612,7 +1612,7 @@ Figure&nbsp;5: Within-school standardized mean differences for the within-site m
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-10" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-10" data-code-lines="3" data-code-annotation="1">Student covariates only. The school fixed intercepts added next absorb the school covariates.</span>
+<span data-code-cell="annotated-cell-10" data-code-lines="3" data-code-annotation="1">The outcome model uses the student covariates only. The school fixed intercepts added next absorb the school covariates.</span>
 </dd>
 <dt data-target-cell="annotated-cell-10" data-target-annotation="2">2</dt>
 <dd>
@@ -1620,11 +1620,11 @@ Figure&nbsp;5: Within-school standardized mean differences for the within-site m
 </dd>
 <dt data-target-cell="annotated-cell-10" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-10" data-code-lines="12" data-code-annotation="3">The matched rows with <code>weights</code> and a pair id (<code>subclass</code>).</span>
+<span data-code-cell="annotated-cell-10" data-code-lines="12" data-code-annotation="3"><code>match.data()</code> returns the matched rows with <code>weights</code> and a pair id (<code>subclass</code>).</span>
 </dd>
 <dt data-target-cell="annotated-cell-10" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-10" data-code-lines="17" data-code-annotation="4">G-computation: set every treated student to treated and to comparison, take the difference in predictions, average over the treated students.</span>
+<span data-code-cell="annotated-cell-10" data-code-lines="17" data-code-annotation="4"><code>avg_comparisons()</code> does the g-computation. It sets every treated student to treated and to comparison, takes the difference in predictions, and averages over the treated students.</span>
 </dd>
 <dt data-target-cell="annotated-cell-10" data-target-annotation="5">5</dt>
 <dd>
@@ -1632,7 +1632,7 @@ Figure&nbsp;5: Within-school standardized mean differences for the within-site m
 </dd>
 <dt data-target-cell="annotated-cell-10" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-cell="annotated-cell-10" data-code-lines="20" data-code-annotation="6">Standard errors clustered on the matched pair and the school.</span>
+<span data-code-cell="annotated-cell-10" data-code-lines="20" data-code-annotation="6">The standard errors are clustered on the matched pair and the school.</span>
 </dd>
 </dl>
 </div>
@@ -1663,19 +1663,19 @@ Figure&nbsp;5: Within-school standardized mean differences for the within-site m
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-11" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="3" data-code-annotation="1">One treatment effect per school.</span>
+<span data-code-cell="annotated-cell-11" data-code-lines="3" data-code-annotation="1">This adds one treatment effect per school.</span>
 </dd>
 <dt data-target-cell="annotated-cell-11" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="11" data-code-annotation="2">One effect per school for that school’s treated students.</span>
+<span data-code-cell="annotated-cell-11" data-code-lines="11" data-code-annotation="2"><code>by = "school_id"</code> returns one effect per school, for that school’s treated students.</span>
 </dd>
 <dt data-target-cell="annotated-cell-11" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="12" data-code-annotation="3">Pair-level clustering only: each school’s effect is identified inside one school, so school-level clustering breaks down here.</span>
+<span data-code-cell="annotated-cell-11" data-code-lines="12" data-code-annotation="3">Pair-level clustering only, because each school’s effect is identified inside one school and school-level clustering breaks down here.</span>
 </dd>
 <dt data-target-cell="annotated-cell-11" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-cell="annotated-cell-11" data-code-lines="15" data-code-annotation="4">The site-average effect: the unweighted mean of the school effects, every school counting once. The FIRC model, the other route to a site-average effect, is on the Chapter 5 page.</span>
+<span data-code-cell="annotated-cell-11" data-code-lines="15" data-code-annotation="4">The site-average effect is the unweighted mean of the school effects, every school counting once. The FIRC model, the other route to a site-average effect, is on the Chapter 5 page.</span>
 </dd>
 </dl>
 </div>
@@ -1719,7 +1719,7 @@ Figure&nbsp;5: Within-school standardized mean differences for the within-site m
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-12" data-code-lines="2" data-code-annotation="1">An additive outcome model, so there is one treatment coefficient for the omitted-variable-bias framework.</span>
+<span data-code-cell="annotated-cell-12" data-code-lines="2" data-code-annotation="1">This refits an additive outcome model, so there is one treatment coefficient for the omitted-variable-bias framework.</span>
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="2">2</dt>
 <dd>
@@ -1727,7 +1727,7 @@ Figure&nbsp;5: Within-school standardized mean differences for the within-site m
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-cell="annotated-cell-12" data-code-lines="22" data-code-annotation="3">The observed covariate against which the robustness value is read.</span>
+<span data-code-cell="annotated-cell-12" data-code-lines="22" data-code-annotation="3"><code>benchmark_covariates</code> names the observed covariate against which the robustness value is read.</span>
 </dd>
 </dl>
 </div>
@@ -1831,7 +1831,7 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="fu">love.plot</span>(m_partial, <span class="at">binary =</span> <span class="st">"std"</span>, <span class="at">stats =</span> <span class="st">"mean.diffs"</span>, <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">m =</span> .<span class="dv">25</span>),</span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">var.names =</span> var_labels, <span class="at">colors =</span> <span class="fu">c</span>(air_navy, air_blue))</span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># C. Global matching with replacement: watch the weights stop being 0/1.</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="co"># C. Global matching with replacement: the weights are no longer 0/1.</span></span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>m_global_rep <span class="ot">&lt;-</span> <span class="fu">matchit</span>(ps_formula, <span class="at">data =</span> timss, <span class="at">method =</span> <span class="st">"nearest"</span>,</span>
 <span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                        <span class="at">distance =</span> timss<span class="sc">$</span>pscore_fe, <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>                        <span class="at">caliper =</span> <span class="fl">0.25</span>, <span class="at">estimand =</span> <span class="st">"ATT"</span>)</span>
@@ -2317,7 +2317,7 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>::: {.callout-tip title="How to use this document"}</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>This is the path we run together in the room. It is a subset of the Chapter 5 document: one propensity score model, two matching approaches, the balance checks, two effect estimates, and one sensitivity analysis. Every chunk runs in seconds. The full set of options for each stage is on the Chapter 5 page, with the same object names, so you can move between the two.</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>This is the code we run together in the room. It is a subset of the Chapter 5 document, with one propensity score model, two matching approaches, the balance checks, two effect estimates, and one sensitivity analysis. Every chunk runs in seconds. The Chapter 5 page has the full set of options for each stage, with the same object names.</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">## Setup</span></span>
@@ -2354,7 +2354,7 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stage 1: Define estimand and understand data</span></span>
 <span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>Estimand for this example: the effect on the treated. We estimate the individual-average version first and the site-average version in Stage 5.</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>The estimand for this example is the effect on the treated. Stage 5 estimates both the individual-average and the site-average version.</span>
 <span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-site-diagnostics</span></span>
@@ -2388,7 +2388,7 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Diagnostic 1: within-site sample sizes, one row per school.</span>
 <span id="cb15-80"><a href="#cb15-80" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Diagnostic 2: the within-site treated share.</span>
-<span id="cb15-81"><a href="#cb15-81" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>The smallest treated count flags the school with the noisiest within-site estimate.</span>
+<span id="cb15-81"><a href="#cb15-81" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>The smallest treated count identifies the school likely to have the noisiest within-site estimate.</span>
 <span id="cb15-82"><a href="#cb15-82" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>Diagnostics 2 and 3: the range of treated shares across schools. Schools above 50% would raise within-site common-support concerns.</span>
 <span id="cb15-83"><a href="#cb15-83" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Diagnostic 4: the range of school sizes. A wide spread means the individual-average and site-average estimands can diverge.</span>
 <span id="cb15-84"><a href="#cb15-84" aria-hidden="true" tabindex="-1"></a></span>
@@ -2426,11 +2426,11 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-120"><a href="#cb15-120" aria-hidden="true" tabindex="-1"></a>timss <span class="ot">&lt;-</span> timss <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">pscore_fe =</span> m_fe<span class="sc">$</span>distance)             <span class="co"># &lt;5&gt;</span></span>
 <span id="cb15-121"><a href="#cb15-121" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-122"><a href="#cb15-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-123"><a href="#cb15-123" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>One formula for the propensity score model and for the balance diagnostics later: seven student covariates and seven school covariates.</span>
+<span id="cb15-123"><a href="#cb15-123" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>One formula, with seven student covariates and seven school covariates, for the propensity score model and for the balance diagnostics later.</span>
 <span id="cb15-124"><a href="#cb15-124" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span><span class="in">`+ factor(school_id)`</span> adds one indicator per school. The indicators absorb every school-level confounder, observed or not, at the cost of one parameter per school.</span>
 <span id="cb15-125"><a href="#cb15-125" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span><span class="in">`method = NULL`</span> estimates the score without matching.</span>
 <span id="cb15-126"><a href="#cb15-126" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span><span class="in">`distance = "glm"`</span> asks MatchIt to fit the logistic regression. The alternative is to fit any model yourself, predict, and pass the numeric vector to <span class="in">`distance =`</span>. The Chapter 5 page shows six other models that way: single-level, fully interacted, random intercept, random slope, per-locale, and GBM/BART.</span>
-<span id="cb15-127"><a href="#cb15-127" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>Store the score as a column so Stage 3 can pass it as a vector.</span>
+<span id="cb15-127"><a href="#cb15-127" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>The score is stored as a column so Stage 3 can pass it as a vector.</span>
 <span id="cb15-128"><a href="#cb15-128" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-131"><a href="#cb15-131" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb15-132"><a href="#cb15-132" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-ps-overlap</span></span>
@@ -2446,7 +2446,7 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-142"><a href="#cb15-142" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-143"><a href="#cb15-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stage 3: Implement matching method</span></span>
 <span id="cb15-144"><a href="#cb15-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-145"><a href="#cb15-145" aria-hidden="true" tabindex="-1"></a>Same call twice. One argument changes.</span>
+<span id="cb15-145"><a href="#cb15-145" aria-hidden="true" tabindex="-1"></a>The same call twice, with one argument changed.</span>
 <span id="cb15-146"><a href="#cb15-146" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-149"><a href="#cb15-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb15-150"><a href="#cb15-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-line-numbers: true</span></span>
@@ -2473,10 +2473,10 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-171"><a href="#cb15-171" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb15-172"><a href="#cb15-172" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-173"><a href="#cb15-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>1:1 nearest-neighbor matching without replacement.</span>
-<span id="cb15-175"><a href="#cb15-175" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>The Stage 2 score, passed as a vector.</span>
+<span id="cb15-174"><a href="#cb15-174" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span><span class="in">`method = "nearest"`</span> requests 1:1 nearest-neighbor matching, without replacement.</span>
+<span id="cb15-175"><a href="#cb15-175" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span><span class="in">`distance =`</span> takes the Stage 2 score as a vector.</span>
 <span id="cb15-176"><a href="#cb15-176" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Pairs can differ by at most 0.25 standard deviations of the score. Treated students with no comparison inside the caliper are dropped.</span>
-<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>The within-site constraint: a treated student can only be paired with a comparison student in the same school. Partially-pooled matching changes this to <span class="in">`exact = ~school_locale`</span>. Preferential within-site matching (same school first, another school as fallback) uses <span class="in">`CMatching::MatchPW()`</span> and is on the Chapter 5 page.</span>
+<span id="cb15-177"><a href="#cb15-177" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span><span class="in">`exact = ~school_id`</span> is the within-site constraint. A treated student can only be paired with a comparison student in the same school. Partially-pooled matching changes this to <span class="in">`exact = ~school_locale`</span>. Preferential within-site matching (same school first, another school as fallback) uses <span class="in">`CMatching::MatchPW()`</span> and is on the Chapter 5 page.</span>
 <span id="cb15-178"><a href="#cb15-178" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-179"><a href="#cb15-179" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stage 4: Assess quality of the matched sample</span></span>
 <span id="cb15-180"><a href="#cb15-180" aria-hidden="true" tabindex="-1"></a></span>
@@ -2543,7 +2543,7 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-249"><a href="#cb15-249" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-250"><a href="#cb15-250" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb15-251"><a href="#cb15-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-252"><a href="#cb15-252" aria-hidden="true" tabindex="-1"></a>A pooled SMD can hide imbalances that run in opposite directions in different schools. The multilevel-specific check is balance within each school.</span>
+<span id="cb15-252"><a href="#cb15-252" aria-hidden="true" tabindex="-1"></a>A pooled SMD averages over schools, so imbalances in opposite directions in different schools can cancel. The multilevel-specific check is balance within each school.</span>
 <span id="cb15-253"><a href="#cb15-253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-256"><a href="#cb15-256" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb15-257"><a href="#cb15-257" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-within-school-balance</span></span>
@@ -2587,7 +2587,7 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-295"><a href="#cb15-295" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-296"><a href="#cb15-296" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-297"><a href="#cb15-297" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span><span class="in">`cluster = "school_id"`</span> computes balance separately in each school. With a string cluster name, <span class="in">`bal.tab()`</span> needs <span class="in">`data =`</span> to find the column. The per-school tables are in <span class="in">`$Cluster.Balance`</span>.</span>
-<span id="cb15-298"><a href="#cb15-298" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Flatten the per-school tables into one long tibble, one row per school and covariate, and keep the student covariates.</span>
+<span id="cb15-298"><a href="#cb15-298" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>This flattens the per-school tables into one long tibble, one row per school and covariate, and keeps the student covariates.</span>
 <span id="cb15-299"><a href="#cb15-299" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-300"><a href="#cb15-300" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stage 5: Analyze outcomes</span></span>
 <span id="cb15-301"><a href="#cb15-301" aria-hidden="true" tabindex="-1"></a></span>
@@ -2618,12 +2618,12 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-328"><a href="#cb15-328" aria-hidden="true" tabindex="-1"></a>att_within <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(estimate, std.error, conf.low, conf.high)</span>
 <span id="cb15-329"><a href="#cb15-329" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-330"><a href="#cb15-330" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-331"><a href="#cb15-331" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>Student covariates only. The school fixed intercepts added next absorb the school covariates.</span>
+<span id="cb15-331"><a href="#cb15-331" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>The outcome model uses the student covariates only. The school fixed intercepts added next absorb the school covariates.</span>
 <span id="cb15-332"><a href="#cb15-332" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>Treatment-by-covariate interactions plus a fixed intercept per school, the outcome-model analogue of within-site matching.</span>
-<span id="cb15-333"><a href="#cb15-333" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>The matched rows with <span class="in">`weights`</span> and a pair id (<span class="in">`subclass`</span>).</span>
-<span id="cb15-334"><a href="#cb15-334" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>G-computation: set every treated student to treated and to comparison, take the difference in predictions, average over the treated students.</span>
+<span id="cb15-333"><a href="#cb15-333" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span><span class="in">`match.data()`</span> returns the matched rows with <span class="in">`weights`</span> and a pair id (<span class="in">`subclass`</span>).</span>
+<span id="cb15-334"><a href="#cb15-334" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span><span class="in">`avg_comparisons()`</span> does the g-computation. It sets every treated student to treated and to comparison, takes the difference in predictions, and averages over the treated students.</span>
 <span id="cb15-335"><a href="#cb15-335" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span>The matching weights are 0/1 here. Under replacement, full, or ratio matching they are not, and dropping <span class="in">`wts`</span> changes the estimand.</span>
-<span id="cb15-336"><a href="#cb15-336" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>Standard errors clustered on the matched pair and the school.</span>
+<span id="cb15-336"><a href="#cb15-336" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span>The standard errors are clustered on the matched pair and the school.</span>
 <span id="cb15-337"><a href="#cb15-337" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-340"><a href="#cb15-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb15-341"><a href="#cb15-341" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-line-numbers: true</span></span>
@@ -2646,10 +2646,10 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-358"><a href="#cb15-358" aria-hidden="true" tabindex="-1"></a>att_site_avg <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(estimate, std.error, conf.low, conf.high)</span>
 <span id="cb15-359"><a href="#cb15-359" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-360"><a href="#cb15-360" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-361"><a href="#cb15-361" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>One treatment effect per school.</span>
-<span id="cb15-362"><a href="#cb15-362" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>One effect per school for that school's treated students.</span>
-<span id="cb15-363"><a href="#cb15-363" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Pair-level clustering only: each school's effect is identified inside one school, so school-level clustering breaks down here.</span>
-<span id="cb15-364"><a href="#cb15-364" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>The site-average effect: the unweighted mean of the school effects, every school counting once. The FIRC model, the other route to a site-average effect, is on the Chapter 5 page.</span>
+<span id="cb15-361"><a href="#cb15-361" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>This adds one treatment effect per school.</span>
+<span id="cb15-362"><a href="#cb15-362" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span><span class="in">`by = "school_id"`</span> returns one effect per school, for that school's treated students.</span>
+<span id="cb15-363"><a href="#cb15-363" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Pair-level clustering only, because each school's effect is identified inside one school and school-level clustering breaks down here.</span>
+<span id="cb15-364"><a href="#cb15-364" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span>The site-average effect is the unweighted mean of the school effects, every school counting once. The FIRC model, the other route to a site-average effect, is on the Chapter 5 page.</span>
 <span id="cb15-365"><a href="#cb15-365" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-366"><a href="#cb15-366" aria-hidden="true" tabindex="-1"></a><span class="fu">## Stage 6: Sensitivity analysis</span></span>
 <span id="cb15-367"><a href="#cb15-367" aria-hidden="true" tabindex="-1"></a></span>
@@ -2684,9 +2684,9 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-398"><a href="#cb15-398" aria-hidden="true" tabindex="-1"></a>                                       sens_within<span class="sc">$</span>bounds<span class="sc">$</span>bound_label)</span>
 <span id="cb15-399"><a href="#cb15-399" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb15-400"><a href="#cb15-400" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-401"><a href="#cb15-401" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>An additive outcome model, so there is one treatment coefficient for the omitted-variable-bias framework.</span>
+<span id="cb15-401"><a href="#cb15-401" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span>This refits an additive outcome model, so there is one treatment coefficient for the omitted-variable-bias framework.</span>
 <span id="cb15-402"><a href="#cb15-402" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span>The school-clustered standard error and cluster-based degrees of freedom replace the model's own, which understate uncertainty under nesting.</span>
-<span id="cb15-403"><a href="#cb15-403" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>The observed covariate against which the robustness value is read.</span>
+<span id="cb15-403"><a href="#cb15-403" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span><span class="in">`benchmark_covariates`</span> names the observed covariate against which the robustness value is read.</span>
 <span id="cb15-404"><a href="#cb15-404" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-407"><a href="#cb15-407" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb15-408"><a href="#cb15-408" aria-hidden="true" tabindex="-1"></a><span class="co">#| results: asis</span></span>
@@ -2720,7 +2720,7 @@ Figure&nbsp;6: Bias-adjusted estimate across hypothetical confounder strengths.
 <span id="cb15-440"><a href="#cb15-440" aria-hidden="true" tabindex="-1"></a><span class="fu">love.plot</span>(m_partial, <span class="at">binary =</span> <span class="st">"std"</span>, <span class="at">stats =</span> <span class="st">"mean.diffs"</span>, <span class="at">thresholds =</span> <span class="fu">c</span>(<span class="at">m =</span> .<span class="dv">25</span>),</span>
 <span id="cb15-441"><a href="#cb15-441" aria-hidden="true" tabindex="-1"></a>          <span class="at">var.names =</span> var_labels, <span class="at">colors =</span> <span class="fu">c</span>(air_navy, air_blue))</span>
 <span id="cb15-442"><a href="#cb15-442" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-443"><a href="#cb15-443" aria-hidden="true" tabindex="-1"></a><span class="co"># C. Global matching with replacement: watch the weights stop being 0/1.</span></span>
+<span id="cb15-443"><a href="#cb15-443" aria-hidden="true" tabindex="-1"></a><span class="co"># C. Global matching with replacement: the weights are no longer 0/1.</span></span>
 <span id="cb15-444"><a href="#cb15-444" aria-hidden="true" tabindex="-1"></a>m_global_rep <span class="ot">&lt;-</span> <span class="fu">matchit</span>(ps_formula, <span class="at">data =</span> timss, <span class="at">method =</span> <span class="st">"nearest"</span>,</span>
 <span id="cb15-445"><a href="#cb15-445" aria-hidden="true" tabindex="-1"></a>                        <span class="at">distance =</span> timss<span class="sc">$</span>pscore_fe, <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb15-446"><a href="#cb15-446" aria-hidden="true" tabindex="-1"></a>                        <span class="at">caliper =</span> <span class="fl">0.25</span>, <span class="at">estimand =</span> <span class="st">"ATT"</span>)</span>

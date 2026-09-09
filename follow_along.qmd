@@ -3,7 +3,7 @@ title: "Follow-along: the MIAD core path"
 ---
 
 ::: {.callout-tip title="How to use this document"}
-This is the path we run together in the room. It is a subset of the Chapter 5 document: one propensity score model, two matching approaches, the balance checks, two effect estimates, and one sensitivity analysis. Every chunk runs in seconds. The full set of options for each stage is on the Chapter 5 page, with the same object names, so you can move between the two.
+This is the code we run together in the room. It is a subset of the Chapter 5 document, with one propensity score model, two matching approaches, the balance checks, two effect estimates, and one sensitivity analysis. Every chunk runs in seconds. The Chapter 5 page has the full set of options for each stage, with the same object names.
 :::
 
 ## Setup
@@ -40,7 +40,7 @@ c(students = nrow(timss), schools = n_distinct(timss$school_id),
 
 ## Stage 1: Define estimand and understand data
 
-Estimand for this example: the effect on the treated. We estimate the individual-average version first and the site-average version in Stage 5.
+The estimand for this example is the effect on the treated. Stage 5 estimates both the individual-average and the site-average version.
 
 ```{r}
 #| label: tbl-site-diagnostics
@@ -74,7 +74,7 @@ site_diagnostics |>
 
 1.  Diagnostic 1: within-site sample sizes, one row per school.
 2.  Diagnostic 2: the within-site treated share.
-3.  The smallest treated count flags the school with the noisiest within-site estimate.
+3.  The smallest treated count identifies the school likely to have the noisiest within-site estimate.
 4.  Diagnostics 2 and 3: the range of treated shares across schools. Schools above 50% would raise within-site common-support concerns.
 5.  Diagnostic 4: the range of school sizes. A wide spread means the individual-average and site-average estimands can diverge.
 
@@ -112,11 +112,11 @@ m_fe <- matchit(
 timss <- timss |> mutate(pscore_fe = m_fe$distance)             # <5>
 ```
 
-1.  One formula for the propensity score model and for the balance diagnostics later: seven student covariates and seven school covariates.
+1.  One formula, with seven student covariates and seven school covariates, for the propensity score model and for the balance diagnostics later.
 2.  `+ factor(school_id)` adds one indicator per school. The indicators absorb every school-level confounder, observed or not, at the cost of one parameter per school.
 3.  `method = NULL` estimates the score without matching.
 4.  `distance = "glm"` asks MatchIt to fit the logistic regression. The alternative is to fit any model yourself, predict, and pass the numeric vector to `distance =`. The Chapter 5 page shows six other models that way: single-level, fully interacted, random intercept, random slope, per-locale, and GBM/BART.
-5.  Store the score as a column so Stage 3 can pass it as a vector.
+5.  The score is stored as a column so Stage 3 can pass it as a vector.
 
 ```{r}
 #| label: fig-ps-overlap
@@ -132,7 +132,7 @@ bal.plot(m_fe, var.name = "distance", which = "unadjusted",
 
 ## Stage 3: Implement matching method
 
-Same call twice. One argument changes.
+The same call twice, with one argument changed.
 
 ```{r}
 #| code-line-numbers: true
@@ -159,10 +159,10 @@ m_within <- matchit(
 )
 ```
 
-1.  1:1 nearest-neighbor matching without replacement.
-2.  The Stage 2 score, passed as a vector.
+1.  `method = "nearest"` requests 1:1 nearest-neighbor matching, without replacement.
+2.  `distance =` takes the Stage 2 score as a vector.
 3.  Pairs can differ by at most 0.25 standard deviations of the score. Treated students with no comparison inside the caliper are dropped.
-4.  The within-site constraint: a treated student can only be paired with a comparison student in the same school. Partially-pooled matching changes this to `exact = ~school_locale`. Preferential within-site matching (same school first, another school as fallback) uses `CMatching::MatchPW()` and is on the Chapter 5 page.
+4.  `exact = ~school_id` is the within-site constraint. A treated student can only be paired with a comparison student in the same school. Partially-pooled matching changes this to `exact = ~school_locale`. Preferential within-site matching (same school first, another school as fallback) uses `CMatching::MatchPW()` and is on the Chapter 5 page.
 
 ## Stage 4: Assess quality of the matched sample
 
@@ -229,7 +229,7 @@ love.plot(m_within, binary = "std", stats = c("mean.diffs", "variance.ratios"),
 
 :::
 
-A pooled SMD can hide imbalances that run in opposite directions in different schools. The multilevel-specific check is balance within each school.
+A pooled SMD averages over schools, so imbalances in opposite directions in different schools can cancel. The multilevel-specific check is balance within each school.
 
 ```{r}
 #| label: fig-within-school-balance
@@ -273,7 +273,7 @@ ggplot(within_smds |> filter(abs(smd) <= 3),
 ```
 
 1.  `cluster = "school_id"` computes balance separately in each school. With a string cluster name, `bal.tab()` needs `data =` to find the column. The per-school tables are in `$Cluster.Balance`.
-2.  Flatten the per-school tables into one long tibble, one row per school and covariate, and keep the student covariates.
+2.  This flattens the per-school tables into one long tibble, one row per school and covariate, and keeps the student covariates.
 
 ## Stage 5: Analyze outcomes
 
@@ -304,12 +304,12 @@ att_within <- avg_comparisons(
 att_within |> dplyr::select(estimate, std.error, conf.low, conf.high)
 ```
 
-1.  Student covariates only. The school fixed intercepts added next absorb the school covariates.
+1.  The outcome model uses the student covariates only. The school fixed intercepts added next absorb the school covariates.
 2.  Treatment-by-covariate interactions plus a fixed intercept per school, the outcome-model analogue of within-site matching.
-3.  The matched rows with `weights` and a pair id (`subclass`).
-4.  G-computation: set every treated student to treated and to comparison, take the difference in predictions, average over the treated students.
+3.  `match.data()` returns the matched rows with `weights` and a pair id (`subclass`).
+4.  `avg_comparisons()` does the g-computation. It sets every treated student to treated and to comparison, takes the difference in predictions, and averages over the treated students.
 5.  The matching weights are 0/1 here. Under replacement, full, or ratio matching they are not, and dropping `wts` changes the estimand.
-6.  Standard errors clustered on the matched pair and the school.
+6.  The standard errors are clustered on the matched pair and the school.
 
 ```{r}
 #| code-line-numbers: true
@@ -332,10 +332,10 @@ att_site_avg <- hypotheses(cate_school, hypothesis = ~ I(mean(x)))    # <4>
 att_site_avg |> dplyr::select(estimate, std.error, conf.low, conf.high)
 ```
 
-1.  One treatment effect per school.
-2.  One effect per school for that school's treated students.
-3.  Pair-level clustering only: each school's effect is identified inside one school, so school-level clustering breaks down here.
-4.  The site-average effect: the unweighted mean of the school effects, every school counting once. The FIRC model, the other route to a site-average effect, is on the Chapter 5 page.
+1.  This adds one treatment effect per school.
+2.  `by = "school_id"` returns one effect per school, for that school's treated students.
+3.  Pair-level clustering only, because each school's effect is identified inside one school and school-level clustering breaks down here.
+4.  The site-average effect is the unweighted mean of the school effects, every school counting once. The FIRC model, the other route to a site-average effect, is on the Chapter 5 page.
 
 ## Stage 6: Sensitivity analysis
 
@@ -370,9 +370,9 @@ sens_within$bounds$bound_label <- gsub("student_math_conf", "math confidence",
                                        sens_within$bounds$bound_label)
 ```
 
-1.  An additive outcome model, so there is one treatment coefficient for the omitted-variable-bias framework.
+1.  This refits an additive outcome model, so there is one treatment coefficient for the omitted-variable-bias framework.
 2.  The school-clustered standard error and cluster-based degrees of freedom replace the model's own, which understate uncertainty under nesting.
-3.  The observed covariate against which the robustness value is read.
+3.  `benchmark_covariates` names the observed covariate against which the robustness value is read.
 
 ```{r}
 #| results: asis
@@ -406,7 +406,7 @@ m_partial <- matchit(ps_formula, data = timss, method = "nearest",
 love.plot(m_partial, binary = "std", stats = "mean.diffs", thresholds = c(m = .25),
           var.names = var_labels, colors = c(air_navy, air_blue))
 
-# C. Global matching with replacement: watch the weights stop being 0/1.
+# C. Global matching with replacement: the weights are no longer 0/1.
 m_global_rep <- matchit(ps_formula, data = timss, method = "nearest",
                         distance = timss$pscore_fe, replace = TRUE,
                         caliper = 0.25, estimand = "ATT")

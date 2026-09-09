@@ -184,9 +184,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bring" id="toc-bring" class="nav-link active" data-scroll-target="#bring">Bring</a></li>
-  <li><a href="#have-installed" id="toc-have-installed" class="nav-link" data-scroll-target="#have-installed">Have installed</a></li>
-  <li><a href="#know" id="toc-know" class="nav-link" data-scroll-target="#know">Know</a></li>
+  <li><a href="#what-to-bring" id="toc-what-to-bring" class="nav-link active" data-scroll-target="#what-to-bring">What to bring</a></li>
+  <li><a href="#what-to-have-installed" id="toc-what-to-have-installed" class="nav-link" data-scroll-target="#what-to-have-installed">What to have installed</a></li>
+  <li><a href="#what-to-know" id="toc-what-to-know" class="nav-link" data-scroll-target="#what-to-know">What to know</a></li>
   <li><a href="#if-the-install-fails" id="toc-if-the-install-fails" class="nav-link" data-scroll-target="#if-the-install-fails">If the install fails</a></li>
   </ul>
 </nav>
@@ -214,28 +214,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Do these steps before the workshop. The room’s wifi may be slow, so download and install at home. The whole setup takes about 15 minutes, most of it the package install.</p>
-<section id="bring" class="level2">
-<h2 class="anchored" data-anchor-id="bring">Bring</h2>
+<section id="what-to-bring" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-bring">What to bring</h2>
 <ul>
 <li>A laptop you can install software on.</li>
 <li>Optional: a dataset of your own with one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the follow-along page is a template for pointing the code at it. Nothing in the workshop requires it.</li>
 </ul>
 </section>
-<section id="have-installed" class="level2">
-<h2 class="anchored" data-anchor-id="have-installed">Have installed</h2>
+<section id="what-to-have-installed" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-have-installed">What to have installed</h2>
 <ol type="1">
 <li><strong>R 4.3 or later.</strong> <a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a></li>
 <li><strong>RStudio or Positron.</strong> Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.</li>
 <li><strong>This repository.</strong> Either clone it or download the zip from the green Code button at <a href="https://github.com/alberto-guzman/multilevel-matching-workshop" class="uri">https://github.com/alberto-guzman/multilevel-matching-workshop</a> and unzip it. Open the folder as a project.</li>
 <li><strong>The packages.</strong> Open <code>00_install_packages.R</code> and run it. It installs 15 packages from CRAN. Say yes if asked to install from source.</li>
-<li><strong>The check.</strong> Open <code>00_check_setup.R</code> and run it. It should end with a line like <code>MatchIt test run: matched 710 students</code>. If it reports a missing package or an error, bring the output with you and we will sort it out at the start.</li>
+<li><strong>The check.</strong> Open <code>00_check_setup.R</code> and run it. It should end with a line like <code>MatchIt test run: matched 710 students</code>. If it reports a missing package or an error, bring the output with you and we will fix it at the start.</li>
 </ol>
 </section>
-<section id="know" class="level2">
-<h2 class="anchored" data-anchor-id="know">Know</h2>
+<section id="what-to-know" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-know">What to know</h2>
 <ul>
-<li>Basic R: running a script, reading a data frame, the pipe. The code uses tidyverse verbs (<code>filter</code>, <code>mutate</code>, <code>summarise</code>) throughout.</li>
-<li>The ideas from the first hour of the workshop: potential outcomes, the propensity score, and what a standardized mean difference is. Chapters 1 to 3 of the handbook cover them if you want to read ahead.</li>
+<li>Basic R, meaning running a script, reading a data frame, and the pipe. The code uses tidyverse verbs (<code>filter</code>, <code>mutate</code>, <code>summarise</code>) throughout.</li>
+<li>The ideas from the first hour of the workshop, which are potential outcomes, the propensity score, and what a standardized mean difference is. Chapters 1 to 3 of the handbook cover them if you want to read ahead.</li>
 </ul>
 </section>
 <section id="if-the-install-fails" class="level2">
@@ -705,23 +705,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Do these steps before the workshop. The room's wifi may be slow, so download and install at home. The whole setup takes about 15 minutes, most of it the package install.</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bring</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to bring</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A laptop you can install software on.</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optional: a dataset of your own with one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the follow-along page is a template for pointing the code at it. Nothing in the workshop requires it.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Have installed</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to have installed</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**R 4.3 or later.** <span class="ot">&lt;https://cran.r-project.org&gt;</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**RStudio or Positron.** Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**This repository.** Either clone it or download the zip from the green Code button at <span class="ot">&lt;https://github.com/alberto-guzman/multilevel-matching-workshop&gt;</span> and unzip it. Open the folder as a project.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**The packages.** Open <span class="in">`00_install_packages.R`</span> and run it. It installs 15 packages from CRAN. Say yes if asked to install from source.</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**The check.** Open <span class="in">`00_check_setup.R`</span> and run it. It should end with a line like <span class="in">`MatchIt test run: matched 710 students`</span>. If it reports a missing package or an error, bring the output with you and we will sort it out at the start.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**The check.** Open <span class="in">`00_check_setup.R`</span> and run it. It should end with a line like <span class="in">`MatchIt test run: matched 710 students`</span>. If it reports a missing package or an error, bring the output with you and we will fix it at the start.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Know</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to know</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Basic R: running a script, reading a data frame, the pipe. The code uses tidyverse verbs (<span class="in">`filter`</span>, <span class="in">`mutate`</span>, <span class="in">`summarise`</span>) throughout.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The ideas from the first hour of the workshop: potential outcomes, the propensity score, and what a standardized mean difference is. Chapters 1 to 3 of the handbook cover them if you want to read ahead.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Basic R, meaning running a script, reading a data frame, and the pipe. The code uses tidyverse verbs (<span class="in">`filter`</span>, <span class="in">`mutate`</span>, <span class="in">`summarise`</span>) throughout.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The ideas from the first hour of the workshop, which are potential outcomes, the propensity score, and what a standardized mean difference is. Chapters 1 to 3 of the handbook cover them if you want to read ahead.</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## If the install fails</span></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>

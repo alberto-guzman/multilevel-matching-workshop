@@ -7,7 +7,7 @@ subtitle: "A practical guide and illustration of approaches in R"
 
 **Instructors:** Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)
 
-This site holds the hands-on materials for the workshop. The data and package setup (handbook Chapter 4) is shown from the handbook itself. Each page here is the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*, with the explanatory text removed so the code can be run top to bottom. The handbook itself is at the link in the top bar.
+This site holds the hands-on materials for the workshop. Each page is the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*, with the explanatory text removed so the code can be run top to bottom. The data and package setup in Chapter 4 is shown from the handbook, which is linked in the top bar.
 
 ## Before the workshop
 
@@ -17,24 +17,24 @@ Install R, RStudio or Positron, download this repository, run the install script
 
 | Document | Handbook chapter | What it covers |
 |---|---|---|
-| [Follow-along](follow_along.qmd) | 5 (core path) | What we run together in the room: one propensity score model, global and within-site matching, balance at both levels, two effect estimates, one sensitivity analysis. Runs in under a minute. Ends with a "Try it" block and an own-data template. |
-| [MIAD](05_miad.qmd) | 5 | Students assigned to treatment within schools: seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis |
+| [Follow-along](follow_along.qmd) | 5 (core path) | The code we run together in the room, with one propensity score model, global and within-site matching, balance at both levels, two effect estimates, and one sensitivity analysis. It runs in under a minute and ends with a "Try it" block and an own-data template. |
+| [MIAD](05_miad.qmd) | 5 | Students assigned to treatment within schools. Seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis |
 | [Decision flowcharts](flowcharts.qmd) | 3 | The guiding questions and options at each stage for the MIAD and CAD, for use with your own study |
-| [CAD](06_cad.qmd) | 6 | Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis |
-| [MCAD](07_mcad.qmd) | 7 | Teachers assigned to treatment within schools, with students nested in teachers: the design that combines the two, not walked through in the session but included for reference |
+| [CAD](06_cad.qmd) | 6 | Whole schools assigned to treatment. Cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis |
+| [MCAD](07_mcad.qmd) | 7 | Teachers assigned to treatment within schools, with students nested in teachers. This design combines the other two. It is not covered in the session and is included for reference. |
 
-Each document follows the same six stages: define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis.
+Each document follows the same six stages. Define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis.
 
 ## The data
 
-All examples use `data/timss_df.rds`: TIMSS 2015 Grade 4 mathematics, Canada, 2,478 students nested in teachers nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates in these documents are illustrations of the workflow, not findings. See `data/README.md` for the variable list and caveats.
+All examples use `data/timss_df.rds`, which is TIMSS 2015 Grade 4 mathematics for Canada, 2,478 students nested in teachers nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates in these documents are illustrations of the workflow, not findings. See `data/README.md` for the variable list and caveats.
 
 ## Using the code with your own data
 
-The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replacing those objects with your own is the intended path from the worked example to your study.
+The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replace those objects with your own to run the workflow on your study.
 
 ## Feedback and testers
 
-Tell us what worked and what did not, and say on the form if you would like to be an end-user tester for the handbook before it is finalized: <https://forms.cloud.microsoft/r/XZpKK1aEmY>
+Tell us what worked and what did not. The form also asks whether you would like to be an end-user tester for the handbook before it is finalized. <https://forms.cloud.microsoft/r/XZpKK1aEmY>
 
 ![](figures/feedback_qr.png){width=40% fig-align="left"}
