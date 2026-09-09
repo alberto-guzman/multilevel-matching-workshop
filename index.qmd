@@ -30,7 +30,7 @@ All examples use `data/timss_df.rds`, which is TIMSS 2015 Grade 4 mathematics fo
 
 ## Using the code with your own data
 
-The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replace those objects with your own to run the workflow on your study.
+The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replace those objects with your own to run the workflow on your study. Your data needs one row per individual with a 0/1 treatment column, a site or cluster identifier, the covariates, and the outcome. The "Your own data" block at the end of the Chapter 5 page lists the five objects to change.
 
 ## Feedback and testers
 

@@ -101,6 +101,14 @@ This is the code from the handbook chapter with the explanatory text removed. Ru
 :::
 """
 
+# One sentence inserted after a header, so the estimand is stated on the page
+AFTER_HEADER = {
+    "05_miad.qmd": {"## Stage 1: Define estimand and understand data {#sec-stage1}":
+        "The estimand in this example is the effect on the treated. Stage 5 estimates both the individual-average and the site-average version of it."},
+    "06_cad.qmd": {"## Stage 1: Define estimand and understand data {#sec-cad-stage1}":
+        "The estimand in this example is the effect on the treated schools. Stage 5 estimates the individual-average, the cluster-average, and a precision-weighted version of it."},
+}
+
 NOTE = {"05_miad.qmd": """::: {.callout-important title="In the workshop"}
 In Stage 2, run the single-level and the fixed-effects (intercepts only) chunks only. The random intercept, random slope, partially-pooled, and machine-learning chunks take several minutes and are not needed for the rest of the page. Do not use "Run All Chunks Above" in RStudio, because it will run them. Every other chunk on the page runs in seconds.
 :::
@@ -199,6 +207,9 @@ for src,(dst,title) in CHAPTERS.items():
             text=text.replace(k,k+v)
     for k,v in REPLACE.items(): text=text.replace(k,v)
     lines=collapse_blanks(drop_empty_headers(process_chunks(strip(text.split('\n')))))
+    for hdr,sent in AFTER_HEADER.get(dst,{}).items():
+        assert lines.count(hdr)==1, hdr
+        k=lines.index(hdr); lines[k+1:k+1]=['',sent]
     yaml=f'---\ntitle: "{title}"\n---\n\n'
     (OUT/dst).write_text(yaml+HOWTO+NOTE.get(dst,'')+'\n'+'\n'.join(lines)+'\n'+TAIL.get(dst,''))
     print(f'{src} -> {dst}: {len(lines)} lines')

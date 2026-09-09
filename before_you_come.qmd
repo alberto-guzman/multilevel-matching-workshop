@@ -2,7 +2,7 @@
 title: "Before you come"
 ---
 
-Do these steps before the workshop. The room's wifi may be slow, so download and install at home. The whole setup takes about 15 minutes, most of it the package install.
+Do these steps before the workshop. The room's wifi may be slow, so download and install at home, and download the zip even if you plan to follow on this site, because the pages are large. The whole setup takes about 15 minutes, most of it the package install.
 
 ## What to bring
 

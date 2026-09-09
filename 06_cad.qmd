@@ -63,6 +63,8 @@ knitr::include_graphics("figures/cad_design.png")
 
 ## Stage 1: Define estimand and understand data {#sec-cad-stage1}
 
+The estimand in this example is the effect on the treated schools. Stage 5 estimates the individual-average, the cluster-average, and a precision-weighted version of it.
+
 ### Examining the data context
 
 ```{r}

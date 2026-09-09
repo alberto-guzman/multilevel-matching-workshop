@@ -75,6 +75,8 @@ knitr::include_graphics("figures/miad_design.png")
 
 ## Stage 1: Define estimand and understand data {#sec-stage1}
 
+The estimand in this example is the effect on the treated. Stage 5 estimates both the individual-average and the site-average version of it.
+
 ### Examining the data context
 
 ```{r}
