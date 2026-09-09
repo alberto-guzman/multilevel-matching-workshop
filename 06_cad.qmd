@@ -723,6 +723,12 @@ multi_outcome <- matchMultioutcome(                               # <2>
   schl_id_name = "school_id",
   treat.name   = "cluster_treatment"
 )
+
+# ci1/ci2 are not ordered for a negative effect, so take the range
+c(estimate = multi_outcome$p.est,
+  ci_low = min(multi_outcome$ci1, multi_outcome$ci2),
+  ci_high = max(multi_outcome$ci1, multi_outcome$ci2),
+  p_value = multi_outcome$pval.c)
 ```
 
 1. The permutation reference distribution is randomization-based, so we seed for reproducibility.

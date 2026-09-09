@@ -33,6 +33,8 @@ PRINT_AFTER = {
         "\n\nsummary(nf_school_ret$pct)",
     "  map_dbl(\\(b) max(abs(b$Balance$Diff.Adj), na.rm = TRUE))":
         "\n\nmax_smd",
+    '  treat.name   = "cluster_treatment"\n)':
+        "\n\n# ci1/ci2 are not ordered for a negative effect, so take the range\nc(estimate = multi_outcome$p.est,\n  ci_low = min(multi_outcome$ci1, multi_outcome$ci2),\n  ci_high = max(multi_outcome$ci1, multi_outcome$ci2),\n  p_value = multi_outcome$pval.c)",
 }
 
 # Annotation text that pointed at prose the workshop version drops
