@@ -8,7 +8,8 @@ packages <- c("tidyverse", "MatchIt", "matchMulti", "CMatching", "optmatch",
 installed <- sapply(packages, requireNamespace, quietly = TRUE)
 
 cat("R version:", R.version.string, "\n")
-cat("Quarto found:", nzchar(Sys.which("quarto")), "\n")
+cat("Quarto on PATH:", nzchar(Sys.which("quarto")),
+    "(FALSE is fine; RStudio and Positron bundle Quarto, and it is only needed to render)\n")
 cat("Packages missing:", if (all(installed)) "none" else names(installed)[!installed], "\n")
 
 timss <- readRDS("data/timss_df.rds")

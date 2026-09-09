@@ -17,7 +17,7 @@ Chapter 4 (setup and data) is shown from the handbook itself. Each `.qmd` here i
 
 - A laptop you can install software on. Optional: your own dataset (one row per individual, 0/1 treatment, site id, covariates, outcome).
 - R 4.3 or later, and RStudio or Positron.
-- This repository, cloned or downloaded as a zip and opened as a project.
+- This repository, cloned or downloaded as a zip. Open `multilevel-matching-workshop.Rproj` in RStudio or the folder in Positron.
 - The packages. Run `00_install_packages.R` once. It installs 15 CRAN packages.
 - The check. Run `00_check_setup.R`. It should end with `MatchIt test run: matched ... students`. If not, bring the output to the workshop.
 - Basic R (scripts, data frames, the pipe) and the ideas from the first hour, which are potential outcomes, propensity scores, and standardized mean differences.

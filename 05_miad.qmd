@@ -3,7 +3,10 @@ title: "Multisite individual assignment design, MIAD (Chapter 5)"
 ---
 
 ::: {.callout-tip title="How to use this document"}
-This is the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top; later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
+This is the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top. Later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
+:::
+::: {.callout-important title="In the workshop"}
+In Stage 2, run the single-level and the fixed-effects (intercepts only) chunks only. The random intercept, random slope, partially-pooled, and machine-learning chunks take several minutes and are not needed for the rest of the page. Do not use "Run All Chunks Above" in RStudio, because it will run them. Every other chunk on the page runs in seconds.
 :::
 
 ```{r}

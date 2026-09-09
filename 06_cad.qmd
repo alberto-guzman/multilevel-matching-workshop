@@ -3,7 +3,7 @@ title: "Cluster assignment design, CAD (Chapter 6)"
 ---
 
 ::: {.callout-tip title="How to use this document"}
-This is the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top; later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
+This is the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top. Later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
 
 ```{r}

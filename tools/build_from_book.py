@@ -97,9 +97,15 @@ outcome_formula <- your_outcome ~ your_treatment + covariate_1 + covariate_2
 """}
 
 HOWTO = """::: {.callout-tip title="How to use this document"}
-This is the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top; later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
+This is the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top. Later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
 """
+
+NOTE = {"05_miad.qmd": """::: {.callout-important title="In the workshop"}
+In Stage 2, run the single-level and the fixed-effects (intercepts only) chunks only. The random intercept, random slope, partially-pooled, and machine-learning chunks take several minutes and are not needed for the rest of the page. Do not use "Run All Chunks Above" in RStudio, because it will run them. Every other chunk on the page runs in seconds.
+:::
+"""}
+
 
 def strip(lines):
     out=[]; i=0; n=len(lines)
@@ -194,7 +200,7 @@ for src,(dst,title) in CHAPTERS.items():
     for k,v in REPLACE.items(): text=text.replace(k,v)
     lines=collapse_blanks(drop_empty_headers(process_chunks(strip(text.split('\n')))))
     yaml=f'---\ntitle: "{title}"\n---\n\n'
-    (OUT/dst).write_text(yaml+HOWTO+'\n'+'\n'.join(lines)+'\n'+TAIL.get(dst,''))
+    (OUT/dst).write_text(yaml+HOWTO+NOTE.get(dst,'')+'\n'+'\n'.join(lines)+'\n'+TAIL.get(dst,''))
     print(f'{src} -> {dst}: {len(lines)} lines')
 
 for png in ('miad_design.png','cad_design.png','mcad_design.png'):

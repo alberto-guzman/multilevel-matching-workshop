@@ -13,9 +13,9 @@ Do these steps before the workshop. The room's wifi may be slow, so download and
 
 1. **R 4.3 or later.** <https://cran.r-project.org>
 2. **RStudio or Positron.** Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.
-3. **This repository.** Either clone it or download the zip from the green Code button at <https://github.com/alberto-guzman/multilevel-matching-workshop> and unzip it. Open the folder as a project.
-4. **The packages.** Open `00_install_packages.R` and run it. It installs 15 packages from CRAN. Say yes if asked to install from source.
-5. **The check.** Open `00_check_setup.R` and run it. It should end with a line like `MatchIt test run: matched 710 students`. If it reports a missing package or an error, bring the output with you and we will fix it at the start.
+3. **This repository.** Either clone it or download the zip from the green Code button at <https://github.com/alberto-guzman/multilevel-matching-workshop> and unzip it. In RStudio, open `multilevel-matching-workshop.Rproj`. In Positron, open the folder. Either way the working directory is then the repository, which the scripts assume.
+4. **The packages.** Open `00_install_packages.R` and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.
+5. **The check.** Open `00_check_setup.R` and run it. It should end with the line `MatchIt test run: matched 710 students`. A `FALSE` on the Quarto line is fine. If it reports a missing package or an error, bring the output with you and we will fix it at the start.
 
 ## What to know
 
