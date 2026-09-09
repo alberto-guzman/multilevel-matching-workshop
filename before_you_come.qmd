@@ -7,7 +7,7 @@ Do these steps before the workshop. The room's wifi may be slow, so download and
 ## What to bring
 
 - A laptop you can install software on.
-- Optional: a dataset of your own with one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the follow-along page is a template for pointing the code at it. Nothing in the workshop requires it.
+- Optional: a dataset of your own with one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the Chapter 5 page is a template for pointing the code at it. Nothing in the workshop requires it.
 
 ## What to have installed
 

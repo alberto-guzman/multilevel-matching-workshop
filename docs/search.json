@@ -91,116 +91,18 @@
     "text": "Stage 6: Sensitivity analysis\n\n# Additive outcome model: one treatment coefficient for the OVB framework\nfit_within_add &lt;- lm(update(outcome_formula, ~ . + factor(school_id)),\n1                     data = dat_within, weights = weights)\n\n# partial R^2 with treatment can be read alongside its partial R^2 with the outcome\ntreatment_model_within &lt;- lm(\n  update(formula(fit_within_add), multisite_treatment ~ . - multisite_treatment),\n  data = dat_within, weights = weights\n2)\nr2dxj_x_within  &lt;- partial_r2(treatment_model_within, covariates = \"student_math_conf\")\n3r2yxj_dx_within &lt;- partial_r2(fit_within_add,          covariates = \"student_math_conf\")\n\natt_add_within &lt;- avg_comparisons(fit_within_add,\n                                  variables = \"multisite_treatment\",\n                                  vcov = ~school_id)\n4dof_within &lt;- n_distinct(dat_within$school_id) - 1\n\nsens_within &lt;- sensemakr(\n  estimate  = coef(fit_within_add)[\"multisite_treatment\"],\n  se        = att_add_within$std.error,\n  dof       = dof_within,\n  treatment = \"multisite_treatment\",\n  r2dxj.x   = r2dxj_x_within,\n  r2yxj.dx  = r2yxj_dx_within,\n5  benchmark_covariates = \"student_math_conf\",\n6  kd                   = 1:3,\n7  q                    = 1\n)\n\n# Readable benchmark labels for the reporting table and contour plot\nsens_within$bounds$bound_label &lt;- gsub(\"student_math_conf\", \"math confidence\",\n                                       sens_within$bounds$bound_label)\n\n\n1\n\nThis refits the Stage 5 formula with the school fixed intercepts added back, on the same matched sample with the same weights.\n\n2\n\nsensemakr’s benchmark bounds compare an observed covariate’s explanatory power for the treatment against its power for the outcome. The treatment side needs its own regression of multisite_treatment on the same covariates used in the outcome model.\n\n3\n\npartial_r2() (from sensemakr) reads a covariate’s partial \\(R^2\\) from a fitted model. Computing it from both models gives the benchmark’s partial \\(R^2\\) with treatment and with the outcome.\n\n4\n\nAs in Stage 5, the model’s own standard error understates uncertainty under nesting, so we take the school-clustered standard error from avg_comparisons() (equivalent to Stage 5’s two-way form, since matched pairs are nested in schools) and use cluster-based degrees of freedom, the number of schools minus one.\n\n5\n\nbenchmark_covariates names the observed covariate against which the RV is interpreted. The benchmark appears as reference points on the contour plot below, so we can ask whether a confounder of equivalent strength would matter.\n\n6\n\nkd = 1:3 asks sensemakr to report bounds at 1, 2, and 3 times the benchmark strength.\n\n7\n\nq = 1 corresponds to asking how much an unobserved confounder would need to bias the estimate to reduce it by 100% (to zero). For a less extreme threshold (for example, reduce by 50%), lower q.\n\n\n\n\ncat(ovb_minimal_reporting(sens_within, format = \"html\", verbose = FALSE,\n                          outcome_label = \"math_score\"))\n\n\n\n\n\n\nOutcome: math_score\n\n\n\n\nTreatment\n\n\nEst.\n\n\nS.E.\n\n\nt-value\n\n\n\\(R^2_{Y \\sim D |{\\bf X}}\\)\n\n\n\\(RV_{q = 1}\\)\n\n\n\\(RV_{q = 1, \\alpha = 0.05}\\)\n\n\n\n\n\n\nmultisite_treatment\n\n\n-28.34\n\n\n5.076\n\n\n-5.584\n\n\n42.6%\n\n\n56.7%\n\n\n41.7%\n\n\n\n\n\nNote: df = 42; Bound ( 1x math confidence ): \\(R^2_{Y\\sim Z| {\\bf X}, D}\\) = 21.4%, \\(R^2_{D\\sim Z| {\\bf X} }\\) = 0%\n\n\n\n\nplot(sens_within, sensitivity.of = \"estimate\", label.bump.x = 0.06)\n\n\n\n\n\n\n\nFigure 11: Sensitivity contour plot for the additive within-site outcome model. Contours trace the bias-adjusted estimate across hypothetical confounder strengths; diamonds mark confounders as strong as one to three times math confidence."
   },
   {
-    "objectID": "follow_along.html",
-    "href": "follow_along.html",
-    "title": "Follow-along: the MIAD core path",
-    "section": "",
-    "text": "TipHow to use this document\n\n\n\nThis is the code we run together in the room. It is a subset of the Chapter 5 document, with one propensity score model, two matching approaches, the balance checks, two effect estimates, and one sensitivity analysis. Every chunk runs in seconds. The Chapter 5 page has the full set of options for each stage, with the same object names."
-  },
-  {
-    "objectID": "follow_along.html#setup",
-    "href": "follow_along.html#setup",
-    "title": "Follow-along: the MIAD core path",
-    "section": "Setup",
-    "text": "Setup\n\nlibrary(tidyverse)\nlibrary(MatchIt)\nlibrary(cobalt)\nlibrary(lme4)\nlibrary(marginaleffects)\nlibrary(sensemakr)\nlibrary(gt)\n\nair_navy &lt;- \"#00507F\"\nair_blue &lt;- \"#009DD7\"\nair_mid  &lt;- \"#006E9F\"\nair_dark &lt;- \"#1C252D\"\ntheme_set(theme_minimal(base_size = 12) + theme(panel.grid.minor = element_blank()))\n\ntimss &lt;- readRDS(\"data/timss_df.rds\")\n\n# Within-site matching needs both groups in a school. Keep schools with at\n# least one treated AND one comparison student.\ntimss &lt;- timss |&gt;\n  filter(any(multisite_treatment == 1) & any(multisite_treatment == 0),\n         .by = school_id)\n\nc(students = nrow(timss), schools = n_distinct(timss$school_id),\n  treated = sum(timss$multisite_treatment == 1))\n\nstudents  schools  treated \n    2405       43      355"
-  },
-  {
-    "objectID": "follow_along.html#stage-1-define-estimand-and-understand-data",
-    "href": "follow_along.html#stage-1-define-estimand-and-understand-data",
-    "title": "Follow-along: the MIAD core path",
-    "section": "Stage 1: Define estimand and understand data",
-    "text": "Stage 1: Define estimand and understand data\nThe estimand for this example is the effect on the treated. Stage 5 estimates both the individual-average and the site-average version.\n\nsite_diagnostics &lt;- timss |&gt;\n  summarise(\n1    n_treated   = sum(multisite_treatment == 1),\n    n_control   = sum(multisite_treatment == 0),\n    n_total     = n(),\n2    pct_treated = 100 * n_treated / n_total,\n    .by = school_id\n  )\n\nsite_diagnostics |&gt;\n  summarise(\n3    min_treated     = min(n_treated),\n    median_treated  = median(n_treated),\n4    min_pct_treated = min(pct_treated),\n    max_pct_treated = max(pct_treated),\n5    min_n_total     = min(n_total),\n    max_n_total     = max(n_total)\n  ) |&gt;\n  gt() |&gt;\n  cols_label(min_treated = \"Min treated\", median_treated = \"Median treated\",\n             min_pct_treated = \"Min % treated\", max_pct_treated = \"Max % treated\",\n             min_n_total = \"Min school N\", max_n_total = \"Max school N\") |&gt;\n  fmt_number(columns = contains(\"pct\"), decimals = 1)\n\n\n1\n\nDiagnostic 1: within-site sample sizes, one row per school.\n\n2\n\nDiagnostic 2: the within-site treated share.\n\n3\n\nThe smallest treated count identifies the school likely to have the noisiest within-site estimate.\n\n4\n\nDiagnostics 2 and 3: the range of treated shares across schools. Schools above 50% would raise within-site common-support concerns.\n\n5\n\nDiagnostic 4: the range of school sizes. A wide spread means the individual-average and site-average estimands can diverge.\n\n\n\n\n\n\nTable 1: The four pre-analysis diagnostics summarized across the analytic schools.\n\n\n\n\n\n\n\n\n\nMin treated\nMedian treated\nMin % treated\nMax % treated\nMin school N\nMax school N\n\n\n\n\n1\n7\n3.0\n32.1\n22\n111\n\n\n\n\n\n\n\n\n\n\n\nggplot(site_diagnostics, aes(x = n_total, y = pct_treated)) +\n  geom_point(color = air_navy, alpha = 0.7, size = 2) +\n  geom_hline(yintercept = 50, linetype = \"dashed\", color = air_mid) +\n  labs(x = \"Students per school\", y = \"% of students treated\")\n\n\n\n\n\n\n\nFigure 1: One point per school: total sample size and treated share. The dashed line marks 50%."
-  },
-  {
-    "objectID": "follow_along.html#stage-2-define-distance-measure",
-    "href": "follow_along.html#stage-2-define-distance-measure",
-    "title": "Follow-along: the MIAD core path",
-    "section": "Stage 2: Define distance measure",
-    "text": "Stage 2: Define distance measure\n\nps_formula &lt;- multisite_treatment ~\n  student_sex + student_age + student_math_conf + student_like_math +\n  attend_preschool + dad_edu + mom_edu +\n  school_locale + school_pop + school_econ_pct +\n  school_shortage + school_discipline + school_place_assist +\n1  school_achieve_used_math\n\nm_fe &lt;- matchit(\n2  update(ps_formula, ~ . + factor(school_id)),\n  data     = timss,\n3  method   = NULL,\n4  distance = \"glm\"\n)\n\n5timss &lt;- timss |&gt; mutate(pscore_fe = m_fe$distance)\n\n\n1\n\nOne formula, with seven student covariates and seven school covariates, for the propensity score model and for the balance diagnostics later.\n\n2\n\n+ factor(school_id) adds one indicator per school. The indicators absorb every school-level confounder, observed or not, at the cost of one parameter per school.\n\n3\n\nmethod = NULL estimates the score without matching.\n\n4\n\ndistance = \"glm\" asks MatchIt to fit the logistic regression. The alternative is to fit any model yourself, predict, and pass the numeric vector to distance =. The Chapter 5 page shows six other models that way: single-level, fully interacted, random intercept, random slope, per-locale, and GBM/BART.\n\n5\n\nThe score is stored as a column so Stage 3 can pass it as a vector.\n\n\n\n\n\nbal.plot(m_fe, var.name = \"distance\", which = \"unadjusted\",\n         sample.names = \"Full sample\", colors = c(air_navy, air_blue)) +\n  scale_fill_manual(values = c(air_navy, air_blue),\n                    labels = c(\"Comparison\", \"Treated\")) +\n  labs(x = \"Propensity score\", fill = \"Group\") +\n  ggtitle(\"Fixed effects (intercepts only)\")\n\n\n\n\n\n\n\nFigure 2: Propensity score overlap before matching."
-  },
-  {
-    "objectID": "follow_along.html#stage-3-implement-matching-method",
-    "href": "follow_along.html#stage-3-implement-matching-method",
-    "title": "Follow-along: the MIAD core path",
-    "section": "Stage 3: Implement matching method",
-    "text": "Stage 3: Implement matching method\nThe same call twice, with one argument changed.\n\nm_global &lt;- matchit(\n  formula  = ps_formula,\n  data     = timss,\n1  method   = \"nearest\",\n2  distance = timss$pscore_fe,\n  replace  = FALSE,\n3  caliper  = 0.25,\n  estimand = \"ATT\"\n)\n\nm_within &lt;- matchit(\n  formula  = ps_formula,\n  data     = timss,\n  method   = \"nearest\",\n  distance = timss$pscore_fe,\n4  exact    = ~school_id,\n  replace  = FALSE,\n  caliper  = 0.25,\n  estimand = \"ATT\"\n)\n\n\n1\n\nmethod = \"nearest\" requests 1:1 nearest-neighbor matching, without replacement.\n\n2\n\ndistance = takes the Stage 2 score as a vector.\n\n3\n\nPairs can differ by at most 0.25 standard deviations of the score. Treated students with no comparison inside the caliper are dropped.\n\n4\n\nexact = ~school_id is the within-site constraint. A treated student can only be paired with a comparison student in the same school. Partially-pooled matching changes this to exact = ~school_locale. Preferential within-site matching (same school first, another school as fallback) uses CMatching::MatchPW() and is on the Chapter 5 page."
-  },
-  {
-    "objectID": "follow_along.html#stage-4-assess-quality-of-the-matched-sample",
-    "href": "follow_along.html#stage-4-assess-quality-of-the-matched-sample",
-    "title": "Follow-along: the MIAD core path",
-    "section": "Stage 4: Assess quality of the matched sample",
-    "text": "Stage 4: Assess quality of the matched sample\n\nn_treated_total &lt;- sum(timss$multisite_treatment == 1)\n\nretention &lt;- list(Global = m_global, \"Within-site\" = m_within) |&gt;\n  map_dbl(\\(m) sum(m$weights[timss$multisite_treatment == 1] &gt; 0)) |&gt;\n  enframe(name = \"method\", value = \"n_treated_matched\") |&gt;\n  mutate(n_treated_total = n_treated_total,\n         pct_retained    = 100 * n_treated_matched / n_treated_total)\n\nretention |&gt;\n  gt() |&gt;\n  cols_label(method = \"Matching approach\", n_treated_matched = \"Treated matched\",\n             n_treated_total = \"Treated total\", pct_retained = \"% retained\") |&gt;\n  fmt_number(columns = pct_retained, decimals = 1)\n\n\n\nTable 2: Treated-student retention under each matching approach.\n\n\n\n\n\n\n\n\n\nMatching approach\nTreated matched\nTreated total\n% retained\n\n\n\n\nGlobal\n355\n355\n100.0\n\n\nWithin-site\n345\n355\n97.2\n\n\n\n\n\n\n\n\n\n\n\nvar_labels &lt;- c(\n  distance = \"Propensity score\", school_id = \"School\",\n  student_sex = \"Sex\", student_age = \"Age\", student_math_conf = \"Math confidence\",\n  student_like_math = \"Liking math\", attend_preschool = \"Preschool\",\n  dad_edu = \"Father's education\", mom_edu = \"Mother's education\",\n  school_locale = \"School locale\", school_pop = \"Community population\",\n  school_econ_pct = \"Economically disadvantaged %\",\n  school_shortage = \"Resource shortage scale\", school_discipline = \"Discipline/climate index\",\n  school_place_assist = \"Provides schoolwork assistance\",\n  school_achieve_used_math = \"Uses math achievement data\"\n)\n\n\nGlobalWithin-site\n\n\n\nlove.plot(m_global, binary = \"std\", stats = c(\"mean.diffs\", \"variance.ratios\"),\n          thresholds = c(m = .25, v = 2),\n          sample.names = c(\"Full sample\", \"Matched sample\"),\n          var.names = var_labels, colors = c(air_navy, air_blue),\n          title = \"Global matching\")\n\n\n\n\n\n\n\nFigure 3: Covariate balance under global matching.\n\n\n\n\n\n\n\n\nlove.plot(m_within, binary = \"std\", stats = c(\"mean.diffs\", \"variance.ratios\"),\n          thresholds = c(m = .25, v = 2),\n          sample.names = c(\"Full sample\", \"Matched sample\"),\n          var.names = var_labels, colors = c(air_navy, air_blue),\n          title = \"Within-site matching\")\n\n\n\n\n\n\n\nFigure 4: Covariate balance under within-site matching. School covariates are zero by construction of exact =; judge the student rows.\n\n\n\n\n\n\n\n\nA pooled SMD averages over schools, so imbalances in opposite directions in different schools can cancel. The multilevel-specific check is balance within each school.\n\n1bal_within &lt;- bal.tab(m_within, data = timss, cluster = \"school_id\",\n                      binary = \"std\", abs = FALSE, un = FALSE)\n\ncovariate_labels &lt;- var_labels[c(\"student_sex\", \"student_age\", \"student_math_conf\",\n                                 \"student_like_math\", \"attend_preschool\",\n                                 \"dad_edu\", \"mom_edu\")]\n\nmatched_treated &lt;- tibble(school_id = as.character(timss$school_id),\n                          treated = timss$multisite_treatment,\n                          w = m_within$weights) |&gt;\n  filter(treated == 1, w &gt; 0) |&gt;\n  count(school_id, name = \"n_treated_matched\")\n\n2within_smds &lt;- bal_within$Cluster.Balance |&gt;\n  imap(\\(tab, school_id) {\n    tab$Balance |&gt;\n      rownames_to_column(\"covariate\") |&gt;\n      dplyr::select(covariate, smd = Diff.Adj) |&gt;\n      filter(covariate %in% names(covariate_labels)) |&gt;\n      mutate(school_id = school_id)\n  }) |&gt;\n  list_rbind() |&gt;\n  filter(is.finite(smd)) |&gt;\n  mutate(covariate = unname(covariate_labels[covariate])) |&gt;\n  left_join(matched_treated, by = \"school_id\")\n\nggplot(within_smds |&gt; filter(abs(smd) &lt;= 3),\n       aes(x = abs(smd), y = factor(covariate, levels = rev(unname(covariate_labels))))) +\n  geom_jitter(aes(size = n_treated_matched), height = 0.15, alpha = 0.4, color = air_navy) +\n  scale_size_continuous(range = c(1, 3.5), name = \"Treated students\\nmatched\") +\n  geom_vline(xintercept = 0.25, linetype = \"dashed\", color = air_mid) +\n  labs(x = \"Absolute SMD (within school)\", y = NULL)\n\n\n1\n\ncluster = \"school_id\" computes balance separately in each school. With a string cluster name, bal.tab() needs data = to find the column. The per-school tables are in $Cluster.Balance.\n\n2\n\nThis flattens the per-school tables into one long tibble, one row per school and covariate, and keeps the student covariates.\n\n\n\n\n\n\n\n\n\n\nFigure 5: Within-school standardized mean differences for the within-site matched sample. One point per school and covariate, sized by the school’s matched treated count. The axis is truncated at 3."
-  },
-  {
-    "objectID": "follow_along.html#stage-5-analyze-outcomes",
-    "href": "follow_along.html#stage-5-analyze-outcomes",
-    "title": "Follow-along: the MIAD core path",
-    "section": "Stage 5: Analyze outcomes",
-    "text": "Stage 5: Analyze outcomes\n\noutcome_formula &lt;- math_score ~ multisite_treatment +\n  student_sex + student_age + student_math_conf + student_like_math +\n1  attend_preschool + dad_edu + mom_edu\n\noutcome_formula_within &lt;- update(\n  math_score ~ multisite_treatment *\n    (student_sex + student_age + student_math_conf + student_like_math +\n       attend_preschool + dad_edu + mom_edu),\n2  ~ . + factor(school_id)\n)\n\n3dat_within &lt;- match.data(m_within)\n\nfit_within &lt;- lm(outcome_formula_within, data = dat_within, weights = weights)\n\natt_within &lt;- avg_comparisons(\n4  fit_within, variables = \"multisite_treatment\",\n  newdata = filter(dat_within, multisite_treatment == 1),\n5  wts     = \"weights\",\n6  vcov    = ~subclass + school_id\n)\natt_within |&gt; dplyr::select(estimate, std.error, conf.low, conf.high)\n\n\n1\n\nThe outcome model uses the student covariates only. The school fixed intercepts added next absorb the school covariates.\n\n2\n\nTreatment-by-covariate interactions plus a fixed intercept per school, the outcome-model analogue of within-site matching.\n\n3\n\nmatch.data() returns the matched rows with weights and a pair id (subclass).\n\n4\n\navg_comparisons() does the g-computation. It sets every treated student to treated and to comparison, takes the difference in predictions, and averages over the treated students.\n\n5\n\nThe matching weights are 0/1 here. Under replacement, full, or ratio matching they are not, and dropping wts changes the estimand.\n\n6\n\nThe standard errors are clustered on the matched pair and the school.\n\n\n\n\n\n Estimate Std. Error 2.5 % 97.5 %\n    -28.8       4.99 -38.5    -19\n\n\n\nfit_site &lt;- lm(\n  update(outcome_formula, ~ . + factor(school_id) +\n1           multisite_treatment:factor(school_id)),\n  data = dat_within, weights = weights\n)\n\ncate_school &lt;- avg_comparisons(\n  fit_site, variables = \"multisite_treatment\",\n  newdata = filter(dat_within, multisite_treatment == 1),\n  wts = \"weights\",\n2  by = \"school_id\",\n3  vcov = ~subclass\n)\n\n4att_site_avg &lt;- hypotheses(cate_school, hypothesis = ~ I(mean(x)))\natt_site_avg |&gt; dplyr::select(estimate, std.error, conf.low, conf.high)\n\n\n1\n\nThis adds one treatment effect per school.\n\n2\n\nby = \"school_id\" returns one effect per school, for that school’s treated students.\n\n3\n\nPair-level clustering only, because each school’s effect is identified inside one school and school-level clustering breaks down here.\n\n4\n\nThe site-average effect is the unweighted mean of the school effects, every school counting once. The FIRC model, the other route to a site-average effect, is on the Chapter 5 page.\n\n\n\n\n\n Estimate Std. Error 2.5 % 97.5 %\n    -30.1       4.86 -39.6  -20.6"
-  },
-  {
-    "objectID": "follow_along.html#stage-6-sensitivity-analysis",
-    "href": "follow_along.html#stage-6-sensitivity-analysis",
-    "title": "Follow-along: the MIAD core path",
-    "section": "Stage 6: Sensitivity analysis",
-    "text": "Stage 6: Sensitivity analysis\n\nfit_within_add &lt;- lm(update(outcome_formula, ~ . + factor(school_id)),\n1                     data = dat_within, weights = weights)\n\ntreatment_model_within &lt;- lm(\n  update(formula(fit_within_add), multisite_treatment ~ . - multisite_treatment),\n  data = dat_within, weights = weights\n)\nr2dxj_x_within  &lt;- partial_r2(treatment_model_within, covariates = \"student_math_conf\")\nr2yxj_dx_within &lt;- partial_r2(fit_within_add,          covariates = \"student_math_conf\")\n\natt_add_within &lt;- avg_comparisons(fit_within_add, variables = \"multisite_treatment\",\n                                  vcov = ~school_id)\n2dof_within &lt;- n_distinct(dat_within$school_id) - 1\n\nsens_within &lt;- sensemakr(\n  estimate  = coef(fit_within_add)[\"multisite_treatment\"],\n  se        = att_add_within$std.error,\n  dof       = dof_within,\n  treatment = \"multisite_treatment\",\n  r2dxj.x   = r2dxj_x_within,\n  r2yxj.dx  = r2yxj_dx_within,\n3  benchmark_covariates = \"student_math_conf\",\n  kd = 1:3, q = 1\n)\nsens_within$bounds$bound_label &lt;- gsub(\"student_math_conf\", \"math confidence\",\n                                       sens_within$bounds$bound_label)\n\n\n1\n\nThis refits an additive outcome model, so there is one treatment coefficient for the omitted-variable-bias framework.\n\n2\n\nThe school-clustered standard error and cluster-based degrees of freedom replace the model’s own, which understate uncertainty under nesting.\n\n3\n\nbenchmark_covariates names the observed covariate against which the robustness value is read.\n\n\n\n\ncat(ovb_minimal_reporting(sens_within, format = \"html\", verbose = FALSE,\n                          outcome_label = \"math_score\"))\n\n\n\n\n\n\nOutcome: math_score\n\n\n\n\nTreatment\n\n\nEst.\n\n\nS.E.\n\n\nt-value\n\n\n\\(R^2_{Y \\sim D |{\\bf X}}\\)\n\n\n\\(RV_{q = 1}\\)\n\n\n\\(RV_{q = 1, \\alpha = 0.05}\\)\n\n\n\n\n\n\nmultisite_treatment\n\n\n-28.34\n\n\n5.076\n\n\n-5.584\n\n\n42.6%\n\n\n56.7%\n\n\n41.7%\n\n\n\n\n\nNote: df = 42; Bound ( 1x math confidence ): \\(R^2_{Y\\sim Z| {\\bf X}, D}\\) = 21.4%, \\(R^2_{D\\sim Z| {\\bf X} }\\) = 0%\n\n\n\n\nplot(sens_within, sensitivity.of = \"estimate\", label.bump.x = 0.06)\n\n\n\n\n\n\n\nFigure 6: Bias-adjusted estimate across hypothetical confounder strengths."
-  },
-  {
-    "objectID": "follow_along.html#try-it",
-    "href": "follow_along.html#try-it",
-    "title": "Follow-along: the MIAD core path",
+    "objectID": "05_miad.html#try-it",
+    "href": "05_miad.html#try-it",
+    "title": "Multisite individual assignment design, MIAD (Chapter 5)",
     "section": "Try it",
-    "text": "Try it\nChange one argument in Stage 3, then rerun the retention table and the love plot. Each of these is one edit.\n\n# A. Tighter caliper: how many treated students does within-site matching lose?\nm_within_tight &lt;- matchit(ps_formula, data = timss, method = \"nearest\",\n                          distance = timss$pscore_fe, exact = ~school_id,\n                          replace = FALSE, caliper = 0.10, estimand = \"ATT\")\nsum(m_within_tight$weights[timss$multisite_treatment == 1] &gt; 0)\n\n# B. Partially-pooled: pairs from the same locale instead of the same school.\nm_partial &lt;- matchit(ps_formula, data = timss, method = \"nearest\",\n                     distance = timss$pscore_fe, exact = ~school_locale,\n                     replace = FALSE, caliper = 0.25, estimand = \"ATT\")\nlove.plot(m_partial, binary = \"std\", stats = \"mean.diffs\", thresholds = c(m = .25),\n          var.names = var_labels, colors = c(air_navy, air_blue))\n\n# C. Global matching with replacement: the weights are no longer 0/1.\nm_global_rep &lt;- matchit(ps_formula, data = timss, method = \"nearest\",\n                        distance = timss$pscore_fe, replace = TRUE,\n                        caliper = 0.25, estimand = \"ATT\")\ntable(match.data(m_global_rep)$weights)"
+    "text": "Try it\nChange one argument in Stage 3, then rerun the retention table and the love plot. Each of these is one edit.\n\n# A. Tighter caliper: how many treated students does within-site matching lose?\nm_within_tight &lt;- matchit(ps_formula, data = timss, method = \"nearest\",\n                          distance = timss$pscore_fe, exact = ~school_id,\n                          replace = FALSE, caliper = 0.10, estimand = \"ATT\")\nsum(m_within_tight$weights[timss$multisite_treatment == 1] &gt; 0)\n\n# B. Global matching on the single-level score instead of the fixed-effects score.\nm_global_single &lt;- matchit(ps_formula, data = timss, method = \"nearest\",\n                           distance = timss$pscore_single, replace = FALSE,\n                           caliper = 0.25, estimand = \"ATT\")\nlove.plot(m_global_single, binary = \"std\", stats = \"mean.diffs\", thresholds = c(m = .25),\n          var.names = var_labels, colors = c(air_navy, air_blue))\n\n# C. Global matching with replacement: the weights are no longer 0/1.\nm_global_rep &lt;- matchit(ps_formula, data = timss, method = \"nearest\",\n                        distance = timss$pscore_fe, replace = TRUE,\n                        caliper = 0.25, estimand = \"ATT\")\ntable(match.data(m_global_rep)$weights)"
   },
   {
-    "objectID": "follow_along.html#your-own-data",
-    "href": "follow_along.html#your-own-data",
-    "title": "Follow-along: the MIAD core path",
+    "objectID": "05_miad.html#your-own-data",
+    "href": "05_miad.html#your-own-data",
+    "title": "Multisite individual assignment design, MIAD (Chapter 5)",
     "section": "Your own data",
     "text": "Your own data\nFive objects set the whole workflow. Fill these in and the chunks above run on your study.\n\ntimss      &lt;- readRDS(\"path/to/your_data.rds\")   # one row per individual\n                                                 # columns: treatment (0/1), site id, covariates, outcome\n\nps_formula &lt;- your_treatment ~ covariate_1 + covariate_2 + site_covariate_1\n\n# site id column: replace school_id in exact = ~school_id, cluster = \"school_id\",\n#                 factor(school_id), and vcov = ~subclass + school_id\n\noutcome_formula &lt;- your_outcome ~ your_treatment + covariate_1 + covariate_2\n\n# estimand: individual-average (att_within) or site-average (att_site_avg)?"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "",
-    "text": "SREE 2026 workshop · Baltimore, September 2026 · 2 hours\nInstructors: Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)\nThis site holds the hands-on materials for the workshop. Each page is the R code from one chapter of the handbook Propensity Score Matching in Multilevel Educational Settings, with the explanatory text removed so the code can be run top to bottom. The data and package setup in Chapter 4 is shown from the handbook, which is linked in the top bar."
-  },
-  {
-    "objectID": "index.html#before-the-workshop",
-    "href": "index.html#before-the-workshop",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "Before the workshop",
-    "text": "Before the workshop\nInstall R, RStudio or Positron, download this repository, run the install script, then run the setup check. The full list of what to bring and have installed is on the Before you come page."
-  },
-  {
-    "objectID": "index.html#the-documents",
-    "href": "index.html#the-documents",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "The documents",
-    "text": "The documents\n\n\n\nDocument\nHandbook chapter\nWhat it covers\n\n\n\n\nFollow-along\n5 (core path)\nThe code we run together in the room, with one propensity score model, global and within-site matching, balance at both levels, two effect estimates, and one sensitivity analysis. It runs in under a minute and ends with a “Try it” block and an own-data template.\n\n\nMIAD\n5\nStudents assigned to treatment within schools. Seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis\n\n\nDecision flowcharts\n3\nThe guiding questions and options at each stage for the MIAD and CAD, for use with your own study\n\n\nCAD\n6\nWhole schools assigned to treatment. Cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis\n\n\nMCAD\n7\nTeachers assigned to treatment within schools, with students nested in teachers. This design combines the other two. It is not covered in the session and is included for reference.\n\n\n\nEach document follows the same six stages. Define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis."
-  },
-  {
-    "objectID": "index.html#the-data",
-    "href": "index.html#the-data",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "The data",
-    "text": "The data\nAll examples use data/timss_df.rds, which is TIMSS 2015 Grade 4 mathematics for Canada, 2,478 students nested in teachers nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates in these documents are illustrations of the workflow, not findings. See data/README.md for the variable list and caveats."
-  },
-  {
-    "objectID": "index.html#using-the-code-with-your-own-data",
-    "href": "index.html#using-the-code-with-your-own-data",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "Using the code with your own data",
-    "text": "Using the code with your own data\nThe chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replace those objects with your own to run the workflow on your study."
-  },
-  {
-    "objectID": "index.html#feedback-and-testers",
-    "href": "index.html#feedback-and-testers",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "Feedback and testers",
-    "text": "Feedback and testers\nTell us what worked and what did not. The form also asks whether you would like to be an end-user tester for the handbook before it is finalized. https://forms.cloud.microsoft/r/XZpKK1aEmY"
   },
   {
     "objectID": "before_you_come.html",
@@ -214,7 +116,7 @@
     "href": "before_you_come.html#what-to-bring",
     "title": "Before you come",
     "section": "What to bring",
-    "text": "What to bring\n\nA laptop you can install software on.\nOptional: a dataset of your own with one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the follow-along page is a template for pointing the code at it. Nothing in the workshop requires it."
+    "text": "What to bring\n\nA laptop you can install software on.\nOptional: a dataset of your own with one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the Chapter 5 page is a template for pointing the code at it. Nothing in the workshop requires it."
   },
   {
     "objectID": "before_you_come.html#what-to-have-installed",
@@ -236,6 +138,48 @@
     "title": "Before you come",
     "section": "If the install fails",
     "text": "If the install fails\nEvery output in every document is already on this site, so you can follow on screen without running anything. Fix the install afterwards and the documents will run at home."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Matching Methods for Multilevel Data in Education Research",
+    "section": "",
+    "text": "SREE 2026 workshop · Baltimore, September 2026 · 2 hours\nInstructors: Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)\nThis site holds the hands-on materials for the workshop. Each page is the R code from one chapter of the handbook Propensity Score Matching in Multilevel Educational Settings, with the explanatory text removed so the code can be run top to bottom. The data and package setup in Chapter 4 is shown from the handbook, which is linked in the top bar."
+  },
+  {
+    "objectID": "index.html#before-the-workshop",
+    "href": "index.html#before-the-workshop",
+    "title": "Matching Methods for Multilevel Data in Education Research",
+    "section": "Before the workshop",
+    "text": "Before the workshop\nInstall R, RStudio or Positron, download this repository, run the install script, then run the setup check. The full list of what to bring and have installed is on the Before you come page."
+  },
+  {
+    "objectID": "index.html#the-documents",
+    "href": "index.html#the-documents",
+    "title": "Matching Methods for Multilevel Data in Education Research",
+    "section": "The documents",
+    "text": "The documents\n\n\n\nDocument\nHandbook chapter\nWhat it covers\n\n\n\n\nMIAD\n5\nStudents assigned to treatment within schools. Seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis. This is the page we run together in the room. It ends with a “Try it” block and an own-data template.\n\n\nDecision flowcharts\n3\nThe guiding questions and options at each stage for the MIAD and CAD, for use with your own study\n\n\nCAD\n6\nWhole schools assigned to treatment. Cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis\n\n\nMCAD\n7\nTeachers assigned to treatment within schools, with students nested in teachers. This design combines the other two. It is not covered in the session and is included for reference.\n\n\n\nEach document follows the same six stages. Define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis."
+  },
+  {
+    "objectID": "index.html#the-data",
+    "href": "index.html#the-data",
+    "title": "Matching Methods for Multilevel Data in Education Research",
+    "section": "The data",
+    "text": "The data\nAll examples use data/timss_df.rds, which is TIMSS 2015 Grade 4 mathematics for Canada, 2,478 students nested in teachers nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates in these documents are illustrations of the workflow, not findings. See data/README.md for the variable list and caveats."
+  },
+  {
+    "objectID": "index.html#using-the-code-with-your-own-data",
+    "href": "index.html#using-the-code-with-your-own-data",
+    "title": "Matching Methods for Multilevel Data in Education Research",
+    "section": "Using the code with your own data",
+    "text": "Using the code with your own data\nThe chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replace those objects with your own to run the workflow on your study."
+  },
+  {
+    "objectID": "index.html#feedback-and-testers",
+    "href": "index.html#feedback-and-testers",
+    "title": "Matching Methods for Multilevel Data in Education Research",
+    "section": "Feedback and testers",
+    "text": "Feedback and testers\nTell us what worked and what did not. The form also asks whether you would like to be an end-user tester for the handbook before it is finalized. https://forms.cloud.microsoft/r/XZpKK1aEmY"
   },
   {
     "objectID": "flowcharts.html",

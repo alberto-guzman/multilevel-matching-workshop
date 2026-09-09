@@ -4,7 +4,6 @@ project:
   render:
     - index.qmd
     - before_you_come.qmd
-    - follow_along.qmd
     - flowcharts.qmd
     - 05_miad.qmd
     - 06_cad.qmd
@@ -18,8 +17,6 @@ website:
         text: Home
       - href: before_you_come.qmd
         text: Before you come
-      - href: follow_along.qmd
-        text: Follow-along
       - href: flowcharts.qmd
         text: Flowcharts
       - href: 05_miad.qmd

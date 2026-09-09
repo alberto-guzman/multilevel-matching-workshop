@@ -1109,3 +1109,50 @@ cat(ovb_minimal_reporting(sens_within, format = "html", verbose = FALSE,
 
 plot(sens_within, sensitivity.of = "estimate", label.bump.x = 0.06)
 ```
+
+## Try it
+
+Change one argument in Stage 3, then rerun the retention table and the love plot. Each of these is one edit.
+
+```{r}
+#| eval: false
+
+# A. Tighter caliper: how many treated students does within-site matching lose?
+m_within_tight <- matchit(ps_formula, data = timss, method = "nearest",
+                          distance = timss$pscore_fe, exact = ~school_id,
+                          replace = FALSE, caliper = 0.10, estimand = "ATT")
+sum(m_within_tight$weights[timss$multisite_treatment == 1] > 0)
+
+# B. Global matching on the single-level score instead of the fixed-effects score.
+m_global_single <- matchit(ps_formula, data = timss, method = "nearest",
+                           distance = timss$pscore_single, replace = FALSE,
+                           caliper = 0.25, estimand = "ATT")
+love.plot(m_global_single, binary = "std", stats = "mean.diffs", thresholds = c(m = .25),
+          var.names = var_labels, colors = c(air_navy, air_blue))
+
+# C. Global matching with replacement: the weights are no longer 0/1.
+m_global_rep <- matchit(ps_formula, data = timss, method = "nearest",
+                        distance = timss$pscore_fe, replace = TRUE,
+                        caliper = 0.25, estimand = "ATT")
+table(match.data(m_global_rep)$weights)
+```
+
+## Your own data
+
+Five objects set the whole workflow. Fill these in and the chunks above run on your study.
+
+```{r}
+#| eval: false
+
+timss      <- readRDS("path/to/your_data.rds")   # one row per individual
+                                                 # columns: treatment (0/1), site id, covariates, outcome
+
+ps_formula <- your_treatment ~ covariate_1 + covariate_2 + site_covariate_1
+
+# site id column: replace school_id in exact = ~school_id, cluster = "school_id",
+#                 factor(school_id), and vcov = ~subclass + school_id
+
+outcome_formula <- your_outcome ~ your_treatment + covariate_1 + covariate_2
+
+# estimand: individual-average (att_within) or site-average (att_site_avg)?
+```

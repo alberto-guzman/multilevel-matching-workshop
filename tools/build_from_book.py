@@ -46,6 +46,56 @@ REPLACE = {
     "follows the chapter convention stated above.": "follows the chapter's convention of standardizing by the treated-group SD.",
 }
 
+# Appended to Chapter 5 only: exercise block + own-data template for the workshop
+TAIL = {"05_miad.qmd": """
+## Try it
+
+Change one argument in Stage 3, then rerun the retention table and the love plot. Each of these is one edit.
+
+```{r}
+#| eval: false
+
+# A. Tighter caliper: how many treated students does within-site matching lose?
+m_within_tight <- matchit(ps_formula, data = timss, method = "nearest",
+                          distance = timss$pscore_fe, exact = ~school_id,
+                          replace = FALSE, caliper = 0.10, estimand = "ATT")
+sum(m_within_tight$weights[timss$multisite_treatment == 1] > 0)
+
+# B. Global matching on the single-level score instead of the fixed-effects score.
+m_global_single <- matchit(ps_formula, data = timss, method = "nearest",
+                           distance = timss$pscore_single, replace = FALSE,
+                           caliper = 0.25, estimand = "ATT")
+love.plot(m_global_single, binary = "std", stats = "mean.diffs", thresholds = c(m = .25),
+          var.names = var_labels, colors = c(air_navy, air_blue))
+
+# C. Global matching with replacement: the weights are no longer 0/1.
+m_global_rep <- matchit(ps_formula, data = timss, method = "nearest",
+                        distance = timss$pscore_fe, replace = TRUE,
+                        caliper = 0.25, estimand = "ATT")
+table(match.data(m_global_rep)$weights)
+```
+
+## Your own data
+
+Five objects set the whole workflow. Fill these in and the chunks above run on your study.
+
+```{r}
+#| eval: false
+
+timss      <- readRDS("path/to/your_data.rds")   # one row per individual
+                                                 # columns: treatment (0/1), site id, covariates, outcome
+
+ps_formula <- your_treatment ~ covariate_1 + covariate_2 + site_covariate_1
+
+# site id column: replace school_id in exact = ~school_id, cluster = "school_id",
+#                 factor(school_id), and vcov = ~subclass + school_id
+
+outcome_formula <- your_outcome ~ your_treatment + covariate_1 + covariate_2
+
+# estimand: individual-average (att_within) or site-average (att_site_avg)?
+```
+"""}
+
 HOWTO = """::: {.callout-tip title="How to use this document"}
 This is the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top; later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
@@ -144,7 +194,7 @@ for src,(dst,title) in CHAPTERS.items():
     for k,v in REPLACE.items(): text=text.replace(k,v)
     lines=collapse_blanks(drop_empty_headers(process_chunks(strip(text.split('\n')))))
     yaml=f'---\ntitle: "{title}"\n---\n\n'
-    (OUT/dst).write_text(yaml+HOWTO+'\n'+'\n'.join(lines)+'\n')
+    (OUT/dst).write_text(yaml+HOWTO+'\n'+'\n'.join(lines)+'\n'+TAIL.get(dst,''))
     print(f'{src} -> {dst}: {len(lines)} lines')
 
 for png in ('miad_design.png','cad_design.png','mcad_design.png'):
