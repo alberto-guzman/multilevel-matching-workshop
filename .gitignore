@@ -1,0 +1,9 @@
+.Rproj.user/
+.Rhistory
+.DS_Store
+/.quarto/
+/_freeze/
+*_files/
+Rplots.pdf
+
+**/*.quarto_ipynb

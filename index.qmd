@@ -1,0 +1,35 @@
+---
+title: "Matching Methods for Multilevel Data in Education Research"
+subtitle: "A practical guide and illustration of approaches in R"
+---
+
+**SREE 2026 workshop** · Baltimore, September 2026 · 2 hours
+
+**Instructors:** Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)
+
+This site holds the hands-on materials for the workshop. Each page is the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*, with the explanatory text removed so the code can be run top to bottom. The handbook itself is at the link in the top bar.
+
+## Before the workshop
+
+1. Install R (4.3 or later) and RStudio or Positron.
+2. Download or clone this repository: <https://github.com/alberto-guzman/multilevel-matching-workshop>.
+3. Open the folder as a project and run `00_install_packages.R` once. It installs the packages used across the three documents.
+4. Open `04_setup_data.qmd` and run the chunks to confirm the data loads and the packages attach.
+
+## The documents
+
+| Document | Handbook chapter | What it covers |
+|---|---|---|
+| [Setup and data](04_setup_data.qmd) | 4 | Packages, the TIMSS analytic dataset, variable definitions, intraclass correlations |
+| [MIAD](05_miad.qmd) | 5 | Students assigned to treatment within schools: seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis |
+| [CAD](06_cad.qmd) | 6 | Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis |
+
+Each document follows the same six stages: define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis.
+
+## The data
+
+All examples use `data/timss_df.rds`: TIMSS 2015 Grade 4 mathematics, Canada, 2,478 students nested in teachers nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates in these documents are illustrations of the workflow, not findings. See `data/README.md` for the variable list and caveats.
+
+## Using the code with your own data
+
+The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replacing those objects with your own is the intended path from the worked example to your study.

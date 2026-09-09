@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - index.qmd
+    - 04_setup_data.qmd
+    - 05_miad.qmd
+    - 06_cad.qmd
+
+website:
+  title: "Matching Methods for Multilevel Data"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: 04_setup_data.qmd
+        text: "Ch4: Setup and data"
+      - href: 05_miad.qmd
+        text: "Ch5: MIAD"
+      - href: 06_cad.qmd
+        text: "Ch6: CAD"
+    right:
+      - icon: github
+        href: https://github.com/alberto-guzman/multilevel-matching-workshop
+      - text: Handbook
+        href: https://albertoguz.quarto.pub/draft-propensity-score-matching-in-multilevel-educational-settings
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-tools: true
+    code-annotations: below
+
+execute:
+  warning: false
+  message: false
+  freeze: auto
