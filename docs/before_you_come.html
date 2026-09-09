@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Matching Methods for Multilevel Data in Education Research – Matching Methods for Multilevel Data</title>
+<title>Before you come – Matching Methods for Multilevel Data</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -130,11 +130,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./before_you_come.html"> 
+    <a class="nav-link active" href="./before_you_come.html" aria-current="page"> 
 <span class="menu-text">Before you come</span></a>
   </li>  
   <li class="nav-item">
@@ -176,10 +176,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#before-the-workshop" id="toc-before-the-workshop" class="nav-link active" data-scroll-target="#before-the-workshop">Before the workshop</a></li>
-  <li><a href="#the-documents" id="toc-the-documents" class="nav-link" data-scroll-target="#the-documents">The documents</a></li>
-  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
-  <li><a href="#using-the-code-with-your-own-data" id="toc-using-the-code-with-your-own-data" class="nav-link" data-scroll-target="#using-the-code-with-your-own-data">Using the code with your own data</a></li>
+  <li><a href="#bring" id="toc-bring" class="nav-link active" data-scroll-target="#bring">Bring</a></li>
+  <li><a href="#have-installed" id="toc-have-installed" class="nav-link" data-scroll-target="#have-installed">Have installed</a></li>
+  <li><a href="#know" id="toc-know" class="nav-link" data-scroll-target="#know">Know</a></li>
+  <li><a href="#if-the-install-fails" id="toc-if-the-install-fails" class="nav-link" data-scroll-target="#if-the-install-fails">If the install fails</a></li>
   </ul>
 </nav>
     </div>
@@ -188,8 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Matching Methods for Multilevel Data in Education Research</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
-<p class="subtitle lead">A practical guide and illustration of approaches in R</p>
+<div class="quarto-title-block"><div><h1 class="title">Before you come</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
 </div>
 
 
@@ -206,50 +205,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><strong>SREE 2026 workshop</strong> · Baltimore, September 2026 · 2 hours</p>
-<p><strong>Instructors:</strong> Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)</p>
-<p>This site holds the hands-on materials for the workshop. The data and package setup (handbook Chapter 4) is shown from the handbook itself. Each page here is the R code from one chapter of the handbook <em>Propensity Score Matching in Multilevel Educational Settings</em>, with the explanatory text removed so the code can be run top to bottom. The handbook itself is at the link in the top bar.</p>
-<section id="before-the-workshop" class="level2">
-<h2 class="anchored" data-anchor-id="before-the-workshop">Before the workshop</h2>
-<p>Install R, RStudio or Positron, download this repository, run the install script, then run the setup check. The full list of what to bring and have installed is on the <a href="./before_you_come.html">Before you come</a> page.</p>
+<p>Do these steps before the workshop. The room’s wifi may be slow, so download and install at home. The whole setup takes about 15 minutes, most of it the package install.</p>
+<section id="bring" class="level2">
+<h2 class="anchored" data-anchor-id="bring">Bring</h2>
+<ul>
+<li>A laptop you can install software on.</li>
+<li>Optional: a dataset of your own with one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the follow-along page is a template for pointing the code at it. Nothing in the workshop requires it.</li>
+</ul>
 </section>
-<section id="the-documents" class="level2">
-<h2 class="anchored" data-anchor-id="the-documents">The documents</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Document</th>
-<th>Handbook chapter</th>
-<th>What it covers</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="./follow_along.html">Follow-along</a></td>
-<td>5 (core path)</td>
-<td>What we run together in the room: one propensity score model, global and within-site matching, balance at both levels, two effect estimates, one sensitivity analysis. Runs in under a minute. Ends with a “Try it” block and an own-data template.</td>
-</tr>
-<tr class="even">
-<td><a href="./05_miad.html">MIAD</a></td>
-<td>5</td>
-<td>Students assigned to treatment within schools: seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis</td>
-</tr>
-<tr class="odd">
-<td><a href="./06_cad.html">CAD</a></td>
-<td>6</td>
-<td>Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis</td>
-</tr>
-</tbody>
-</table>
-<p>Each document follows the same six stages: define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis.</p>
+<section id="have-installed" class="level2">
+<h2 class="anchored" data-anchor-id="have-installed">Have installed</h2>
+<ol type="1">
+<li><strong>R 4.3 or later.</strong> <a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a></li>
+<li><strong>RStudio or Positron.</strong> Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.</li>
+<li><strong>This repository.</strong> Either clone it or download the zip from the green Code button at <a href="https://github.com/alberto-guzman/multilevel-matching-workshop" class="uri">https://github.com/alberto-guzman/multilevel-matching-workshop</a> and unzip it. Open the folder as a project.</li>
+<li><strong>The packages.</strong> Open <code>00_install_packages.R</code> and run it. It installs 15 packages from CRAN. Say yes if asked to install from source.</li>
+<li><strong>The check.</strong> Open <code>00_check_setup.R</code> and run it. It should end with a line like <code>MatchIt test run: matched 710 students</code>. If it reports a missing package or an error, bring the output with you and we will sort it out at the start.</li>
+</ol>
 </section>
-<section id="the-data" class="level2">
-<h2 class="anchored" data-anchor-id="the-data">The data</h2>
-<p>All examples use <code>data/timss_df.rds</code>: TIMSS 2015 Grade 4 mathematics, Canada, 2,478 students nested in teachers nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates in these documents are illustrations of the workflow, not findings. See <code>data/README.md</code> for the variable list and caveats.</p>
+<section id="know" class="level2">
+<h2 class="anchored" data-anchor-id="know">Know</h2>
+<ul>
+<li>Basic R: running a script, reading a data frame, the pipe. The code uses tidyverse verbs (<code>filter</code>, <code>mutate</code>, <code>summarise</code>) throughout.</li>
+<li>The ideas from the first hour of the workshop: potential outcomes, the propensity score, and what a standardized mean difference is. Chapters 1 to 3 of the handbook cover them if you want to read ahead.</li>
+</ul>
 </section>
-<section id="using-the-code-with-your-own-data" class="level2">
-<h2 class="anchored" data-anchor-id="using-the-code-with-your-own-data">Using the code with your own data</h2>
-<p>The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replacing those objects with your own is the intended path from the worked example to your study.</p>
+<section id="if-the-install-fails" class="level2">
+<h2 class="anchored" data-anchor-id="if-the-install-fails">If the install fails</h2>
+<p>Every output in every document is already on this site, so you can follow on screen without running anything. Fix the install afterwards and the documents will run at home.</p>
 
 
 <!-- -->
@@ -709,37 +692,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Matching Methods for Multilevel Data in Education Research"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "A practical guide and illustration of approaches in R"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>**SREE 2026 workshop** · Baltimore, September 2026 · 2 hours</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>**Instructors:** Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>This site holds the hands-on materials for the workshop. The data and package setup (handbook Chapter 4) is shown from the handbook itself. Each page here is the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*, with the explanatory text removed so the code can be run top to bottom. The handbook itself is at the link in the top bar.</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Before you come"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Do these steps before the workshop. The room's wifi may be slow, so download and install at home. The whole setup takes about 15 minutes, most of it the package install.</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## Bring</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A laptop you can install software on.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Optional: a dataset of your own with one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the follow-along page is a template for pointing the code at it. Nothing in the workshop requires it.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Before the workshop</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Have installed</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Install R, RStudio or Positron, download this repository, run the install script, then run the setup check. The full list of what to bring and have installed is on the <span class="co">[</span><span class="ot">Before you come</span><span class="co">](before_you_come.qmd)</span> page.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## The documents</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Document <span class="pp">|</span> Handbook chapter <span class="pp">|</span> What it covers <span class="pp">|</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Follow-along</span><span class="co">](follow_along.qmd)</span> <span class="pp">|</span> 5 (core path) <span class="pp">|</span> What we run together in the room: one propensity score model, global and within-site matching, balance at both levels, two effect estimates, one sensitivity analysis. Runs in under a minute. Ends with a "Try it" block and an own-data template. <span class="pp">|</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">MIAD</span><span class="co">](05_miad.qmd)</span> <span class="pp">|</span> 5 <span class="pp">|</span> Students assigned to treatment within schools: seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis <span class="pp">|</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">CAD</span><span class="co">](06_cad.qmd)</span> <span class="pp">|</span> 6 <span class="pp">|</span> Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis <span class="pp">|</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Each document follows the same six stages: define the estimand, define the distance measure, implement the matching method, assess the matched sample, analyze outcomes, and run a sensitivity analysis.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## The data</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>All examples use <span class="in">`data/timss_df.rds`</span>: TIMSS 2015 Grade 4 mathematics, Canada, 2,478 students nested in teachers nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates in these documents are illustrations of the workflow, not findings. See <span class="in">`data/README.md`</span> for the variable list and caveats.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using the code with your own data</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replacing those objects with your own is the intended path from the worked example to your study.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**R 4.3 or later.** <span class="ot">&lt;https://cran.r-project.org&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**RStudio or Positron.** Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**This repository.** Either clone it or download the zip from the green Code button at <span class="ot">&lt;https://github.com/alberto-guzman/multilevel-matching-workshop&gt;</span> and unzip it. Open the folder as a project.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**The packages.** Open <span class="in">`00_install_packages.R`</span> and run it. It installs 15 packages from CRAN. Say yes if asked to install from source.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**The check.** Open <span class="in">`00_check_setup.R`</span> and run it. It should end with a line like <span class="in">`MatchIt test run: matched 710 students`</span>. If it reports a missing package or an error, bring the output with you and we will sort it out at the start.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Know</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Basic R: running a script, reading a data frame, the pipe. The code uses tidyverse verbs (<span class="in">`filter`</span>, <span class="in">`mutate`</span>, <span class="in">`summarise`</span>) throughout.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The ideas from the first hour of the workshop: potential outcomes, the propensity score, and what a standardized mean difference is. Chapters 1 to 3 of the handbook cover them if you want to read ahead.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## If the install fails</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>Every output in every document is already on this site, so you can follow on screen without running anything. Fix the install afterwards and the documents will run at home.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

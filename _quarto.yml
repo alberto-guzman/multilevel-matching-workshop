@@ -3,6 +3,8 @@ project:
   output-dir: docs
   render:
     - index.qmd
+    - before_you_come.qmd
+    - follow_along.qmd
     - 05_miad.qmd
     - 06_cad.qmd
 
@@ -12,6 +14,10 @@ website:
     left:
       - href: index.qmd
         text: Home
+      - href: before_you_come.qmd
+        text: Before you come
+      - href: follow_along.qmd
+        text: Follow-along
       - href: 05_miad.qmd
         text: "Ch5: MIAD"
       - href: 06_cad.qmd

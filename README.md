@@ -8,17 +8,22 @@ Chapter 4 (setup and data) is shown from the handbook itself. Each `.qmd` here i
 
 | File | Handbook chapter | Design |
 |---|---|---|
+| `follow_along.qmd` | 5 (core path) | What we run together in the room; ends with exercises and an own-data template |
 | `05_miad.qmd` | 5 | Multisite individual assignment design |
 | `06_cad.qmd` | 6 | Cluster assignment design |
 
-## Setup
+## What to bring and have installed
 
-1. Install R (4.3 or later) and RStudio or Positron.
-2. Clone or download this repository.
-3. Run `00_install_packages.R` once.
-4. Open `05_miad.qmd` and run the chunks in order.
+- A laptop you can install software on. Optional: your own dataset (one row per individual, 0/1 treatment, site id, covariates, outcome).
+- R 4.3 or later, and RStudio or Positron.
+- This repository, cloned or downloaded as a zip and opened as a project.
+- The packages: run `00_install_packages.R` once (15 CRAN packages).
+- The check: run `00_check_setup.R`. It should end with `MatchIt test run: matched ... students`. If not, bring the output to the workshop.
+- Basic R (scripts, data frames, the pipe) and the ideas from the first hour: potential outcomes, propensity scores, standardized mean differences.
 
-Rendering a document (`quarto render 05_miad.qmd`) runs every chunk. Chapter 5 fits GBM, BART, and two logistic mixed models, so expect a few minutes.
+Do the install at home. Room wifi may be slow. If the install fails, every output is on the rendered site and you can follow on screen.
+
+Rendering a document (`quarto render 05_miad.qmd`) runs every chunk. Chapter 5 fits GBM, BART, and two logistic mixed models, so expect a few minutes. The follow-along document runs in under a minute.
 
 ## Data
 
@@ -26,7 +31,7 @@ Rendering a document (`quarto render 05_miad.qmd`) runs every chunk. Chapter 5 f
 
 ## Regenerating from the handbook
 
-`tools/build_from_book.py` rebuilds the two `.qmd` files from the handbook source. It keeps code chunks, headers, code annotations, and the "Main takeaways" callouts, and drops everything else.
+`tools/build_from_book.py` rebuilds `05_miad.qmd` and `06_cad.qmd` from the handbook source. It keeps code chunks, headers, code annotations, and the "Main takeaways" callouts, and drops everything else. `follow_along.qmd` is maintained by hand.
 
 ```
 python3 tools/build_from_book.py /path/to/matching_toolkit

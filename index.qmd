@@ -11,15 +11,13 @@ This site holds the hands-on materials for the workshop. The data and package se
 
 ## Before the workshop
 
-1. Install R (4.3 or later) and RStudio or Positron.
-2. Download or clone this repository: <https://github.com/alberto-guzman/multilevel-matching-workshop>.
-3. Open the folder as a project and run `00_install_packages.R` once. It installs the packages used across the three documents.
-4. Open `05_miad.qmd` and run the first chunk to confirm the data loads and the packages attach.
+Install R, RStudio or Positron, download this repository, run the install script, then run the setup check. The full list of what to bring and have installed is on the [Before you come](before_you_come.qmd) page.
 
 ## The documents
 
 | Document | Handbook chapter | What it covers |
 |---|---|---|
+| [Follow-along](follow_along.qmd) | 5 (core path) | What we run together in the room: one propensity score model, global and within-site matching, balance at both levels, two effect estimates, one sensitivity analysis. Runs in under a minute. Ends with a "Try it" block and an own-data template. |
 | [MIAD](05_miad.qmd) | 5 | Students assigned to treatment within schools: seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, FIRC, sensitivity analysis |
 | [CAD](06_cad.qmd) | 6 | Whole schools assigned to treatment: cluster-level propensity score, cluster-global, sequential, and network-flow matching, two-level balance, cluster-average and individual-average effects, permutation inference, sensitivity analysis |
 
