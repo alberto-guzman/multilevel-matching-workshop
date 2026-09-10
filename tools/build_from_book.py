@@ -50,25 +50,25 @@ REPLACE = {
 TAIL = {"05_miad.qmd": """
 ## Try it
 
-Change one argument in Stage 3, then rerun the retention table and the love plot. Each of these is one edit.
+Each exercise changes one argument in the Stage 3 matching call. Make the change, then rerun the retention table and the love plot and compare the result with what we saw in the session.
 
 ```{r}
 #| eval: false
 
-# A. Tighter caliper: how many treated students does within-site matching lose?
+# A. Tighten the caliper to 0.10. How many treated students does within-site matching lose?
 m_within_tight <- matchit(ps_formula, data = timss, method = "nearest",
                           distance = timss$pscore_fe, exact = ~school_id,
                           replace = FALSE, caliper = 0.10, estimand = "ATT")
 sum(m_within_tight$weights[timss$multisite_treatment == 1] > 0)
 
-# B. Global matching on the single-level score instead of the fixed-effects score.
+# B. Run global matching on the single-level score instead of the fixed-effects score.
 m_global_single <- matchit(ps_formula, data = timss, method = "nearest",
                            distance = timss$pscore_single, replace = FALSE,
                            caliper = 0.25, estimand = "ATT")
 love.plot(m_global_single, binary = "std", stats = "mean.diffs", thresholds = c(m = .25),
           var.names = var_labels, colors = c(air_navy, air_blue))
 
-# C. Global matching with replacement: the weights are no longer 0/1.
+# C. Run global matching with replacement. The weights are no longer 0 or 1.
 m_global_rep <- matchit(ps_formula, data = timss, method = "nearest",
                         distance = timss$pscore_fe, replace = TRUE,
                         caliper = 0.25, estimand = "ATT")
@@ -77,7 +77,7 @@ table(match.data(m_global_rep)$weights)
 
 ## Your own data
 
-Five objects set the whole workflow. Fill these in and the chunks above run on your study.
+Five objects set the whole workflow. Fill them in, and the chunks above will run on your study.
 
 ```{r}
 #| eval: false
@@ -92,12 +92,12 @@ ps_formula <- your_treatment ~ covariate_1 + covariate_2 + site_covariate_1
 
 outcome_formula <- your_outcome ~ your_treatment + covariate_1 + covariate_2
 
-# estimand: individual-average (att_within) or site-average (att_site_avg)?
+# estimand: choose the individual-average effect (att_within) or the site-average effect (att_site_avg)
 ```
 """}
 
 HOWTO = """::: {.callout-tip title="How to use this document"}
-This is the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top. Later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
+This page contains the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top, because later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
 """
 
@@ -110,7 +110,7 @@ AFTER_HEADER = {
 }
 
 NOTE = {"05_miad.qmd": """::: {.callout-important title="In the workshop"}
-In Stage 2, run the single-level and the fixed-effects (intercepts only) chunks only. The random intercept, random slope, partially-pooled, and machine-learning chunks take several minutes and are not needed for the rest of the page. Do not use "Run All Chunks Above" in RStudio, because it will run them. Every other chunk on the page runs in seconds.
+In Stage 2, run only the single-level chunk and the fixed-effects (intercepts only) chunk. The random intercept, random slope, partially pooled, and machine learning chunks each take several minutes, and the rest of the page does not need them. Do not use "Run All Chunks Above" in RStudio, because it will run them. Every other chunk on the page runs in seconds.
 :::
 """}
 
