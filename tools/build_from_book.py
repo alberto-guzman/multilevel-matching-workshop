@@ -37,6 +37,41 @@ PRINT_AFTER = {
         "\n\n# ci1/ci2 are not ordered for a negative effect, so take the range\nc(estimate = multi_outcome$p.est,\n  ci_low = min(multi_outcome$ci1, multi_outcome$ci2),\n  ci_high = max(multi_outcome$ci1, multi_outcome$ci2),\n  p_value = multi_outcome$pval.c)",
 }
 
+# Chunks that end in an assignment show nothing when run. In the handbook the value
+# reached the reader through inline prose, which this version drops, so we append a
+# short print line. Keys are matched against the chunk body and must identify one chunk.
+PRINT_TAIL = {
+    "05_miad.qmd": {
+        "m_single <- matchit(":   "summary(timss$pscore_single)",
+        "m_fe <- matchit(":       "summary(timss$pscore_fe)",
+        "m_fe_int <- matchit(":   "summary(timss$pscore_fe_int)",
+        "ps_ri_model <- glmer(":  "summary(timss$pscore_ri)",
+        "ps_ris_model <- glmer(": "summary(timss$pscore_ris)",
+        "m_partial_ps <- matchit(": "summary(timss$pscore_partial)",
+        "m_bart <- matchit(":     "summary(timss$pscore_gbm)\nsummary(timss$pscore_bart)",
+        "m_global <- matchit(":   "m_global",
+        "m_within <- matchit(":   "m_within",
+        "m_partial <- matchit(":  "m_partial",
+    },
+    "06_cad.qmd": {
+        "cluster_df <- timss |>":   "cluster_df",
+        "m_ps_cluster <- matchit(": "summary(cluster_df$pscore)",
+        "m_cluster_nn <- matchit(": "m_cluster_nn",
+        "m_cluster_opt <- matchit(": "m_cluster_opt",
+        "dat_sequential <- timss |>": "count(dat_sequential, cluster_treatment)",
+        "m_multi <- matchMulti(":   "c(schools = n_distinct(m_multi$matched$school_id),\n  students = nrow(m_multi$matched))",
+    },
+    "07_mcad.qmd": {
+        "overlap_schools <- site_diagnostics |>":
+            "c(schools_all = n_distinct(timss$school_id),\n  schools_with_overlap = length(overlap_schools))",
+        "m_ps_single <- matchit(":
+            "summary(teacher_df_overlap$pscore_single)\nsummary(teacher_df_overlap$pscore_ri)",
+        "m_across <- matchit(":   "m_across",
+        "m_within_it <- matchit(": "m_within_it",
+        "m_grouped <- matchit(":  "m_grouped",
+    },
+}
+
 # Annotation text that pointed at prose the workshop version drops
 REPLACE = {
     "(see the caliper callout above)": "(see the caliper note in Stage 3 of the handbook chapter)",
@@ -153,7 +188,7 @@ def strip(lines):
         i+=1
     return out
 
-def process_chunks(lines):
+def process_chunks(lines, dst):
     """Unhide chunks, drop include:false chunks, drop design-figure chunks if the png is missing."""
     out=[]; i=0
     while i<len(lines):
@@ -173,6 +208,11 @@ def process_chunks(lines):
                     i=j+1; continue
             if label not in KEEP_HIDDEN:
                 chunk=[l for l in chunk if not l.startswith('#| echo: false')]
+            for key, tail in PRINT_TAIL.get(dst, {}).items():
+                if key in '\n'.join(chunk):
+                    assert chunk[-1].strip()=='```', key
+                    chunk = chunk[:-1] + ['', tail, '```']
+                    break
             out += chunk; i=j+1; continue
         out.append(lines[i]); i+=1
     return out
@@ -218,7 +258,7 @@ for src,(dst,title) in CHAPTERS.items():
             assert text.count(k)==1, k
             text=text.replace(k,k+v)
     for k,v in REPLACE.items(): text=text.replace(k,v)
-    lines=collapse_blanks(drop_empty_headers(process_chunks(strip(text.split('\n')))))
+    lines=collapse_blanks(drop_empty_headers(process_chunks(strip(text.split('\n')), dst)))
     for hdr,sent in AFTER_HEADER.get(dst,{}).items():
         assert lines.count(hdr)==1, hdr
         k=lines.index(hdr); lines[k+1:k+1]=['',sent]

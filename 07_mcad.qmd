@@ -150,6 +150,9 @@ teacher_df_overlap <- teacher_df |>                             # <2>
 
 df_overlap <- timss |>                                          # <3>
   filter(school_id %in% overlap_schools)
+
+c(schools_all = n_distinct(timss$school_id),
+  schools_with_overlap = length(overlap_schools))
 ```
 
 1. `overlap_schools` is the set of schools with at least one treated and one comparison teacher, the only schools in which a within-site cluster pair can be formed.
@@ -211,6 +214,9 @@ ps_ri <- glmer(update(ps_formula, . ~ . + (1 | school_id)),    # <3>
 teacher_df_overlap <- teacher_df_overlap |>
   mutate(pscore_single = m_ps_single$distance,                 # <4>
          pscore_ri     = predict(ps_ri, type = "response"))
+
+summary(teacher_df_overlap$pscore_single)
+summary(teacher_df_overlap$pscore_ri)
 ```
 
 1. Single-level logistic regression, fit with `matchit(..., method = NULL, distance = "logit")` as in Chapters 5 and 6, addresses school confounding only through the observed school covariates.
@@ -295,6 +301,8 @@ m_across <- matchit(ps_formula, data = teacher_df_overlap,     # <1>
                     method = "nearest",
                     distance = teacher_df_overlap$pscore_single,  # <2>
                     replace = FALSE, estimand = "ATT")            # <3>
+
+m_across
 ```
 
 1. `matchit()` runs on the teacher frame. The formula declares which covariates appear in the later balance diagnostics, and `method = "nearest"` requests 1:1 nearest-neighbor matching. With no `exact` constraint, each treated teacher is matched to its nearest comparison teacher anywhere in the overlap sample.
@@ -313,6 +321,8 @@ m_within_it <- matchit(ps_formula, data = teacher_df_overlap,
                        distance = teacher_df_overlap$pscore_single,
                        exact = ~school_id,                     # <1>
                        replace = FALSE, estimand = "ATT")
+
+m_within_it
 ```
 
 1. `exact = ~school_id` restricts every match to the same school, which is the within-site cluster match. `method`, `distance`, `replace`, and `estimand` have the same meanings as in the global block above. We carry `m_within_it` forward to the Stage 4 balance plots, which read `matchit` objects directly.
@@ -329,6 +339,8 @@ m_grouped <- matchit(ps_formula, data = teacher_df_overlap,    # <1>
                      distance = teacher_df_overlap$pscore_single,
                      exact = ~school_locale,                   # <2>
                      replace = FALSE, estimand = "ATT")
+
+m_grouped
 ```
 
 1. The call is the within-site `matchit` from above with the exact constraint relaxed from the school identifier to a school-group variable.

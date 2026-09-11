@@ -162,6 +162,8 @@ cluster_df <- timss |>
     .by = school_id
   ) |>
   arrange(school_id)
+
+cluster_df
 ```
 
 1. `first(cluster_treatment)` retains the school's (constant) treatment status.
@@ -186,6 +188,8 @@ m_ps_cluster <- matchit(ps_cluster_formula,                       # <2>
 
 cluster_df <- cluster_df |>
   mutate(pscore = m_ps_cluster$distance)                          # <3>
+
+summary(cluster_df$pscore)
 ```
 
 1. The left-hand side is `cluster_treatment`. The right-hand side includes cluster covariates with the aggregated individual means.
@@ -250,6 +254,8 @@ m_cluster_nn <- matchit(
   replace  = FALSE,                                               # <4>
   estimand = "ATT"                                                # <5>
 )
+
+m_cluster_nn
 ```
 
 1. The formula keeps the cluster covariates in the object so they appear in later balance plots. The propensity score itself is supplied separately, as in Chapter 5.
@@ -270,6 +276,8 @@ m_cluster_opt <- matchit(
   distance = cluster_df$pscore,
   estimand = "ATT"
 )
+
+m_cluster_opt
 ```
 
 1. `method = "optimal"` minimizes the total within-pair distance across all `r length(unique(timss$school_id[timss$cluster_treatment == 1]))` treated schools at once (via the `optmatch` backend), often improving balance over the greedy nearest-neighbor solution when the treated pool is small. All other arguments are identical to the nearest-neighbor call, except that `replace` is dropped because optimal matching does not use it.
@@ -300,6 +308,8 @@ dat_sequential <- timss |>
       match.data()
   }) |>
   list_rbind()                                                    # <5>
+
+count(dat_sequential, cluster_treatment)
 ```
 
 1. Ties can be broken at random, so we set a seed to keep the results reproducible across renders.
@@ -329,6 +339,9 @@ m_multi <- matchMulti(
   school.fb      = list(c("school_locale"),                       # <6>
                         c("school_locale", "school_pop"))
 )
+
+c(schools = n_distinct(m_multi$matched$school_id),
+  students = nrow(m_multi$matched))
 ```
 
 1. As above, we set a seed because ties can be broken at random.

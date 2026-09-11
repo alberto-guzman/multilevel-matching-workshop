@@ -196,6 +196,8 @@ m_single <- matchit(
 
 timss <- timss |>
   mutate(pscore_single = m_single$distance)    # <4>
+
+summary(timss$pscore_single)
 ```
 
 1.  `ps_formula` is the propensity score formula defined earlier in this stage. The formula serves two purposes in `matchit()`. It specifies which variables enter the propensity score model and which variables appear in later balance diagnostics.
@@ -219,6 +221,8 @@ m_fe <- matchit(
 
 timss <- timss |>
   mutate(pscore_fe = m_fe$distance)                            # <3>
+
+summary(timss$pscore_fe)
 ```
 
 1.  `update(formula, ~ . + factor(school_id))` keeps the original right-hand side and appends `factor(school_id)`. R expands `factor(school_id)` to K−1 binary indicator columns in the design matrix (one school is held out as the reference level).
@@ -241,6 +245,8 @@ m_fe_int <- matchit(
 
 timss <- timss |>
   mutate(pscore_fe_int = m_fe_int$distance)
+
+summary(timss$pscore_fe_int)
 ```
 
 1.  `~ factor(school_id) * .` expands to `factor(school_id) + . + factor(school_id):.`, which is the school indicator main effects, the covariate main effects, and all school × covariate interactions. The `.` refers back to `ps_formula`'s right-hand side.
@@ -278,6 +284,8 @@ m_ri <- matchit(
   method   = NULL,
   distance = timss$pscore_ri                                 # <5>
 )
+
+summary(timss$pscore_ri)
 ```
 
 1.  `scale()` standardizes the two covariates with the widest numeric ranges (`school_pop` spans the hundreds of thousands). Generalized linear mixed model (GLMM) optimizers can fail to converge when predictors are on very different scales.
@@ -313,6 +321,8 @@ m_ris <- matchit(
   method   = NULL,
   distance = timss$pscore_ris
 )
+
+summary(timss$pscore_ris)
 ```
 
 1.  `(1 + student_math_conf | school_id)` adds both a random intercept and a random slope for `student_math_conf`.
@@ -340,6 +350,8 @@ m_partial_ps <- matchit(
   method   = NULL,
   distance = timss$pscore_partial                                 # <3>
 )
+
+summary(timss$pscore_partial)
 ```
 
 1.  `group_split(school_locale)` divides the data into one tibble per locale, keeping every column. The rows come back stacked in locale order after `list_rbind()`. The grouping can be swapped for any grouping that is sensible for the study. (`group_by()` with `group_modify()` does not work here because it removes the grouping column from each piece, and the propensity score formula needs it.)
@@ -377,6 +389,9 @@ timss <- timss |>
     pscore_gbm  = m_gbm$distance,
     pscore_bart = m_bart$distance
   )
+
+summary(timss$pscore_gbm)
+summary(timss$pscore_bart)
 ```
 
 1.  Both algorithms are stochastic. Setting a seed before fitting the model keeps the propensity scores (and downstream matches) reproducible across re-renders.
@@ -427,6 +442,8 @@ m_global <- matchit(
   caliper  = 0.25,                      # <4>
   estimand = "ATT"                      # <5>
 )
+
+m_global
 ```
 
 1.  `method = "nearest"` requests 1:1 nearest-neighbor matching: each treated student is paired with its closest comparison student on the propensity score, referred to as "greedy" matching.
@@ -452,6 +469,8 @@ m_within <- matchit(
   caliper  = 0.25,
   estimand = "ATT"
 )
+
+m_within
 ```
 
 1.  `exact = ~school_id` is the within-site constraint: a treated student can only be paired with a comparison student from the same school. The `exact` argument accepts a one-sided formula naming the variable(s) on which matches must exactly match. Multiple stratification variables can be combined as `exact = ~school_id + cohort`. `method`, `distance`, `replace`, `caliper`, and `estimand` have the same meanings as in the global block above.
@@ -473,6 +492,8 @@ m_partial <- matchit(
   caliper  = 0.25,
   estimand = "ATT"
 )
+
+m_partial
 ```
 
 1.  Same as the within-site call, with one change: the `exact` variable goes from `school_id` to `school_locale`. A treated student in an urban school can only be matched to a comparison student in another urban school. Locale-grouped pools are larger than single-school pools, so retention is typically higher than strict within-site, at the cost of less within-school comparability. `method`, `distance`, `replace`, `caliper`, and `estimand` have the same meanings as before.
