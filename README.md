@@ -1,12 +1,12 @@
 # Matching Methods for Multilevel Data in Education Research
 
-This repository holds the hands-on materials for the SREE 2026 workshop in Baltimore (September 2026), taught by Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research).
+This repository holds the hands-on materials for the SREE 2026 workshop in Baltimore, which meets on Wednesday, September 23, 2026 in Laurel AB at 9:30 a.m. It is taught by Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research).
 
 The rendered site is at https://alberto-guzman.github.io/multilevel-matching-workshop/.
 
 ## What is in the repository
 
-The three chapter files contain the R code from Chapters 5, 6, and 7 of the handbook *Propensity Score Matching in Multilevel Educational Settings* (draft, https://albertoguz.quarto.pub/draft-propensity-score-matching-in-multilevel-educational-settings/). The explanatory text has been removed so that the code can be run from top to bottom. Chapter 4, which covers the data and the package setup, is shown from the handbook during the workshop rather than from this repository.
+The three chapter files contain the R code from Chapters 5, 6, and 7 of the handbook *Propensity Score Matching in Multilevel Educational Settings*, which is still a draft. The explanatory text has been removed so that the code can be run from top to bottom. Chapter 4, which covers the data and the package setup, is shown from the handbook during the workshop rather than from this repository.
 
 | File | Handbook chapter | Contents |
 |---|---|---|
@@ -15,6 +15,7 @@ The three chapter files contain the R code from Chapters 5, 6, and 7 of the hand
 | `07_mcad.qmd` | 7 | The multisite cluster assignment design (MCAD). This file is a reference and is not covered in the workshop. |
 | `flowcharts.qmd` | 3 | The decision flowcharts for the MIAD and the CAD, for use with your own study. |
 | `before_you_come.qmd` | | The full list of what to bring and what to install. |
+| `slides/` | | The lecture slides for the first hour, as a PDF. |
 
 ## What to bring and what to install
 
@@ -32,7 +33,11 @@ If the installation fails, you can still follow along. Every output is on the re
 
 ## What we run in the room
 
-We run `05_miad.qmd` one chunk at a time. In Stage 2, run only the single-level and the fixed-effects chunks. The random intercept, random slope, partially pooled, and machine learning chunks each take several minutes, and the rest of the page does not need them. Every other chunk runs in seconds.
+We run `05_miad.qmd` one chunk at a time, and we stop for questions at the end of every stage. Stage 2 fits seven propensity score models and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunks on the projector, because those are slow enough that a room full of laptops would be waiting on them.
+
+We then run `06_cad.qmd` from top to bottom with nothing skipped. That page takes about fifteen seconds over thirty chunks, and it loads its own packages and data, so it does not depend on the Chapter 5 session.
+
+`07_mcad.qmd` and `flowcharts.qmd` are yours to read afterwards, along with the exercises and the own-data template at the end of `05_miad.qmd`.
 
 ## Feedback and testers
 

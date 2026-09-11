@@ -8,6 +8,8 @@ project:
     - 05_miad.qmd
     - 06_cad.qmd
     - 07_mcad.qmd
+  resources:
+    - slides/
 
 website:
   title: "Matching Methods for Multilevel Data"
@@ -28,8 +30,8 @@ website:
     right:
       - icon: github
         href: https://github.com/alberto-guzman/multilevel-matching-workshop
-      - text: Handbook
-        href: https://albertoguz.quarto.pub/draft-propensity-score-matching-in-multilevel-educational-settings
+      - text: Slides
+        href: slides/MMT_SREE_2026Conference_WorkshopSlides.pdf
 
 format:
   html:

@@ -5,6 +5,9 @@ title: "Cluster assignment design, CAD (Chapter 6)"
 ::: {.callout-tip title="How to use this document"}
 This page contains the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top, because later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
+::: {.callout-important title="In the workshop"}
+We run this page after the Chapter 5 page. Every chunk here runs in a few seconds, so run the page from top to bottom without skipping anything. The page loads its own packages and data and does not depend on Chapter 5, so you can run it in a fresh session.
+:::
 
 ```{r}
 #| label: setup
@@ -41,6 +44,9 @@ theme_set(
 
 set.cobalt.options(binary = "std")
 
+# ── Data ──────────────────────────────────────────────────────────────────────
+# Loads the TIMSS analytic data. cluster_treatment is constructed in Chapter 4
+# and is constant within schools (every student in a school shares one value),
 # so we do not recompute it here.
 timss <- readRDS("data/timss_df.rds")
 ```

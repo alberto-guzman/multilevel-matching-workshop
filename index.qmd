@@ -3,11 +3,15 @@ title: "Matching Methods for Multilevel Data in Education Research"
 subtitle: "A practical guide and illustration of approaches in R"
 ---
 
-**SREE 2026 workshop** · Baltimore, September 2026 · 2 hours
+**SREE 2026 workshop** · Baltimore · Wednesday, September 23, 2026 · Laurel AB, 9:30 a.m. · 2 hours
 
 **Instructors:** Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)
 
-This site holds the hands-on materials for the workshop. Each chapter page contains the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*. The explanatory text has been removed so that the code can be run from top to bottom. Chapter 4, which covers the data and the package setup, is shown from the handbook during the workshop. The handbook is linked in the top bar.
+This site holds the hands-on materials for the workshop. Each chapter page contains the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*. The explanatory text has been removed so that the code can be run from top to bottom. Chapter 4, which covers the data and the package setup, is shown from the handbook during the workshop.
+
+## Slides
+
+The lecture slides for the first hour are available as a [PDF](slides/MMT_SREE_2026Conference_WorkshopSlides.pdf). They cover the foundational concepts, the typology of multilevel designs, the six-stage matching workflow, and an overview of the practice guide.
 
 ## Before the workshop
 

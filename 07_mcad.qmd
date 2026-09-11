@@ -42,6 +42,11 @@ theme_set(
 
 set.cobalt.options(binary = "std")
 
+# ── Data ──────────────────────────────────────────────────────────────────────
+# Loads the TIMSS analytic data. multisite_cluster_treatment is constructed in
+# Chapter 4 (= 1 if the student's teacher majored in math) and is
+# teacher-constant:
+# every student in a teacher's classroom shares one value, and the value varies
 # across teachers within a school. We load it directly and do not recompute it.
 timss <- readRDS("data/timss_df.rds")
 ```
@@ -191,6 +196,7 @@ ps_formula <- multisite_cluster_treatment ~                     # <3>
 m_ps_single <- matchit(ps_formula, data = teacher_df_overlap,   # <1>
                        method = NULL, distance = "logit")
 
+# School fixed effects replace the observed school covariates
 # (fit shown to illustrate the specification; not stored as a distance)
 ps_fe <- glm(update(ps_formula, . ~ . - school_locale -        # <2>
                       school_pop - school_econ_pct -

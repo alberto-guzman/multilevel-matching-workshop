@@ -6,7 +6,7 @@ title: "Multisite individual assignment design, MIAD (Chapter 5)"
 This page contains the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top, because later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
 ::: {.callout-important title="In the workshop"}
-In Stage 2, run only the single-level chunk and the fixed-effects (intercepts only) chunk. The random intercept, random slope, partially pooled, and machine learning chunks each take several minutes, and the rest of the page does not need them. Do not use "Run All Chunks Above" in RStudio, because it will run them. Every other chunk on the page runs in seconds.
+Stage 2 fits seven propensity score models and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunks on the projector, because those are slow enough that a room full of laptops would be waiting on them. If you use RStudio, do not use "Run All Chunks Above", because it runs all seven. Every other chunk on the page runs in seconds.
 :::
 
 ```{r}
@@ -44,9 +44,12 @@ theme_set(
     )
 )
 
+# cobalt options are set per-call in love.plot()/bal.plot() chunks below.
+
 # ── Data ──────────────────────────────────────────────────────────────────────
 timss <- readRDS("data/timss_df.rds")
 
+# Keep only schools with at least one treated AND one comparison student
 # (required for within-site matching)
 n_schools_all <- n_distinct(timss$school_id)
 
@@ -54,6 +57,9 @@ timss <- timss |>
   filter(any(multisite_treatment == 1) & any(multisite_treatment == 0),
          .by = school_id)
 
+# Add a factor-typed copy of school_id for the ML propensity score chunk in Stage 2.
+# matchit's gbm/bart backends require any factor predictor in the formula to be
+# an actual column (not a factor() call), but CMatching::MatchPW (Stage 3) needs
 # the grouping variable as integer. Keeping both versions satisfies both requirements.
 timss <- timss |> mutate(school_id_f = factor(school_id))
 ```
@@ -768,6 +774,7 @@ bal_within <- bal.tab(
   un      = FALSE
 )
 
+# Flatten the per-cluster balance tables into a long tibble for plotting.
 # Student-level display names, reused from var_labels (Stage 4 balance section)
 covariate_labels <- var_labels[c("student_sex", "student_age", "student_math_conf",
                                  "student_like_math", "attend_preschool",
@@ -872,6 +879,7 @@ site_avg_tbl |>
 #| warning: false
 #| code-line-numbers: true
 
+# Additive outcome formula: treatment indicator + pretreatment covariates.
 # Reused later where a single treatment coefficient is needed.
 outcome_formula <- math_score ~ multisite_treatment +                    # <1>
   student_sex + student_age + student_math_conf + student_like_math +
@@ -1061,6 +1069,7 @@ ggplot(u1, aes(y = rank)) +
 fit_within_add <- lm(update(outcome_formula, ~ . + factor(school_id)),
                      data = dat_within, weights = weights)      # <1>
 
+# Auxiliary regression of treatment on the same covariates, so the benchmark's
 # partial R^2 with treatment can be read alongside its partial R^2 with the outcome
 treatment_model_within <- lm(
   update(formula(fit_within_add), multisite_treatment ~ . - multisite_treatment),

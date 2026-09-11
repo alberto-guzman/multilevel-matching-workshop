@@ -110,7 +110,11 @@ AFTER_HEADER = {
 }
 
 NOTE = {"05_miad.qmd": """::: {.callout-important title="In the workshop"}
-In Stage 2, run only the single-level chunk and the fixed-effects (intercepts only) chunk. The random intercept, random slope, partially pooled, and machine learning chunks each take several minutes, and the rest of the page does not need them. Do not use "Run All Chunks Above" in RStudio, because it will run them. Every other chunk on the page runs in seconds.
+Stage 2 fits seven propensity score models and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunks on the projector, because those are slow enough that a room full of laptops would be waiting on them. If you use RStudio, do not use "Run All Chunks Above", because it runs all seven. Every other chunk on the page runs in seconds.
+:::
+""",
+        "06_cad.qmd": """::: {.callout-important title="In the workshop"}
+We run this page after the Chapter 5 page. Every chunk here runs in a few seconds, so run the page from top to bottom without skipping anything. The page loads its own packages and data and does not depend on Chapter 5, so you can run it in a fresh session.
 :::
 """}
 
@@ -174,10 +178,18 @@ def process_chunks(lines):
     return out
 
 def drop_empty_headers(lines):
+    """Drop headers with no content under them. Code chunks are skipped, because an R
+    comment line looks exactly like a Markdown header to the regex below."""
     changed=True
     while changed:
-        changed=False; out=[]; i=0
+        changed=False; out=[]; i=0; in_chunk=False
         while i<len(lines):
+            if in_chunk:
+                out.append(lines[i])
+                if lines[i].strip()=='```': in_chunk=False
+                i+=1; continue
+            if lines[i].startswith('```{r'):
+                in_chunk=True; out.append(lines[i]); i+=1; continue
             m=re.match(r'^(#{1,4}) ',lines[i])
             if m:
                 lvl=len(m.group(1)); k=i+1
