@@ -6,7 +6,7 @@ title: "Multisite individual assignment design, MIAD (Chapter 5)"
 This page contains the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top, because later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
 ::: {.callout-important title="In the workshop"}
-Stage 2 fits seven propensity score models and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunks on the projector, because those are slow enough that a room full of laptops would be waiting on them. If you use RStudio, do not use "Run All Chunks Above", because it runs all seven. Every other chunk on the page runs in seconds.
+Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk (which fits both a gradient boosting and a BART score) on the projector, because those are slow enough that a room full of laptops would be waiting on them. Do not use "Run all chunks above" in RStudio or Positron, because it runs all seven. Every other chunk on the page runs in seconds.
 :::
 
 ```{r}

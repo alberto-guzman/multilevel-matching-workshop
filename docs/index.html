@@ -180,7 +180,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#how-the-session-runs" id="toc-how-the-session-runs" class="nav-link active" data-scroll-target="#how-the-session-runs">How the session runs</a></li>
+  <li><a href="#slides" id="toc-slides" class="nav-link" data-scroll-target="#slides">Slides</a></li>
   <li><a href="#before-the-workshop" id="toc-before-the-workshop" class="nav-link" data-scroll-target="#before-the-workshop">Before the workshop</a></li>
   <li><a href="#the-pages" id="toc-the-pages" class="nav-link" data-scroll-target="#the-pages">The pages</a></li>
   <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The data</a></li>
@@ -215,6 +216,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>SREE 2026 workshop</strong> · Baltimore · Wednesday, September 23, 2026 · Laurel AB, 9:30 a.m. · 2 hours</p>
 <p><strong>Instructors:</strong> Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)</p>
 <p>This site holds the hands-on materials for the workshop. Each chapter page contains the R code from one chapter of the handbook <em>Propensity Score Matching in Multilevel Educational Settings</em>. The explanatory text has been removed so that the code can be run from top to bottom. Chapter 4, which covers the data and the package setup, is shown from the handbook during the workshop.</p>
+<section id="how-the-session-runs" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-session-runs">How the session runs</h2>
+<p>Jordan opens with the lecture, which covers the foundational concepts, the typology of multilevel designs, and the six-stage matching workflow. Alberto then introduces the data and the packages using Chapter 4 of the handbook. After a ten-minute break, we work through the Chapter 5 page together and then the Chapter 6 page, stopping for questions at the end of every stage. The last few minutes are for questions.</p>
+</section>
 <section id="slides" class="level2">
 <h2 class="anchored" data-anchor-id="slides">Slides</h2>
 <p>The lecture slides for the first hour are available as a <a href="slides/MMT_SREE_2026Conference_WorkshopSlides.pdf">PDF</a>. They cover the foundational concepts, the typology of multilevel designs, the six-stage matching workflow, and an overview of the practice guide.</p>
@@ -237,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td><a href="./05_miad.html">MIAD</a></td>
 <td>5</td>
-<td>The multisite individual assignment design, in which students are assigned to treatment within schools. The page covers seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, the FIRC model, and a sensitivity analysis. This is the page we run together in the room. It ends with a “Try it” block and a template for your own data.</td>
+<td>The multisite individual assignment design, in which students are assigned to treatment within schools. The page covers eight propensity scores across seven chunks, four matching approaches, balance both pooled and within site, individual-average and site-average effects, the FIRC model, and a sensitivity analysis. We run this page together in the room. It ends with a “Try it” block and a template for your own data, both of which are yours to take home.</td>
 </tr>
 <tr class="even">
 <td><a href="./flowcharts.html">Decision flowcharts</a></td>
@@ -247,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td><a href="./06_cad.html">CAD</a></td>
 <td>6</td>
-<td>The cluster assignment design, in which whole schools are assigned to treatment. The page covers the cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis.</td>
+<td>The cluster assignment design, in which whole schools are assigned to treatment. The page covers the cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis. We run this page together as well, after Chapter 5.</td>
 </tr>
 <tr class="even">
 <td><a href="./07_mcad.html">MCAD</a></td>
@@ -743,38 +748,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>This site holds the hands-on materials for the workshop. Each chapter page contains the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*. The explanatory text has been removed so that the code can be run from top to bottom. Chapter 4, which covers the data and the package setup, is shown from the handbook during the workshop.</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Slides</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## How the session runs</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>The lecture slides for the first hour are available as a <span class="co">[</span><span class="ot">PDF</span><span class="co">](slides/MMT_SREE_2026Conference_WorkshopSlides.pdf)</span>. They cover the foundational concepts, the typology of multilevel designs, the six-stage matching workflow, and an overview of the practice guide.</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>Jordan opens with the lecture, which covers the foundational concepts, the typology of multilevel designs, and the six-stage matching workflow. Alberto then introduces the data and the packages using Chapter 4 of the handbook. After a ten-minute break, we work through the Chapter 5 page together and then the Chapter 6 page, stopping for questions at the end of every stage. The last few minutes are for questions.</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Before the workshop</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Slides</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>Install R and either RStudio or Positron, download this repository, run the install script, and then run the setup check. The <span class="co">[</span><span class="ot">Before you come</span><span class="co">](before_you_come.qmd)</span> page has the full list of what to bring and what to install.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>The lecture slides for the first hour are available as a <span class="co">[</span><span class="ot">PDF</span><span class="co">](slides/MMT_SREE_2026Conference_WorkshopSlides.pdf)</span>. They cover the foundational concepts, the typology of multilevel designs, the six-stage matching workflow, and an overview of the practice guide.</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## The pages</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Before the workshop</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Page <span class="pp">|</span> Handbook chapter <span class="pp">|</span> Contents <span class="pp">|</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">MIAD</span><span class="co">](05_miad.qmd)</span> <span class="pp">|</span> 5 <span class="pp">|</span> The multisite individual assignment design, in which students are assigned to treatment within schools. The page covers seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, the FIRC model, and a sensitivity analysis. This is the page we run together in the room. It ends with a "Try it" block and a template for your own data. <span class="pp">|</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Decision flowcharts</span><span class="co">](flowcharts.qmd)</span> <span class="pp">|</span> 3 <span class="pp">|</span> The guiding questions and the options at each stage for the MIAD and the CAD, for use with your own study. <span class="pp">|</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">CAD</span><span class="co">](06_cad.qmd)</span> <span class="pp">|</span> 6 <span class="pp">|</span> The cluster assignment design, in which whole schools are assigned to treatment. The page covers the cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis. <span class="pp">|</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">MCAD</span><span class="co">](07_mcad.qmd)</span> <span class="pp">|</span> 7 <span class="pp">|</span> The multisite cluster assignment design, in which teachers are assigned to treatment within schools and students are nested in teachers. This design combines the other two. The page is included for reference and is not covered in the session. <span class="pp">|</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>Each page follows the same six stages. First, define the estimand. Second, define the distance measure. Third, implement the matching method. Fourth, assess the matched sample. Fifth, analyze the outcomes. Sixth, run a sensitivity analysis.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## The data</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Install R and either RStudio or Positron, download this repository, run the install script, and then run the setup check. The <span class="co">[</span><span class="ot">Before you come</span><span class="co">](before_you_come.qmd)</span> page has the full list of what to bring and what to install.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## The pages</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Page <span class="pp">|</span> Handbook chapter <span class="pp">|</span> Contents <span class="pp">|</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="pp">|---|---|---|</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">MIAD</span><span class="co">](05_miad.qmd)</span> <span class="pp">|</span> 5 <span class="pp">|</span> The multisite individual assignment design, in which students are assigned to treatment within schools. The page covers eight propensity scores across seven chunks, four matching approaches, balance both pooled and within site, individual-average and site-average effects, the FIRC model, and a sensitivity analysis. We run this page together in the room. It ends with a "Try it" block and a template for your own data, both of which are yours to take home. <span class="pp">|</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">Decision flowcharts</span><span class="co">](flowcharts.qmd)</span> <span class="pp">|</span> 3 <span class="pp">|</span> The guiding questions and the options at each stage for the MIAD and the CAD, for use with your own study. <span class="pp">|</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">CAD</span><span class="co">](06_cad.qmd)</span> <span class="pp">|</span> 6 <span class="pp">|</span> The cluster assignment design, in which whole schools are assigned to treatment. The page covers the cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis. We run this page together as well, after Chapter 5. <span class="pp">|</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> <span class="co">[</span><span class="ot">MCAD</span><span class="co">](07_mcad.qmd)</span> <span class="pp">|</span> 7 <span class="pp">|</span> The multisite cluster assignment design, in which teachers are assigned to treatment within schools and students are nested in teachers. This design combines the other two. The page is included for reference and is not covered in the session. <span class="pp">|</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>All examples use <span class="in">`data/timss_df.rds`</span>, which contains the TIMSS 2015 Grade 4 mathematics data for Canada, with 2,478 students nested in teachers, who are nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates on these pages illustrate the workflow rather than report findings. See <span class="in">`data/README.md`</span> for the variable list and the caveats.</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>Each page follows the same six stages. First, define the estimand. Second, define the distance measure. Third, implement the matching method. Fourth, assess the matched sample. Fifth, analyze the outcomes. Sixth, run a sensitivity analysis.</span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using the code with your own data</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## The data</span></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replace those objects with your own to run the workflow on your study. Your data should have one row per individual, with a 0/1 treatment column, a site or cluster identifier, the covariates, and the outcome. The "Your own data" block at the end of the Chapter 5 page lists the five objects to change.</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>All examples use <span class="in">`data/timss_df.rds`</span>, which contains the TIMSS 2015 Grade 4 mathematics data for Canada, with 2,478 students nested in teachers, who are nested in schools. The three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates on these pages illustrate the workflow rather than report findings. See <span class="in">`data/README.md`</span> for the variable list and the caveats.</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feedback and testers</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using the code with your own data</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Please tell us what worked and what did not, using the form at <span class="ot">&lt;https://forms.cloud.microsoft/r/XZpKK1aEmY&gt;</span>. The form also asks whether you would like to be an end-user tester for the handbook before it is finalized.</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>The chunks are written so that the dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replace those objects with your own to run the workflow on your study. Your data should have one row per individual, with a 0/1 treatment column, a site or cluster identifier, the covariates, and the outcome. The "Your own data" block at the end of the Chapter 5 page lists the five objects to change.</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/feedback_qr.png)</span>{width=40% fig-align="left"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Feedback and testers</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>Please tell us what worked and what did not, using the form at <span class="ot">&lt;https://forms.cloud.microsoft/r/XZpKK1aEmY&gt;</span>. The form also asks whether you would like to be an end-user tester for the handbook before it is finalized.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="al">![](figures/feedback_qr.png)</span>{width=40% fig-align="left"}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

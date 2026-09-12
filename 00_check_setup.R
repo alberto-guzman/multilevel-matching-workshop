@@ -19,3 +19,4 @@ library(MatchIt)
 m <- matchit(multisite_treatment ~ student_sex + student_age + dad_edu,
              data = timss, method = "nearest")
 cat("MatchIt test run: matched", sum(m$weights > 0), "students\n")
+cat("A note reading \"Registered S3 method overwritten\" is expected and harmless.\n")

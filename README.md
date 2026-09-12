@@ -10,12 +10,17 @@ The three chapter files contain the R code from Chapters 5, 6, and 7 of the hand
 
 | File | Handbook chapter | Contents |
 |---|---|---|
-| `05_miad.qmd` | 5 | The multisite individual assignment design (MIAD). This is the file we run in the room. Exercises and a template for your own data are at the end. |
-| `06_cad.qmd` | 6 | The cluster assignment design (CAD). |
+| `05_miad.qmd` | 5 | The multisite individual assignment design (MIAD). We run this file in the room. Exercises and a template for your own data are at the end. |
+| `06_cad.qmd` | 6 | The cluster assignment design (CAD). We run this file in the room as well, after Chapter 5. |
 | `07_mcad.qmd` | 7 | The multisite cluster assignment design (MCAD). This file is a reference and is not covered in the workshop. |
 | `flowcharts.qmd` | 3 | The decision flowcharts for the MIAD and the CAD, for use with your own study. |
 | `before_you_come.qmd` | | The full list of what to bring and what to install. |
+| `index.qmd` | | The home page of the rendered site. |
+| `00_install_packages.R` | | Installs the fifteen packages the documents need. Run once. |
+| `00_check_setup.R` | | Confirms the installation worked. Run after the install script. |
+| `data/` | | The analytic dataset and a description of its variables and caveats. |
 | `slides/` | | The lecture slides for the first hour, as a PDF. |
+| `tools/` | | The script that rebuilds the chapter files from the handbook source. |
 
 ## What to bring and what to install
 
@@ -33,7 +38,7 @@ If the installation fails, you can still follow along. Every output is on the re
 
 ## What we run in the room
 
-We run `05_miad.qmd` one chunk at a time, and we stop for questions at the end of every stage. Stage 2 fits seven propensity score models and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunks on the projector, because those are slow enough that a room full of laptops would be waiting on them.
+We run `05_miad.qmd` one chunk at a time, and we stop for questions at the end of every stage. Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk on the projector, because those are slow enough that a room full of laptops would be waiting on them.
 
 We then run `06_cad.qmd` from top to bottom with nothing skipped. That page takes about fifteen seconds over thirty chunks, and it loads its own packages and data, so it does not depend on the Chapter 5 session.
 

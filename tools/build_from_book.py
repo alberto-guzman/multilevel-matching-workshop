@@ -145,7 +145,7 @@ AFTER_HEADER = {
 }
 
 NOTE = {"05_miad.qmd": """::: {.callout-important title="In the workshop"}
-Stage 2 fits seven propensity score models and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunks on the projector, because those are slow enough that a room full of laptops would be waiting on them. If you use RStudio, do not use "Run All Chunks Above", because it runs all seven. Every other chunk on the page runs in seconds.
+Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk (which fits both a gradient boosting and a BART score) on the projector, because those are slow enough that a room full of laptops would be waiting on them. Do not use "Run all chunks above" in RStudio or Positron, because it runs all seven. Every other chunk on the page runs in seconds.
 :::
 """,
         "06_cad.qmd": """::: {.callout-important title="In the workshop"}
@@ -242,6 +242,20 @@ def drop_empty_headers(lines):
         lines=out
     return lines
 
+def drop_citations(lines):
+    """Remove Pandoc citation keys from kept annotations. The workshop site has no
+    bibliography, so [@key] would render literally."""
+    out=[]; in_chunk=False
+    for L in lines:
+        if in_chunk:
+            if L.strip()=='```': in_chunk=False
+            out.append(L); continue
+        if L.startswith('```{r'):
+            in_chunk=True; out.append(L); continue
+        out.append(re.sub(r'\s*\[@[^\]]*\]', '', L))
+    return out
+
+
 def collapse_blanks(lines):
     res=[]
     for L in lines:
@@ -258,7 +272,7 @@ for src,(dst,title) in CHAPTERS.items():
             assert text.count(k)==1, k
             text=text.replace(k,k+v)
     for k,v in REPLACE.items(): text=text.replace(k,v)
-    lines=collapse_blanks(drop_empty_headers(process_chunks(strip(text.split('\n')), dst)))
+    lines=collapse_blanks(drop_citations(drop_empty_headers(process_chunks(strip(text.split('\n')), dst))))
     for hdr,sent in AFTER_HEADER.get(dst,{}).items():
         assert lines.count(hdr)==1, hdr
         k=lines.index(hdr); lines[k+1:k+1]=['',sent]

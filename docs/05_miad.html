@@ -293,7 +293,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Stage 2 fits seven propensity score models and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunks on the projector, because those are slow enough that a room full of laptops would be waiting on them. If you use RStudio, do not use “Run All Chunks Above”, because it runs all seven. Every other chunk on the page runs in seconds.</p>
+<p>Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk (which fits both a gradient boosting and a BART score) on the projector, because those are slow enough that a room full of laptops would be waiting on them. Do not use “Run all chunks above” in RStudio or Positron, because it runs all seven. Every other chunk on the page runs in seconds.</p>
 </div>
 </div>
 <div class="cell">
@@ -445,23 +445,23 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
 </figcaption>
 <div aria-describedby="tbl-site-diagnostics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="ssrvxybbqf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ssrvxybbqf table {
+<div id="kriwmvuros" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kriwmvuros table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ssrvxybbqf thead, #ssrvxybbqf tbody, #ssrvxybbqf tfoot, #ssrvxybbqf tr, #ssrvxybbqf td, #ssrvxybbqf th {
+#kriwmvuros thead, #kriwmvuros tbody, #kriwmvuros tfoot, #kriwmvuros tr, #kriwmvuros td, #kriwmvuros th {
   border-style: none;
 }
 
-#ssrvxybbqf p {
+#kriwmvuros p {
   margin: 0;
   padding: 0;
 }
 
-#ssrvxybbqf .gt_table {
+#kriwmvuros .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -487,12 +487,12 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-left-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_caption {
+#kriwmvuros .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ssrvxybbqf .gt_title {
+#kriwmvuros .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -504,7 +504,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-bottom-width: 0;
 }
 
-#ssrvxybbqf .gt_subtitle {
+#kriwmvuros .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -516,7 +516,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-top-width: 0;
 }
 
-#ssrvxybbqf .gt_heading {
+#kriwmvuros .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -528,13 +528,13 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-right-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_bottom_border {
+#kriwmvuros .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_col_headings {
+#kriwmvuros .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -549,7 +549,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-right-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_col_heading {
+#kriwmvuros .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -569,7 +569,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   overflow-x: hidden;
 }
 
-#ssrvxybbqf .gt_column_spanner_outer {
+#kriwmvuros .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -581,15 +581,15 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 4px;
 }
 
-#ssrvxybbqf .gt_column_spanner_outer:first-child {
+#kriwmvuros .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ssrvxybbqf .gt_column_spanner_outer:last-child {
+#kriwmvuros .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ssrvxybbqf .gt_column_spanner {
+#kriwmvuros .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -601,11 +601,11 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   width: 100%;
 }
 
-#ssrvxybbqf .gt_spanner_row {
+#kriwmvuros .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ssrvxybbqf .gt_group_heading {
+#kriwmvuros .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -631,7 +631,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   text-align: left;
 }
 
-#ssrvxybbqf .gt_empty_group_heading {
+#kriwmvuros .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -646,15 +646,15 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   vertical-align: middle;
 }
 
-#ssrvxybbqf .gt_from_md > :first-child {
+#kriwmvuros .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ssrvxybbqf .gt_from_md > :last-child {
+#kriwmvuros .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ssrvxybbqf .gt_row {
+#kriwmvuros .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -673,7 +673,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   overflow-x: hidden;
 }
 
-#ssrvxybbqf .gt_stub {
+#kriwmvuros .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -686,7 +686,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#ssrvxybbqf .gt_stub_row_group {
+#kriwmvuros .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -700,15 +700,15 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   vertical-align: top;
 }
 
-#ssrvxybbqf .gt_row_group_first td {
+#kriwmvuros .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ssrvxybbqf .gt_row_group_first th {
+#kriwmvuros .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ssrvxybbqf .gt_summary_row {
+#kriwmvuros .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -718,16 +718,16 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#ssrvxybbqf .gt_first_summary_row {
+#kriwmvuros .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_first_summary_row.thick {
+#kriwmvuros .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ssrvxybbqf .gt_last_summary_row {
+#kriwmvuros .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -737,7 +737,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-bottom-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_grand_summary_row {
+#kriwmvuros .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -747,7 +747,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#ssrvxybbqf .gt_first_grand_summary_row {
+#kriwmvuros .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -757,7 +757,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-top-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_last_grand_summary_row_top {
+#kriwmvuros .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -767,11 +767,11 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-bottom-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_striped {
+#kriwmvuros .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ssrvxybbqf .gt_table_body {
+#kriwmvuros .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -780,7 +780,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-bottom-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_footnotes {
+#kriwmvuros .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -794,7 +794,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-right-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_footnote {
+#kriwmvuros .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -803,7 +803,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#ssrvxybbqf .gt_sourcenotes {
+#kriwmvuros .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -817,7 +817,7 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   border-right-color: #D3D3D3;
 }
 
-#ssrvxybbqf .gt_sourcenote {
+#kriwmvuros .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -825,72 +825,72 @@ Table&nbsp;1: The four pre-analysis diagnostics summarized across the analytic s
   padding-right: 5px;
 }
 
-#ssrvxybbqf .gt_left {
+#kriwmvuros .gt_left {
   text-align: left;
 }
 
-#ssrvxybbqf .gt_center {
+#kriwmvuros .gt_center {
   text-align: center;
 }
 
-#ssrvxybbqf .gt_right {
+#kriwmvuros .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ssrvxybbqf .gt_font_normal {
+#kriwmvuros .gt_font_normal {
   font-weight: normal;
 }
 
-#ssrvxybbqf .gt_font_bold {
+#kriwmvuros .gt_font_bold {
   font-weight: bold;
 }
 
-#ssrvxybbqf .gt_font_italic {
+#kriwmvuros .gt_font_italic {
   font-style: italic;
 }
 
-#ssrvxybbqf .gt_super {
+#kriwmvuros .gt_super {
   font-size: 65%;
 }
 
-#ssrvxybbqf .gt_footnote_marks {
+#kriwmvuros .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ssrvxybbqf .gt_asterisk {
+#kriwmvuros .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ssrvxybbqf .gt_indent_1 {
+#kriwmvuros .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ssrvxybbqf .gt_indent_2 {
+#kriwmvuros .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ssrvxybbqf .gt_indent_3 {
+#kriwmvuros .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ssrvxybbqf .gt_indent_4 {
+#kriwmvuros .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ssrvxybbqf .gt_indent_5 {
+#kriwmvuros .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ssrvxybbqf .katex-display {
+#kriwmvuros .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ssrvxybbqf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kriwmvuros div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1293,7 +1293,7 @@ Figure&nbsp;2: The four pre-analysis diagnostics by school: each point is one sc
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 0.08486 0.11513 0.14214 0.14765 0.17933 0.32546 
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-0.03355 0.09771 0.13710 0.14745 0.18761 0.41020 </code></pre>
+0.02963 0.09619 0.13700 0.14731 0.18767 0.42625 </code></pre>
 </div>
 </div>
 </div>
@@ -4476,7 +4476,7 @@ Figure&nbsp;11: Sensitivity contour plot for the additive within-site outcome mo
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>This page contains the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top, because later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.</span>
 <span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="In the workshop"}</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>Stage 2 fits seven propensity score models and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunks on the projector, because those are slow enough that a room full of laptops would be waiting on them. If you use RStudio, do not use "Run All Chunks Above", because it runs all seven. Every other chunk on the page runs in seconds.</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk (which fits both a gradient boosting and a BART score) on the projector, because those are slow enough that a room full of laptops would be waiting on them. Do not use "Run all chunks above" in RStudio or Positron, because it runs all seven. Every other chunk on the page runs in seconds.</span>
 <span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>

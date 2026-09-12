@@ -9,6 +9,10 @@ subtitle: "A practical guide and illustration of approaches in R"
 
 This site holds the hands-on materials for the workshop. Each chapter page contains the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*. The explanatory text has been removed so that the code can be run from top to bottom. Chapter 4, which covers the data and the package setup, is shown from the handbook during the workshop.
 
+## How the session runs
+
+Jordan opens with the lecture, which covers the foundational concepts, the typology of multilevel designs, and the six-stage matching workflow. Alberto then introduces the data and the packages using Chapter 4 of the handbook. After a ten-minute break, we work through the Chapter 5 page together and then the Chapter 6 page, stopping for questions at the end of every stage. The last few minutes are for questions.
+
 ## Slides
 
 The lecture slides for the first hour are available as a [PDF](slides/MMT_SREE_2026Conference_WorkshopSlides.pdf). They cover the foundational concepts, the typology of multilevel designs, the six-stage matching workflow, and an overview of the practice guide.
@@ -21,9 +25,9 @@ Install R and either RStudio or Positron, download this repository, run the inst
 
 | Page | Handbook chapter | Contents |
 |---|---|---|
-| [MIAD](05_miad.qmd) | 5 | The multisite individual assignment design, in which students are assigned to treatment within schools. The page covers seven propensity score models, four matching approaches, balance at the site level, individual-average and site-average effects, the FIRC model, and a sensitivity analysis. This is the page we run together in the room. It ends with a "Try it" block and a template for your own data. |
+| [MIAD](05_miad.qmd) | 5 | The multisite individual assignment design, in which students are assigned to treatment within schools. The page covers eight propensity scores across seven chunks, four matching approaches, balance both pooled and within site, individual-average and site-average effects, the FIRC model, and a sensitivity analysis. We run this page together in the room. It ends with a "Try it" block and a template for your own data, both of which are yours to take home. |
 | [Decision flowcharts](flowcharts.qmd) | 3 | The guiding questions and the options at each stage for the MIAD and the CAD, for use with your own study. |
-| [CAD](06_cad.qmd) | 6 | The cluster assignment design, in which whole schools are assigned to treatment. The page covers the cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis. |
+| [CAD](06_cad.qmd) | 6 | The cluster assignment design, in which whole schools are assigned to treatment. The page covers the cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis. We run this page together as well, after Chapter 5. |
 | [MCAD](07_mcad.qmd) | 7 | The multisite cluster assignment design, in which teachers are assigned to treatment within schools and students are nested in teachers. This design combines the other two. The page is included for reference and is not covered in the session. |
 
 Each page follows the same six stages. First, define the estimand. Second, define the distance measure. Third, implement the matching method. Fourth, assess the matched sample. Fifth, analyze the outcomes. Sixth, run a sensitivity analysis.

@@ -375,7 +375,7 @@ tibble(matched_within_site  = n_pref_within,                   # <4>
        dropped              = m_pref$ndrops.matches)
 ```
 
-1. `MatchPW()` (from `CMatching` [@arpino_propensity_2016], the package Chapter 5 used for site-restricted matching) requires its input vectors sorted in ascending order of `Group`, so we sort the teacher frame by `school_id`.
+1. `MatchPW()` (from `CMatching`, the package Chapter 5 used for site-restricted matching) requires its input vectors sorted in ascending order of `Group`, so we sort the teacher frame by `school_id`.
 2. `Y` is not used to choose matches, so we pass a placeholder. `MatchPW()` matches within school first, then searches across schools for any unmatched treated teacher. `M = 1` and `replace = FALSE` request 1:1 matching without reuse in the within-site step; the fallback step itself matches *with* replacement, and here its `r n_pref_fallback` pairs draw on `r n_distinct(m_pref$index.control[!pref_within])` distinct comparison teachers.
 3. We classify each matched pair by whether its two teachers share a school. Every treated teacher has a within-school comparison available, yet under `CMatching`'s default 0.25-SD caliper only `r n_pref_within` of the `r n_pref_within + n_pref_fallback` matched within their own school, `r n_pref_fallback` fell back between sites, and `r m_pref$ndrops.matches` were dropped. Report this split whenever the fallback is used.
 4. The tibble reports the within-site pairs, the fallback pairs, and the dropped treated teachers.

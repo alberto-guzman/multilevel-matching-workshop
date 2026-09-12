@@ -1,6 +1,6 @@
 # Analytic data
 
-`timss_df.rds` is the analytic dataset used by all workshop documents: TIMSS 2015 Canada Grade 4 math assessment, 2,478 students × 29 variables, no missing values. Variable definitions are in `04_setup_data.qmd`.
+`timss_df.rds` is the analytic dataset used by all workshop documents: TIMSS 2015 Canada Grade 4 math assessment, 2,478 students × 29 variables, no missing values. Chapter 4 of the handbook defines every variable, and the treatment indicators are described below.
 
 ## Structure (three levels)
 
@@ -16,7 +16,7 @@ All three are constructed from observed covariates to illustrate the three desig
 |---|---|---|---|
 | `multisite_treatment` | student | the student receives extra lessons in math | MIAD (`05_miad.qmd`) |
 | `cluster_treatment` | school | the school's average score on the TIMSS resource-shortage scale (ACBGMRS) is in the top third, that is, the schools least affected by shortages | CAD (`06_cad.qmd`) |
-| `multisite_cluster_treatment` | teacher | the student's teacher majored in math | MCAD (handbook Chapter 7) |
+| `multisite_cluster_treatment` | teacher | the student's teacher majored in math | MCAD (`07_mcad.qmd`) |
 
 ## Caveats
 

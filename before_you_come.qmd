@@ -15,12 +15,12 @@ Please complete these steps before the workshop. The wifi in the room may be slo
 2. Install either RStudio or Positron. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.
 3. Get this repository. Either clone it, or download the zip file from the green Code button at <https://github.com/alberto-guzman/multilevel-matching-workshop> and unzip it. In RStudio, open `multilevel-matching-workshop.Rproj`. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.
 4. Install the packages. Open `00_install_packages.R` and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.
-5. Check the setup. Open `00_check_setup.R` and run it. The last line of the output should read `MatchIt test run: matched 710 students`. A `FALSE` on the Quarto line is fine. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.
+5. Check the setup. Open `00_check_setup.R` and run it. It should report `MatchIt test run: matched 710 students`. A `FALSE` on the Quarto line is fine, and so is a note reading `Registered S3 method overwritten by 'car'`, which R prints whenever these packages are loaded together. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.
 
 ## What to know
 
 - You should be comfortable with basic R, meaning running a script, reading a data frame, and using the pipe. The code uses the tidyverse verbs `filter`, `mutate`, and `summarise` throughout.
-- The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, the propensity score, and the standardized mean difference. Chapters 1 to 3 of the handbook cover them if you want to read ahead.
+- The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, the propensity score, and the standardized mean difference. You do not need to read anything in advance.
 
 ## If the installation fails
 
