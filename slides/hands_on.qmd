@@ -43,11 +43,11 @@ format:
 
 ## How we run the two chapters
 
-- We run Chapter 5 one chunk at a time. I say the heading before every chunk.
+- We run Chapter 5 together, one chunk at a time. I say the heading before every chunk.
 - We stop for questions at the end of every stage.
 - Stage 2 is split. You run four of the seven score chunks. I run the three slow ones on the projector.
 - Do not use "Run all chunks above" on the Chapter 5 page.
-- Chapter 6 runs from top to bottom in about fifteen seconds. Skip nothing.
+- Chapter 6 is a tour. I run the main chunks on the projector and you watch. The page runs at home in about fifteen seconds, with nothing to skip.
 
 ## If a chunk fails, do not stop
 

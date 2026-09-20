@@ -39,10 +39,10 @@ If the installation fails, you can still follow along. Every output is on the re
 
 ## What we run in the room
 
-We run two files together after the break.
+We work through two files after the break.
 
 - **`05_miad.qmd`**, one chunk at a time, with a stop for questions at the end of every stage. Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the four fast ones, which are the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks. We run the three slow ones on the projector, which are the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk.
-- **`06_cad.qmd`**, from top to bottom with nothing skipped. It takes about fifteen seconds over thirty chunks, and it loads its own packages and data, so it does not depend on the Chapter 5 session.
+- **`06_cad.qmd`**, as a tour on the projector. Alberto runs the main chunks and explains what changes when whole schools are assigned. Run the page at home. It takes about fifteen seconds over thirty chunks, and it loads its own packages and data, so it does not depend on the Chapter 5 session.
 
 If a chunk fails for you, do not stop. Every stage of `05_miad.qmd` from Stage 2 on opens with a line that loads `checkpoints/stage_N.RData`, which restores every object from the end of the previous stage.
 

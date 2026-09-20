@@ -27,17 +27,17 @@ The [Before you come](before_you_come.qmd) page has the details for each step.
 | 10:20 | Chapter 4, the data and the R packages, and the setup chunk |
 | 10:30 | *Break. Finish installing if you have not.* |
 | 10:40 | Chapter 5, the multisite individual assignment design, run together stage by stage |
-| 11:18 | Chapter 6, the cluster assignment design, run together |
+| 11:21 | Chapter 6, the cluster assignment design, a tour on the projector |
 | 11:27 | Close and questions |
 
 ## How the session runs
 
 Jordan opens with the lecture, which covers the foundational concepts, the typology of multilevel designs, and the six-stage matching workflow. Alberto then shows the data and the packages from Chapter 4 of the handbook.
 
-After the break, we run two pages together.
+After the break, we work through two pages.
 
 - **Chapter 5.** One chunk at a time, with a stop for questions at the end of every stage.
-- **Chapter 6.** From top to bottom, with nothing skipped.
+- **Chapter 6.** A tour on the projector. Alberto runs the main chunks and explains what changes when whole schools are assigned. You run the page at home.
 
 By the end of the session you should be able to do five things.
 
@@ -58,7 +58,7 @@ Each page follows the same six stages. First, define the estimand. Second, defin
 | Page | Chapter | What it covers | In the session |
 |---|---|---|---|
 | [MIAD](05_miad.qmd) | 5 | Students are assigned to treatment within schools. Eight propensity scores, four matching approaches, balance pooled and within site, individual-average and site-average effects, the FIRC model, and a sensitivity analysis. | We run it together. It ends with a "Try it" block and a template for your own data. |
-| [CAD](06_cad.qmd) | 6 | Whole schools are assigned to treatment. The cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis. | We run it together after Chapter 5. |
+| [CAD](06_cad.qmd) | 6 | Whole schools are assigned to treatment. The cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis. | A tour on the projector after Chapter 5. Run it at home. |
 | [MCAD](07_mcad.qmd) | 7 | Teachers are assigned within schools, with students nested in teachers. This design combines the other two. | Reference only. |
 | [Decision flowcharts](flowcharts.qmd) | 3 | The guiding questions and the options at each stage, for the MIAD and the CAD. | For your own study, after the session. |
 
