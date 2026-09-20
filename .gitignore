@@ -10,3 +10,6 @@ Rplots.pdf
 
 # Personal day-of materials (runsheet); never published
 /private/
+
+# Local context file for Claude Code; not part of the published materials
+/CLAUDE.md
