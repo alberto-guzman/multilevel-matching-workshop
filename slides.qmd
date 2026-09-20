@@ -10,7 +10,7 @@ Jordan's slides for the first hour cover the foundational concepts, the typology
 
 ## Hands-on slides
 
-Alberto's short deck for the hands-on part covers how the room runs, the checkpoints, and the closing summary. Use the arrow keys to move through it, or open it in its own tab.
+Alberto's short deck for the hands-on portion covers how the room runs, the checkpoints, and the closing summary. Use the arrow keys to move through it, or open it in its own tab.
 
 [Open the hands-on slides in full screen](slides/hands_on.html)
 

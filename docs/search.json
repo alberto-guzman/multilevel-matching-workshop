@@ -2,51 +2,37 @@
   {
     "objectID": "slides/hands_on.html#where-everything-is",
     "href": "slides/hands_on.html#where-everything-is",
-    "title": "The hands-on part",
+    "title": "The hands-on portion",
     "section": "Where everything is",
-    "text": "Where everything is\n\n\nThe site\nalberto-guzman.github.io/multilevel-matching-workshop\n\nEvery page we run, with all of its output\nJordan’s slides and this deck, under Slides\nThe zip of the repository, under the GitHub icon"
+    "text": "Where everything is\n\n\nThe site\nalberto-guzman.github.io/multilevel-matching-workshop\n\nThe code we will run and the output\nJordan’s slides and this deck, under Slides\nThe zip of the repository, under the GitHub icon (or clone the repo)"
   },
   {
-    "objectID": "slides/hands_on.html#before-you-stand-up",
-    "href": "slides/hands_on.html#before-you-stand-up",
-    "title": "The hands-on part",
-    "section": "Before you stand up",
-    "text": "Before you stand up\n\nRun the setup chunk at the top of the Chapter 5 page. It loads the packages and the data.\nTake a few sticky notes of each color as they come around.\n\nDuring the hands-on part\n\nA pink note on your laptop lid means you are stuck. One of us comes to you.\nA green note means the chunk ran and you are ready to move on."
+    "objectID": "slides/hands_on.html#before-we-go-on-break",
+    "href": "slides/hands_on.html#before-we-go-on-break",
+    "title": "The hands-on portion",
+    "section": "Before we go on break",
+    "text": "Before we go on break\n\nRun the setup chunk at the top of the Chapter 5 page. It loads the packages and the data.\nTake a pink sticky note as they come around.\n\nDuring the hands-on part\n\nA pink note on your laptop lid means you are stuck. One of us comes to you."
   },
   {
-    "objectID": "slides/hands_on.html#how-we-run-the-two-chapters",
-    "href": "slides/hands_on.html#how-we-run-the-two-chapters",
-    "title": "The hands-on part",
-    "section": "How we run the two chapters",
-    "text": "How we run the two chapters\n\nWe run Chapter 5 together, one chunk at a time. I say the heading before every chunk.\nWe stop for questions at the end of every stage.\nStage 2 is split. You run four of the seven score chunks. I run the three slow ones on the projector.\nDo not use “Run all chunks above” on the Chapter 5 page.\nChapter 6 is a tour. I run the main chunks on the projector and you watch. The page runs at home in about fifteen seconds, with nothing to skip."
-  },
-  {
-    "objectID": "slides/hands_on.html#if-a-chunk-fails-do-not-stop",
-    "href": "slides/hands_on.html#if-a-chunk-fails-do-not-stop",
-    "title": "The hands-on part",
-    "section": "If a chunk fails, do not stop",
-    "text": "If a chunk fails, do not stop\nEvery stage from Stage 2 on opens with one line.\nload(\"checkpoints/stage_1.RData\")\nIt restores every object from the end of the previous stage.\nRun it. Put up a pink note. Continue with the room."
-  },
-  {
-    "objectID": "slides/hands_on.html#six-stages-two-designs",
-    "href": "slides/hands_on.html#six-stages-two-designs",
-    "title": "The hands-on part",
-    "section": "Six stages, two designs",
-    "text": "Six stages, two designs\n\n\n\n\n\n\n\n\nStage\nChapter 5, students within schools\nChapter 6, whole schools\n\n\n\n\n1. Estimand\nEffect on the treated students\nEffect on the treated schools\n\n\n2. Distance\nFixed effects score, one of eight\nSchool-level score\n\n\n3. Matching\nGlobal versus within site, one argument\nCluster-global, sequential, network flow\n\n\n4. Assessment\nPooled and per-school balance\nCluster-level and student-level balance\n\n\n5. Outcomes\nIndividual-average and site-average\nIndividual-, cluster-average, precision-weighted\n\n\n6. Sensitivity\nsensemakr, robustness value 57%\nsensemakr, robustness value 17%"
+    "objectID": "slides/hands_on.html#how-we-run-through-the-code",
+    "href": "slides/hands_on.html#how-we-run-through-the-code",
+    "title": "The hands-on portion",
+    "section": "How we run through the code",
+    "text": "How we run through the code\n\nWe will run Chapter 5 (MIAD) together, one chunk at a time.\nI will stop for questions at the end of every stage.\nChapter 6 (CAD) is a tour. I will run the main chunks on the projector and you can follow along.\nChapter 7 (MCAD) if time allows."
   },
   {
     "objectID": "slides/hands_on.html#what-we-did-not-get-to",
     "href": "slides/hands_on.html#what-we-did-not-get-to",
-    "title": "The hands-on part",
+    "title": "The hands-on portion",
     "section": "What we did not get to",
     "text": "What we did not get to\n\nChapter 7, the multisite cluster design, which combines the two. It is on the site as a reference.\nThe “Try it” block at the end of the Chapter 5 page. It has three variations on the matching call.\nThe decision flowcharts, for choosing the options for your own study.\nThe “Your own data” template. It lists the five objects to replace.\n\nThe site and the repository stay up."
   },
   {
     "objectID": "slides/hands_on.html#questions",
     "href": "slides/hands_on.html#questions",
-    "title": "The hands-on part",
+    "title": "The hands-on portion",
     "section": "Questions",
-    "text": "Questions\nEspecially questions of this kind:\n\nWhich of the two designs is my study?\nWhich stage would I do differently for my data, and why?\n\n\n\nTell us what worked and what did not. The form also asks whether you would test the handbook before it is final.\nforms.cloud.microsoft/r/XZpKK1aEmY"
+    "text": "Questions\n\n\nTell us what worked and what did not. The form also asks whether you would test the handbook before it is final.\nforms.cloud.microsoft/r/XZpKK1aEmY"
   },
   {
     "objectID": "06_cad.html",
@@ -200,7 +186,7 @@
     "href": "index.html#slides",
     "title": "Matching Methods for Multilevel Data in Education Research",
     "section": "Slides",
-    "text": "Slides\nThe Slides page has Jordan’s lecture slides for the first hour as a PDF and Alberto’s short deck for the hands-on part."
+    "text": "Slides\nThe Slides page has Jordan’s lecture slides for the first hour as a PDF and Alberto’s short deck for the hands-on portion."
   },
   {
     "objectID": "index.html#the-data",
@@ -242,7 +228,7 @@
     "href": "slides.html#hands-on-slides",
     "title": "Slides",
     "section": "Hands-on slides",
-    "text": "Hands-on slides\nAlberto’s short deck for the hands-on part covers how the room runs, the checkpoints, and the closing summary. Use the arrow keys to move through it, or open it in its own tab.\nOpen the hands-on slides in full screen"
+    "text": "Hands-on slides\nAlberto’s short deck for the hands-on portion covers how the room runs, the checkpoints, and the closing summary. Use the arrow keys to move through it, or open it in its own tab.\nOpen the hands-on slides in full screen"
   },
   {
     "objectID": "05_miad.html",

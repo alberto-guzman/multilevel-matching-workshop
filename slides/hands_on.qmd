@@ -1,5 +1,5 @@
 ---
-title: "The hands-on part"
+title: "The hands-on portion"
 subtitle: "Matching Methods for Multilevel Data in Education Research · SREE 2026"
 author: "Alberto Guzman-Alvarez"
 format:
@@ -20,59 +20,34 @@ format:
 
 [alberto-guzman.github.io/multilevel-matching-workshop](https://alberto-guzman.github.io/multilevel-matching-workshop/)
 
-- Every page we run, with all of its output
+- The code we will run and the output
 - Jordan's slides and this deck, under Slides
-- The zip of the repository, under the GitHub icon
+- The zip of the repository, under the GitHub icon (or clone the repo)
 :::
 ::: {.column width="38%"}
 ![](../figures/site_qr.png){width="100%"}
 :::
 :::
 
-## Before you stand up
+## Before we go on break
 
 - Run the setup chunk at the top of the Chapter 5 page. It loads the packages and the data.
-- Take a few sticky notes of each color as they come around.
+- Take a pink sticky note as they come around.
 
 **During the hands-on part**
 
 - A pink note on your laptop lid means you are stuck. One of us comes to you.
-- A green note means the chunk ran and you are ready to move on.
 
 # After the break
 
-## How we run the two chapters
+## How we run through the code
 
-- We run Chapter 5 together, one chunk at a time. I say the heading before every chunk.
-- We stop for questions at the end of every stage.
-- Stage 2 is split. You run four of the seven score chunks. I run the three slow ones on the projector.
-- Do not use "Run all chunks above" on the Chapter 5 page.
-- Chapter 6 is a tour. I run the main chunks on the projector and you watch. The page runs at home in about fifteen seconds, with nothing to skip.
-
-## If a chunk fails, do not stop
-
-Every stage from Stage 2 on opens with one line.
-
-```r
-load("checkpoints/stage_1.RData")
-```
-
-It restores every object from the end of the previous stage.
-
-Run it. Put up a pink note. Continue with the room.
+- We will run Chapter 5 (MIAD) together, one chunk at a time. 
+- I will stop for questions at the end of every stage.
+- Chapter 6 (CAD) is a tour. I will run the main chunks on the projector and you can follow along. 
+- Chapter 7 (MCAD) if time allows.
 
 # Close
-
-## Six stages, two designs
-
-| Stage | Chapter 5, students within schools | Chapter 6, whole schools |
-|:--|:--|:--|
-| 1. Estimand | Effect on the treated students | Effect on the treated schools |
-| 2. Distance | Fixed effects score, one of eight | School-level score |
-| 3. Matching | Global versus within site, one argument | Cluster-global, sequential, network flow |
-| 4. Assessment | Pooled and per-school balance | Cluster-level and student-level balance |
-| 5. Outcomes | Individual-average and site-average | Individual-, cluster-average, precision-weighted |
-| 6. Sensitivity | `sensemakr`, robustness value 57% | `sensemakr`, robustness value 17% |
 
 ## What we did not get to
 
@@ -84,11 +59,6 @@ Run it. Put up a pink note. Continue with the room.
 The site and the repository stay up.
 
 ## Questions
-
-Especially questions of this kind:
-
-- Which of the two designs is my study?
-- Which stage would I do differently for my data, and why?
 
 ::: {.columns}
 ::: {.column width="62%"}

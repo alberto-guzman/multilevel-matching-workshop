@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Alberto Guzman-Alvarez">
-  <title>Matching Methods for Multilevel Data – The hands-on part</title>
+  <title>Matching Methods for Multilevel Data – The hands-on portion</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -34,72 +34,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-81d50af33fbf92d5feda6f8bde760030.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -199,7 +133,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">The hands-on part</h1>
+  <h1 class="title">The hands-on portion</h1>
   <p class="subtitle">Matching Methods for Multilevel Data in Education Research · SREE 2026</p>
 
 <div class="quarto-title-authors">
@@ -223,24 +157,23 @@ Alberto Guzman-Alvarez
 <p><strong>The site</strong></p>
 <p><a href="https://alberto-guzman.github.io/multilevel-matching-workshop/">alberto-guzman.github.io/multilevel-matching-workshop</a></p>
 <ul>
-<li>Every page we run, with all of its output</li>
+<li>The code we will run and the output</li>
 <li>Jordan’s slides and this deck, under Slides</li>
-<li>The zip of the repository, under the GitHub icon</li>
+<li>The zip of the repository, under the GitHub icon (or clone the repo)</li>
 </ul>
 </div><div class="column" style="width:38%;">
 <p><img data-src="../figures/site_qr.png" style="width:100.0%"></p>
 </div></div>
 </section>
-<section id="before-you-stand-up" class="slide level2">
-<h2>Before you stand up</h2>
+<section id="before-we-go-on-break" class="slide level2">
+<h2>Before we go on break</h2>
 <ul>
 <li>Run the setup chunk at the top of the Chapter 5 page. It loads the packages and the data.</li>
-<li>Take a few sticky notes of each color as they come around.</li>
+<li>Take a pink sticky note as they come around.</li>
 </ul>
 <p><strong>During the hands-on part</strong></p>
 <ul>
 <li>A pink note on your laptop lid means you are stuck. One of us comes to you.</li>
-<li>A green note means the chunk ran and you are ready to move on.</li>
 </ul>
 </section></section>
 <section>
@@ -248,76 +181,19 @@ Alberto Guzman-Alvarez
 <h1>After the break</h1>
 
 </section>
-<section id="how-we-run-the-two-chapters" class="slide level2">
-<h2>How we run the two chapters</h2>
+<section id="how-we-run-through-the-code" class="slide level2">
+<h2>How we run through the code</h2>
 <ul>
-<li>We run Chapter 5 together, one chunk at a time. I say the heading before every chunk.</li>
-<li>We stop for questions at the end of every stage.</li>
-<li>Stage 2 is split. You run four of the seven score chunks. I run the three slow ones on the projector.</li>
-<li>Do not use “Run all chunks above” on the Chapter 5 page.</li>
-<li>Chapter 6 is a tour. I run the main chunks on the projector and you watch. The page runs at home in about fifteen seconds, with nothing to skip.</li>
+<li>We will run Chapter 5 (MIAD) together, one chunk at a time.</li>
+<li>I will stop for questions at the end of every stage.</li>
+<li>Chapter 6 (CAD) is a tour. I will run the main chunks on the projector and you can follow along.</li>
+<li>Chapter 7 (MCAD) if time allows.</li>
 </ul>
-</section>
-<section id="if-a-chunk-fails-do-not-stop" class="slide level2">
-<h2>If a chunk fails, do not stop</h2>
-<p>Every stage from Stage 2 on opens with one line.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"checkpoints/stage_1.RData"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>It restores every object from the end of the previous stage.</p>
-<p>Run it. Put up a pink note. Continue with the room.</p>
 </section></section>
 <section>
 <section id="close" class="title-slide slide level1 center">
 <h1>Close</h1>
 
-</section>
-<section id="six-stages-two-designs" class="slide level2">
-<h2>Six stages, two designs</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Stage</th>
-<th style="text-align: left;">Chapter 5, students within schools</th>
-<th style="text-align: left;">Chapter 6, whole schools</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1. Estimand</td>
-<td style="text-align: left;">Effect on the treated students</td>
-<td style="text-align: left;">Effect on the treated schools</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2. Distance</td>
-<td style="text-align: left;">Fixed effects score, one of eight</td>
-<td style="text-align: left;">School-level score</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3. Matching</td>
-<td style="text-align: left;">Global versus within site, one argument</td>
-<td style="text-align: left;">Cluster-global, sequential, network flow</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4. Assessment</td>
-<td style="text-align: left;">Pooled and per-school balance</td>
-<td style="text-align: left;">Cluster-level and student-level balance</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">5. Outcomes</td>
-<td style="text-align: left;">Individual-average and site-average</td>
-<td style="text-align: left;">Individual-, cluster-average, precision-weighted</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">6. Sensitivity</td>
-<td style="text-align: left;"><code>sensemakr</code>, robustness value 57%</td>
-<td style="text-align: left;"><code>sensemakr</code>, robustness value 17%</td>
-</tr>
-</tbody>
-</table>
 </section>
 <section id="what-we-did-not-get-to" class="slide level2">
 <h2>What we did not get to</h2>
@@ -331,11 +207,6 @@ Alberto Guzman-Alvarez
 </section>
 <section id="questions" class="slide level2">
 <h2>Questions</h2>
-<p>Especially questions of this kind:</p>
-<ul>
-<li>Which of the two designs is my study?</li>
-<li>Which stage would I do differently for my data, and why?</li>
-</ul>
 <div class="columns">
 <div class="column" style="width:62%;">
 <p>Tell us what worked and what did not. The form also asks whether you would test the handbook before it is final.</p>
