@@ -5,6 +5,14 @@ title: "Multisite individual assignment design, MIAD (Chapter 5)"
 ::: {.callout-tip title="How to use this document"}
 This page contains the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top, because later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
+::: {.callout-note title="The data and the treatment indicator"}
+- **Data.** `data/timss_df.rds`, the TIMSS 2015 Grade 4 mathematics assessment for Canada. Students (`student_id`) are nested in teachers (`teacher_id`), who are nested in schools (`school_id`).
+- **Treatment indicator.** `multisite_treatment`, a 0/1 column at the student level. It equals 1 when the student receives extra lessons in mathematics. Treatment varies among the students within a school.
+- **Sites.** `school_id`. Each analytic school combines about three real TIMSS schools.
+- **Outcome.** `math_score`, the TIMSS mathematics score.
+
+The indicator was constructed from observed covariates to illustrate the design. It is not a real intervention. `data/README.md` describes every variable.
+:::
 ::: {.callout-important title="In the workshop"}
 Three things to know before you start.
 

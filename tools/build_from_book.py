@@ -157,6 +157,35 @@ def checkpoint_chunk(n):
             '# continue from here. Run the setup chunk first if this is a new R session.',
             f'load("checkpoints/stage_{n}.RData")', '```']
 
+# Callout stating the data, the treatment indicator, and the outcome for each chapter
+DATA_NOTE = {"05_miad.qmd": """::: {.callout-note title="The data and the treatment indicator"}
+- **Data.** `data/timss_df.rds`, the TIMSS 2015 Grade 4 mathematics assessment for Canada. Students (`student_id`) are nested in teachers (`teacher_id`), who are nested in schools (`school_id`).
+- **Treatment indicator.** `multisite_treatment`, a 0/1 column at the student level. It equals 1 when the student receives extra lessons in mathematics. Treatment varies among the students within a school.
+- **Sites.** `school_id`. Each analytic school combines about three real TIMSS schools.
+- **Outcome.** `math_score`, the TIMSS mathematics score.
+
+The indicator was constructed from observed covariates to illustrate the design. It is not a real intervention. `data/README.md` describes every variable.
+:::
+""",
+        "06_cad.qmd": """::: {.callout-note title="The data and the treatment indicator"}
+- **Data.** `data/timss_df.rds`, the TIMSS 2015 Grade 4 mathematics assessment for Canada. Students (`student_id`) are nested in teachers (`teacher_id`), who are nested in schools (`school_id`).
+- **Treatment indicator.** `cluster_treatment`, a 0/1 column at the school level. It equals 1 when the school's average on the TIMSS resource-shortage scale is in the top third, which means the school is among those least affected by shortages. Every student in a school shares the school's value.
+- **Clusters.** `school_id`. Each analytic school combines about three real TIMSS schools.
+- **Outcome.** `math_score`, the TIMSS mathematics score.
+
+The indicator was constructed from observed covariates to illustrate the design. It is not a real intervention. `data/README.md` describes every variable.
+:::
+""",
+        "07_mcad.qmd": """::: {.callout-note title="The data and the treatment indicator"}
+- **Data.** `data/timss_df.rds`, the TIMSS 2015 Grade 4 mathematics assessment for Canada. Students (`student_id`) are nested in teachers (`teacher_id`), who are nested in schools (`school_id`).
+- **Treatment indicator.** `multisite_cluster_treatment`, a 0/1 column at the teacher level. It equals 1 when the student's teacher majored in mathematics. Every student of a teacher shares the teacher's value, and treatment varies among the teachers within a school.
+- **Clusters and sites.** Teachers (`teacher_id`) are the clusters, and schools (`school_id`) are the sites.
+- **Outcome.** `math_score`, the TIMSS mathematics score.
+
+The indicator was constructed from observed covariates to illustrate the design. It is not a real intervention. `data/README.md` describes every variable.
+:::
+"""}
+
 NOTE = {"05_miad.qmd": """::: {.callout-important title="In the workshop"}
 Three things to know before you start.
 
@@ -297,7 +326,7 @@ for src,(dst,title) in CHAPTERS.items():
         assert lines.count(hdr)==1, hdr
         k=lines.index(hdr); lines[k+1:k+1]=['']+checkpoint_chunk(n)
     yaml=f'---\ntitle: "{title}"\n---\n\n'
-    (OUT/dst).write_text(yaml+HOWTO+NOTE.get(dst,'')+'\n'+'\n'.join(lines)+'\n'+TAIL.get(dst,''))
+    (OUT/dst).write_text(yaml+HOWTO+DATA_NOTE.get(dst,'')+NOTE.get(dst,'')+'\n'+'\n'.join(lines)+'\n'+TAIL.get(dst,''))
     print(f'{src} -> {dst}: {len(lines)} lines')
 
 for png in ('miad_design.png','cad_design.png','mcad_design.png'):

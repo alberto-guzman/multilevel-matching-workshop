@@ -7,6 +7,8 @@ subtitle: "A practical guide and illustration of approaches in R"
 
 **Instructors:** Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)
 
+**Repository:** <https://github.com/alberto-guzman/multilevel-matching-workshop>. Download the zip from the Code button, or clone it. The repository holds everything on this site, including the data and the checkpoints.
+
 This site holds the hands-on materials for the workshop. Each chapter page contains the R code from one chapter of the handbook *Propensity Score Matching in Multilevel Educational Settings*, with the explanatory text removed so that the code runs from top to bottom.
 
 ## Before the workshop

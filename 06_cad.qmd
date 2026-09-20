@@ -5,6 +5,14 @@ title: "Cluster assignment design, CAD (Chapter 6)"
 ::: {.callout-tip title="How to use this document"}
 This page contains the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top, because later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
+::: {.callout-note title="The data and the treatment indicator"}
+- **Data.** `data/timss_df.rds`, the TIMSS 2015 Grade 4 mathematics assessment for Canada. Students (`student_id`) are nested in teachers (`teacher_id`), who are nested in schools (`school_id`).
+- **Treatment indicator.** `cluster_treatment`, a 0/1 column at the school level. It equals 1 when the school's average on the TIMSS resource-shortage scale is in the top third, which means the school is among those least affected by shortages. Every student in a school shares the school's value.
+- **Clusters.** `school_id`. Each analytic school combines about three real TIMSS schools.
+- **Outcome.** `math_score`, the TIMSS mathematics score.
+
+The indicator was constructed from observed covariates to illustrate the design. It is not a real intervention. `data/README.md` describes every variable.
+:::
 ::: {.callout-important title="In the workshop"}
 **We tour this page on the projector during the session, and you run it at home.** Run every chunk from top to bottom. Each takes a few seconds, and there is nothing to skip. The page loads its own packages and data, so it does not depend on Chapter 5 and runs in a fresh session.
 :::
