@@ -119,6 +119,41 @@
     "text": "Cluster assignment design (CAD)\n\n\n\nSummary of guiding questions and options for a matching approach that approximates a cluster assignment design."
   },
   {
+    "objectID": "before_you_come.html",
+    "href": "before_you_come.html",
+    "title": "Before you come",
+    "section": "",
+    "text": "Please complete these steps at home. The wifi in the room may be slow, so download and install everything before the day. The whole setup takes about 15 minutes, and most of that is the package installation."
+  },
+  {
+    "objectID": "before_you_come.html#what-to-bring",
+    "href": "before_you_come.html#what-to-bring",
+    "title": "Before you come",
+    "section": "What to bring",
+    "text": "What to bring\n\nA laptop on which you can install software.\nYour own dataset, if you have one. Nothing in the workshop requires it. It should have one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the Chapter 5 page is a template for pointing the code at your data."
+  },
+  {
+    "objectID": "before_you_come.html#what-to-install",
+    "href": "before_you_come.html#what-to-install",
+    "title": "Before you come",
+    "section": "What to install",
+    "text": "What to install\n\nR. Install R 4.3 or later from https://cran.r-project.org.\nRStudio or Positron. Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.\nThis repository. Download the zip file from the green Code button at https://github.com/alberto-guzman/multilevel-matching-workshop, or clone it. Unzip it. In RStudio, open multilevel-matching-workshop.Rproj. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.\nThe packages. Open 00_install_packages.R and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.\nThe setup check. Open 00_check_setup.R and run it. The last line should read MatchIt test run: matched 710 students. Two other lines are fine and need no action, a FALSE on the Quarto line and a note reading Registered S3 method overwritten by 'car'. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.\n\nDownload the zip even if you plan to follow along on this site, because the pages are large."
+  },
+  {
+    "objectID": "before_you_come.html#what-to-know",
+    "href": "before_you_come.html#what-to-know",
+    "title": "Before you come",
+    "section": "What to know",
+    "text": "What to know\n\nBasic R, meaning running a script, reading a data frame, and using the pipe. The code uses the tidyverse verbs filter, mutate, and summarise throughout.\nNothing else in advance. The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, the propensity score, and the standardized mean difference."
+  },
+  {
+    "objectID": "before_you_come.html#if-the-installation-fails",
+    "href": "before_you_come.html#if-the-installation-fails",
+    "title": "Before you come",
+    "section": "If the installation fails",
+    "text": "If the installation fails\nYou can still follow along. Every output in every document is on this site, so you can watch on screen without running anything, fix the installation afterwards, and run the documents at home."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Matching Methods for Multilevel Data in Education Research",
@@ -165,7 +200,7 @@
     "href": "index.html#slides",
     "title": "Matching Methods for Multilevel Data in Education Research",
     "section": "Slides",
-    "text": "Slides\n\nLecture slides for the first hour, as a PDF.\nHands-on slides, which cover how the room runs, the checkpoints, and the closing summary."
+    "text": "Slides\nThe Slides page has Jordan’s lecture slides for the first hour as a PDF and Alberto’s short deck for the hands-on part."
   },
   {
     "objectID": "index.html#the-data",
@@ -189,39 +224,25 @@
     "text": "Feedback and testers\nPlease tell us what worked and what did not, using the form at https://forms.cloud.microsoft/r/XZpKK1aEmY. The form also asks whether you would like to test the handbook before it is finalized."
   },
   {
-    "objectID": "before_you_come.html",
-    "href": "before_you_come.html",
-    "title": "Before you come",
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
     "section": "",
-    "text": "Please complete these steps at home. The wifi in the room may be slow, so download and install everything before the day. The whole setup takes about 15 minutes, and most of that is the package installation."
+    "text": "Jordan’s slides for the first hour cover the foundational concepts, the typology of multilevel designs, the six-stage matching workflow, and an overview of the practice guide.\nOpen the lecture slides (PDF)"
   },
   {
-    "objectID": "before_you_come.html#what-to-bring",
-    "href": "before_you_come.html#what-to-bring",
-    "title": "Before you come",
-    "section": "What to bring",
-    "text": "What to bring\n\nA laptop on which you can install software.\nYour own dataset, if you have one. Nothing in the workshop requires it. It should have one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the Chapter 5 page is a template for pointing the code at your data."
+    "objectID": "slides.html#lecture-slides",
+    "href": "slides.html#lecture-slides",
+    "title": "Slides",
+    "section": "",
+    "text": "Jordan’s slides for the first hour cover the foundational concepts, the typology of multilevel designs, the six-stage matching workflow, and an overview of the practice guide.\nOpen the lecture slides (PDF)"
   },
   {
-    "objectID": "before_you_come.html#what-to-install",
-    "href": "before_you_come.html#what-to-install",
-    "title": "Before you come",
-    "section": "What to install",
-    "text": "What to install\n\nR. Install R 4.3 or later from https://cran.r-project.org.\nRStudio or Positron. Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.\nThis repository. Download the zip file from the green Code button at https://github.com/alberto-guzman/multilevel-matching-workshop, or clone it. Unzip it. In RStudio, open multilevel-matching-workshop.Rproj. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.\nThe packages. Open 00_install_packages.R and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.\nThe setup check. Open 00_check_setup.R and run it. The last line should read MatchIt test run: matched 710 students. Two other lines are fine and need no action, a FALSE on the Quarto line and a note reading Registered S3 method overwritten by 'car'. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.\n\nDownload the zip even if you plan to follow along on this site, because the pages are large."
-  },
-  {
-    "objectID": "before_you_come.html#what-to-know",
-    "href": "before_you_come.html#what-to-know",
-    "title": "Before you come",
-    "section": "What to know",
-    "text": "What to know\n\nBasic R, meaning running a script, reading a data frame, and using the pipe. The code uses the tidyverse verbs filter, mutate, and summarise throughout.\nNothing else in advance. The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, the propensity score, and the standardized mean difference."
-  },
-  {
-    "objectID": "before_you_come.html#if-the-installation-fails",
-    "href": "before_you_come.html#if-the-installation-fails",
-    "title": "Before you come",
-    "section": "If the installation fails",
-    "text": "If the installation fails\nYou can still follow along. Every output in every document is on this site, so you can watch on screen without running anything, fix the installation afterwards, and run the documents at home."
+    "objectID": "slides.html#hands-on-slides",
+    "href": "slides.html#hands-on-slides",
+    "title": "Slides",
+    "section": "Hands-on slides",
+    "text": "Hands-on slides\nAlberto’s short deck for the hands-on part covers how the room runs, the checkpoints, and the closing summary. Use the arrow keys to move through it, or open it in its own tab.\nOpen the hands-on slides in full screen"
   },
   {
     "objectID": "05_miad.html",

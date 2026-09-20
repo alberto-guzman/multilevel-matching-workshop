@@ -4,6 +4,7 @@ project:
   render:
     - index.qmd
     - before_you_come.qmd
+    - slides.qmd
     - flowcharts.qmd
     - 05_miad.qmd
     - 06_cad.qmd
@@ -20,6 +21,8 @@ website:
         text: Home
       - href: before_you_come.qmd
         text: Before you come
+      - href: slides.qmd
+        text: Slides
       - href: flowcharts.qmd
         text: Flowcharts
       - href: 05_miad.qmd
@@ -31,12 +34,6 @@ website:
     right:
       - icon: github
         href: https://github.com/alberto-guzman/multilevel-matching-workshop
-      - text: Slides
-        menu:
-          - text: "Lecture slides (PDF)"
-            href: slides/MMT_SREE_2026Conference_WorkshopSlides.pdf
-          - text: "Hands-on slides"
-            href: slides/hands_on.qmd
 
 format:
   html:

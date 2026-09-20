@@ -20,7 +20,7 @@ The three chapter files contain the R code from Chapters 5, 6, and 7 of the hand
 | `00_check_setup.R` | | Confirms the installation worked. Run after the install script. |
 | `data/` | | The analytic dataset and a description of its variables and caveats. |
 | `checkpoints/` | | One `.RData` file per stage of Chapter 5, holding every object as it stands at the end of that stage. If a chunk fails for you during the session, load the previous stage's file and continue. |
-| `slides/` | | The lecture slides for the first hour, as a PDF, and the short deck for the hands-on part. |
+| `slides.qmd`, `slides/` | | The Slides page, with the lecture slides for the first hour as a PDF and the short deck for the hands-on part. |
 | `tools/` | | The script that rebuilds the chapter files from the handbook source. |
 
 ## What to bring and what to install

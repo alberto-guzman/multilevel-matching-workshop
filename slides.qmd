@@ -1,0 +1,19 @@
+---
+title: "Slides"
+---
+
+## Lecture slides
+
+Jordan's slides for the first hour cover the foundational concepts, the typology of multilevel designs, the six-stage matching workflow, and an overview of the practice guide.
+
+[Open the lecture slides (PDF)](slides/MMT_SREE_2026Conference_WorkshopSlides.pdf)
+
+## Hands-on slides
+
+Alberto's short deck for the hands-on part covers how the room runs, the checkpoints, and the closing summary. Use the arrow keys to move through it, or open it in its own tab.
+
+[Open the hands-on slides in full screen](slides/hands_on.html)
+
+```{=html}
+<iframe class="slide-deck" title="Hands-on slides" src="slides/hands_on.html" style="width: 100%; aspect-ratio: 16 / 9; border: 1px solid #ccc;"></iframe>
+```

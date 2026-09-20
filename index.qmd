@@ -64,8 +64,7 @@ Each page follows the same six stages. First, define the estimand. Second, defin
 
 ## Slides
 
-- [Lecture slides](slides/MMT_SREE_2026Conference_WorkshopSlides.pdf) for the first hour, as a PDF.
-- [Hands-on slides](slides/hands_on.qmd), which cover how the room runs, the checkpoints, and the closing summary.
+The [Slides](slides.qmd) page has Jordan's lecture slides for the first hour as a PDF and Alberto's short deck for the hands-on part.
 
 ## The data
 
