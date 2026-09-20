@@ -7,3 +7,6 @@
 Rplots.pdf
 
 **/*.quarto_ipynb
+
+# Personal day-of materials (runsheet); never published
+/private/
