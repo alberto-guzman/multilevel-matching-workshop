@@ -189,10 +189,21 @@ window.Quarto = {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./slides/MMT_SREE_2026Conference_WorkshopSlides.pdf"> 
-<span class="menu-text">Slides</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="./slides/MMT_SREE_2026Conference_WorkshopSlides.pdf">
+ <span class="dropdown-text">Lecture slides (PDF)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./slides/hands_on.html">
+ <span class="dropdown-text">Hands-on slides</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
@@ -288,7 +299,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We run this page after the Chapter 5 page. Every chunk here runs in a few seconds, so run the page from top to bottom without skipping anything. The page loads its own packages and data and does not depend on Chapter 5, so you can run it in a fresh session.</p>
+<p><strong>Run every chunk from top to bottom.</strong> We run this page after the Chapter 5 page. Every chunk takes a few seconds, and there is nothing to skip. The page loads its own packages and data, so it does not depend on Chapter 5 and runs in a fresh session.</p>
 </div>
 </div>
 <div class="cell">
@@ -409,23 +420,23 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
 </figcaption>
 <div aria-describedby="tbl-cad-cluster-sizes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="mbeyklpzfm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mbeyklpzfm table {
+<div id="xwlefmfvao" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xwlefmfvao table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#mbeyklpzfm thead, #mbeyklpzfm tbody, #mbeyklpzfm tfoot, #mbeyklpzfm tr, #mbeyklpzfm td, #mbeyklpzfm th {
+#xwlefmfvao thead, #xwlefmfvao tbody, #xwlefmfvao tfoot, #xwlefmfvao tr, #xwlefmfvao td, #xwlefmfvao th {
   border-style: none;
 }
 
-#mbeyklpzfm p {
+#xwlefmfvao p {
   margin: 0;
   padding: 0;
 }
 
-#mbeyklpzfm .gt_table {
+#xwlefmfvao .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -451,12 +462,12 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-left-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_caption {
+#xwlefmfvao .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#mbeyklpzfm .gt_title {
+#xwlefmfvao .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -468,7 +479,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-bottom-width: 0;
 }
 
-#mbeyklpzfm .gt_subtitle {
+#xwlefmfvao .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -480,7 +491,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-top-width: 0;
 }
 
-#mbeyklpzfm .gt_heading {
+#xwlefmfvao .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -492,13 +503,13 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-right-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_bottom_border {
+#xwlefmfvao .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_col_headings {
+#xwlefmfvao .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -513,7 +524,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-right-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_col_heading {
+#xwlefmfvao .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -533,7 +544,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   overflow-x: hidden;
 }
 
-#mbeyklpzfm .gt_column_spanner_outer {
+#xwlefmfvao .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -545,15 +556,15 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   padding-right: 4px;
 }
 
-#mbeyklpzfm .gt_column_spanner_outer:first-child {
+#xwlefmfvao .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#mbeyklpzfm .gt_column_spanner_outer:last-child {
+#xwlefmfvao .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#mbeyklpzfm .gt_column_spanner {
+#xwlefmfvao .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -565,11 +576,11 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   width: 100%;
 }
 
-#mbeyklpzfm .gt_spanner_row {
+#xwlefmfvao .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#mbeyklpzfm .gt_group_heading {
+#xwlefmfvao .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -595,7 +606,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   text-align: left;
 }
 
-#mbeyklpzfm .gt_empty_group_heading {
+#xwlefmfvao .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -610,15 +621,15 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   vertical-align: middle;
 }
 
-#mbeyklpzfm .gt_from_md > :first-child {
+#xwlefmfvao .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#mbeyklpzfm .gt_from_md > :last-child {
+#xwlefmfvao .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#mbeyklpzfm .gt_row {
+#xwlefmfvao .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -637,7 +648,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   overflow-x: hidden;
 }
 
-#mbeyklpzfm .gt_stub {
+#xwlefmfvao .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -650,7 +661,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   padding-right: 5px;
 }
 
-#mbeyklpzfm .gt_stub_row_group {
+#xwlefmfvao .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -664,15 +675,15 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   vertical-align: top;
 }
 
-#mbeyklpzfm .gt_row_group_first td {
+#xwlefmfvao .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#mbeyklpzfm .gt_row_group_first th {
+#xwlefmfvao .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#mbeyklpzfm .gt_summary_row {
+#xwlefmfvao .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -682,16 +693,16 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   padding-right: 5px;
 }
 
-#mbeyklpzfm .gt_first_summary_row {
+#xwlefmfvao .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_first_summary_row.thick {
+#xwlefmfvao .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#mbeyklpzfm .gt_last_summary_row {
+#xwlefmfvao .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -701,7 +712,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-bottom-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_grand_summary_row {
+#xwlefmfvao .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -711,7 +722,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   padding-right: 5px;
 }
 
-#mbeyklpzfm .gt_first_grand_summary_row {
+#xwlefmfvao .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -721,7 +732,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-top-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_last_grand_summary_row_top {
+#xwlefmfvao .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -731,11 +742,11 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-bottom-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_striped {
+#xwlefmfvao .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#mbeyklpzfm .gt_table_body {
+#xwlefmfvao .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -744,7 +755,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-bottom-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_footnotes {
+#xwlefmfvao .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -758,7 +769,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-right-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_footnote {
+#xwlefmfvao .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -767,7 +778,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   padding-right: 5px;
 }
 
-#mbeyklpzfm .gt_sourcenotes {
+#xwlefmfvao .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -781,7 +792,7 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   border-right-color: #D3D3D3;
 }
 
-#mbeyklpzfm .gt_sourcenote {
+#xwlefmfvao .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -789,72 +800,72 @@ Table&nbsp;1: Cluster-size distribution by treatment status.
   padding-right: 5px;
 }
 
-#mbeyklpzfm .gt_left {
+#xwlefmfvao .gt_left {
   text-align: left;
 }
 
-#mbeyklpzfm .gt_center {
+#xwlefmfvao .gt_center {
   text-align: center;
 }
 
-#mbeyklpzfm .gt_right {
+#xwlefmfvao .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#mbeyklpzfm .gt_font_normal {
+#xwlefmfvao .gt_font_normal {
   font-weight: normal;
 }
 
-#mbeyklpzfm .gt_font_bold {
+#xwlefmfvao .gt_font_bold {
   font-weight: bold;
 }
 
-#mbeyklpzfm .gt_font_italic {
+#xwlefmfvao .gt_font_italic {
   font-style: italic;
 }
 
-#mbeyklpzfm .gt_super {
+#xwlefmfvao .gt_super {
   font-size: 65%;
 }
 
-#mbeyklpzfm .gt_footnote_marks {
+#xwlefmfvao .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#mbeyklpzfm .gt_asterisk {
+#xwlefmfvao .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#mbeyklpzfm .gt_indent_1 {
+#xwlefmfvao .gt_indent_1 {
   text-indent: 5px;
 }
 
-#mbeyklpzfm .gt_indent_2 {
+#xwlefmfvao .gt_indent_2 {
   text-indent: 10px;
 }
 
-#mbeyklpzfm .gt_indent_3 {
+#xwlefmfvao .gt_indent_3 {
   text-indent: 15px;
 }
 
-#mbeyklpzfm .gt_indent_4 {
+#xwlefmfvao .gt_indent_4 {
   text-indent: 20px;
 }
 
-#mbeyklpzfm .gt_indent_5 {
+#xwlefmfvao .gt_indent_5 {
   text-indent: 25px;
 }
 
-#mbeyklpzfm .katex-display {
+#xwlefmfvao .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#mbeyklpzfm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xwlefmfvao div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3554,7 +3565,7 @@ Figure&nbsp;7: Sensitivity contour plot for the cluster-level matched outcome mo
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>This page contains the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top, because later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.</span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>::: {.callout-important title="In the workshop"}</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>We run this page after the Chapter 5 page. Every chunk here runs in a few seconds, so run the page from top to bottom without skipping anything. The page loads its own packages and data and does not depend on Chapter 5, so you can run it in a fresh session.</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>**Run every chunk from top to bottom.** We run this page after the Chapter 5 page. Every chunk takes a few seconds, and there is nothing to skip. The page loads its own packages and data, so it does not depend on Chapter 5 and runs in a fresh session.</span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>

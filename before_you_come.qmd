@@ -2,26 +2,32 @@
 title: "Before you come"
 ---
 
-Please complete these steps before the workshop. The wifi in the room may be slow, so download and install everything at home. Download the zip file even if you plan to follow along on this site, because the pages are large. The whole setup takes about 15 minutes, and most of that time is the package installation.
+Please complete these steps at home. The wifi in the room may be slow, so download and install everything before the day. The whole setup takes about 15 minutes, and most of that is the package installation.
 
 ## What to bring
 
-- Bring a laptop on which you can install software.
-- If you have a dataset of your own, you may bring it, although nothing in the workshop requires it. It should have one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the Chapter 5 page is a template for pointing the code at your data.
+- **A laptop** on which you can install software.
+- **Your own dataset**, if you have one. Nothing in the workshop requires it. It should have one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the Chapter 5 page is a template for pointing the code at your data.
 
-## What to have installed
+## What to install
 
-1. Install R 4.3 or later from <https://cran.r-project.org>.
-2. Install either RStudio or Positron. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.
-3. Get this repository. Either clone it, or download the zip file from the green Code button at <https://github.com/alberto-guzman/multilevel-matching-workshop> and unzip it. In RStudio, open `multilevel-matching-workshop.Rproj`. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.
-4. Install the packages. Open `00_install_packages.R` and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.
-5. Check the setup. Open `00_check_setup.R` and run it. It should report `MatchIt test run: matched 710 students`. A `FALSE` on the Quarto line is fine, and so is a note reading `Registered S3 method overwritten by 'car'`, which R prints whenever these packages are loaded together. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.
+1. **R.** Install R 4.3 or later from <https://cran.r-project.org>.
+
+2. **RStudio or Positron.** Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.
+
+3. **This repository.** Download the zip file from the green Code button at <https://github.com/alberto-guzman/multilevel-matching-workshop>, or clone it. Unzip it. In RStudio, open `multilevel-matching-workshop.Rproj`. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.
+
+4. **The packages.** Open `00_install_packages.R` and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.
+
+5. **The setup check.** Open `00_check_setup.R` and run it. The last line should read `MatchIt test run: matched 710 students`. Two other lines are fine and need no action, a `FALSE` on the Quarto line and a note reading `Registered S3 method overwritten by 'car'`. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.
+
+Download the zip even if you plan to follow along on this site, because the pages are large.
 
 ## What to know
 
-- You should be comfortable with basic R, meaning running a script, reading a data frame, and using the pipe. The code uses the tidyverse verbs `filter`, `mutate`, and `summarise` throughout.
-- The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, the propensity score, and the standardized mean difference. You do not need to read anything in advance.
+- Basic R, meaning running a script, reading a data frame, and using the pipe. The code uses the tidyverse verbs `filter`, `mutate`, and `summarise` throughout.
+- Nothing else in advance. The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, the propensity score, and the standardized mean difference.
 
 ## If the installation fails
 
-Every output in every document is already on this site, so you can follow along on screen without running anything. You can fix the installation afterwards, and the documents will run at home.
+You can still follow along. Every output in every document is on this site, so you can watch on screen without running anything, fix the installation afterwards, and run the documents at home.

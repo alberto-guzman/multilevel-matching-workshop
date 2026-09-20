@@ -144,12 +144,29 @@ AFTER_HEADER = {
         "The estimand in this example is the effect on the treated schools. Stage 5 estimates the individual-average, the cluster-average, and a precision-weighted version of it."},
 }
 
+CHECKPOINT_AFTER = {"05_miad.qmd": {
+    "## Stage 2: Define distance measure {#sec-stage2}": 1,
+    "## Stage 3: Implement matching method {#sec-stage3}": 2,
+    "## Stage 4: Assess quality of the matched sample {#sec-stage4}": 3,
+    "## Stage 5: Analyze outcomes {#sec-stage5}": 4,
+    "## Stage 6: Sensitivity analysis {#sec-stage6}": 5,
+}}
+def checkpoint_chunk(n):
+    return ['```{r}', '#| eval: false',
+            f'# Fell behind? This restores every object from the end of Stage {n}, so you can',
+            '# continue from here. Run the setup chunk first if this is a new R session.',
+            f'load("checkpoints/stage_{n}.RData")', '```']
+
 NOTE = {"05_miad.qmd": """::: {.callout-important title="In the workshop"}
-Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk (which fits both a gradient boosting and a BART score) on the projector, because those are slow enough that a room full of laptops would be waiting on them. Do not use "Run all chunks above" in RStudio or Positron, because it runs all seven. Every other chunk on the page runs in seconds.
+Three things to know before you start.
+
+1. **If a chunk fails, do not stop.** Every stage from Stage 2 on opens with a short chunk that loads `checkpoints/stage_N.RData`, which holds every object as it stands at the end of the previous stage. Run it and continue with the room.
+2. **Stage 2 is split.** It estimates eight propensity scores across seven chunks. You run the four fast ones, which are the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks. We run the three slow ones on the projector, which are the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk that fits both a gradient boosting and a BART score.
+3. **Do not use "Run all chunks above"** in RStudio or Positron, because it runs all seven Stage 2 chunks. Every other chunk on the page runs in seconds.
 :::
 """,
         "06_cad.qmd": """::: {.callout-important title="In the workshop"}
-We run this page after the Chapter 5 page. Every chunk here runs in a few seconds, so run the page from top to bottom without skipping anything. The page loads its own packages and data and does not depend on Chapter 5, so you can run it in a fresh session.
+**Run every chunk from top to bottom.** We run this page after the Chapter 5 page. Every chunk takes a few seconds, and there is nothing to skip. The page loads its own packages and data, so it does not depend on Chapter 5 and runs in a fresh session.
 :::
 """}
 
@@ -276,6 +293,9 @@ for src,(dst,title) in CHAPTERS.items():
     for hdr,sent in AFTER_HEADER.get(dst,{}).items():
         assert lines.count(hdr)==1, hdr
         k=lines.index(hdr); lines[k+1:k+1]=['',sent]
+    for hdr,n in CHECKPOINT_AFTER.get(dst,{}).items():
+        assert lines.count(hdr)==1, hdr
+        k=lines.index(hdr); lines[k+1:k+1]=['']+checkpoint_chunk(n)
     yaml=f'---\ntitle: "{title}"\n---\n\n'
     (OUT/dst).write_text(yaml+HOWTO+NOTE.get(dst,'')+'\n'+'\n'.join(lines)+'\n'+TAIL.get(dst,''))
     print(f'{src} -> {dst}: {len(lines)} lines')

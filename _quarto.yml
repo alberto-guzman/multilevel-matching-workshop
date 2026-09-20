@@ -8,8 +8,9 @@ project:
     - 05_miad.qmd
     - 06_cad.qmd
     - 07_mcad.qmd
+    - slides/hands_on.qmd
   resources:
-    - slides/
+    - slides/*.pdf
 
 website:
   title: "Matching Methods for Multilevel Data"
@@ -31,7 +32,11 @@ website:
       - icon: github
         href: https://github.com/alberto-guzman/multilevel-matching-workshop
       - text: Slides
-        href: slides/MMT_SREE_2026Conference_WorkshopSlides.pdf
+        menu:
+          - text: "Lecture slides (PDF)"
+            href: slides/MMT_SREE_2026Conference_WorkshopSlides.pdf
+          - text: "Hands-on slides"
+            href: slides/hands_on.qmd
 
 format:
   html:

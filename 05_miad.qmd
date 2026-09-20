@@ -6,7 +6,11 @@ title: "Multisite individual assignment design, MIAD (Chapter 5)"
 This page contains the code from the handbook chapter with the explanatory text removed. Run the chunks in order from the top, because later chunks depend on objects created earlier. The numbered notes under a chunk explain the marked lines. The full discussion of each stage is in the handbook chapter.
 :::
 ::: {.callout-important title="In the workshop"}
-Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk (which fits both a gradient boosting and a BART score) on the projector, because those are slow enough that a room full of laptops would be waiting on them. Do not use "Run all chunks above" in RStudio or Positron, because it runs all seven. Every other chunk on the page runs in seconds.
+Three things to know before you start.
+
+1. **If a chunk fails, do not stop.** Every stage from Stage 2 on opens with a short chunk that loads `checkpoints/stage_N.RData`, which holds every object as it stands at the end of the previous stage. Run it and continue with the room.
+2. **Stage 2 is split.** It estimates eight propensity scores across seven chunks. You run the four fast ones, which are the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks. We run the three slow ones on the projector, which are the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk that fits both a gradient boosting and a BART score.
+3. **Do not use "Run all chunks above"** in RStudio or Positron, because it runs all seven Stage 2 chunks. Every other chunk on the page runs in seconds.
 :::
 
 ```{r}
@@ -147,6 +151,13 @@ ggplot(site_diagnostics,
 2.  The dashed line marks a treated share of 50%. Schools above it have more treated than comparison students, which raises within-site common-support concerns (Diagnostic 2). Schools near 0% or 100% lack within-site treatment variation altogether.
 
 ## Stage 2: Define distance measure {#sec-stage2}
+
+```{r}
+#| eval: false
+# Fell behind? This restores every object from the end of Stage 1, so you can
+# continue from here. Run the setup chunk first if this is a new R session.
+load("checkpoints/stage_1.RData")
+```
 
 ### Accounting for sites
 
@@ -426,6 +437,13 @@ bal.plot(m_fe,                              # <1>
 
 ## Stage 3: Implement matching method {#sec-stage3}
 
+```{r}
+#| eval: false
+# Fell behind? This restores every object from the end of Stage 2, so you can
+# continue from here. Run the setup chunk first if this is a new R session.
+load("checkpoints/stage_2.RData")
+```
+
 ### Global matching
 
 ```{r}
@@ -537,6 +555,13 @@ c(within_site = n_pref_within, cross_site_fallback = n_pref_fallback,
 ```
 
 ## Stage 4: Assess quality of the matched sample {#sec-stage4}
+
+```{r}
+#| eval: false
+# Fell behind? This restores every object from the end of Stage 3, so you can
+# continue from here. Run the setup chunk first if this is a new R session.
+load("checkpoints/stage_3.RData")
+```
 
 ### Sample retention
 
@@ -893,6 +918,13 @@ site_avg_tbl |>
 
 ## Stage 5: Analyze outcomes {#sec-stage5}
 
+```{r}
+#| eval: false
+# Fell behind? This restores every object from the end of Stage 4, so you can
+# continue from here. Run the setup chunk first if this is a new R session.
+load("checkpoints/stage_4.RData")
+```
+
 ### Estimating the individual-average effect
 
 ```{r}
@@ -1080,6 +1112,13 @@ ggplot(u1, aes(y = rank)) +
 6.  One horizontal segment per school spans its FIRC 95% interval, with both point estimates on top, ordered from smallest to largest FIRC effect.
 
 ## Stage 6: Sensitivity analysis {#sec-stage6}
+
+```{r}
+#| eval: false
+# Fell behind? This restores every object from the end of Stage 5, so you can
+# continue from here. Run the setup chunk first if this is a new R session.
+load("checkpoints/stage_5.RData")
+```
 
 ```{r}
 #| message: false

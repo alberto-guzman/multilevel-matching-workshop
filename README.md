@@ -19,18 +19,19 @@ The three chapter files contain the R code from Chapters 5, 6, and 7 of the hand
 | `00_install_packages.R` | | Installs the fifteen packages the documents need. Run once. |
 | `00_check_setup.R` | | Confirms the installation worked. Run after the install script. |
 | `data/` | | The analytic dataset and a description of its variables and caveats. |
-| `slides/` | | The lecture slides for the first hour, as a PDF. |
+| `checkpoints/` | | One `.RData` file per stage of Chapter 5, holding every object as it stands at the end of that stage. If a chunk fails for you during the session, load the previous stage's file and continue. |
+| `slides/` | | The lecture slides for the first hour, as a PDF, and the short deck for the hands-on part. |
 | `tools/` | | The script that rebuilds the chapter files from the handbook source. |
 
 ## What to bring and what to install
 
-Please do the installation at home, because the wifi in the room may be slow.
+Please do the installation at home, because the wifi in the room may be slow. The [Before you come](https://alberto-guzman.github.io/multilevel-matching-workshop/before_you_come.html) page has the details.
 
-- Bring a laptop on which you can install software. If you have your own dataset, bring it too. It should have one row per individual, a 0/1 treatment indicator, a site identifier, covariates, and an outcome.
-- Install R 4.3 or later and either RStudio or Positron.
-- Download this repository as a zip file or clone it. Open `multilevel-matching-workshop.Rproj` in RStudio, or open the folder in Positron.
-- Run `00_install_packages.R` once. It installs 15 packages from CRAN.
-- Run `00_check_setup.R`. The last line of the output should read `MatchIt test run: matched 710 students`. If it does not, bring the output with you to the workshop.
+1. **A laptop** on which you can install software. Bring your own dataset if you have one, with one row per individual, a 0/1 treatment indicator, a site identifier, covariates, and an outcome.
+2. **R 4.3 or later**, and either RStudio or Positron.
+3. **This repository.** Download it as a zip file or clone it. Open `multilevel-matching-workshop.Rproj` in RStudio, or open the folder in Positron.
+4. **The packages.** Run `00_install_packages.R` once. It installs 15 packages from CRAN.
+5. **The setup check.** Run `00_check_setup.R`. The last line should read `MatchIt test run: matched 710 students`. If it does not, bring the output with you.
 
 You should be comfortable with basic R, including scripts, data frames, and the pipe. The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, propensity scores, and standardized mean differences.
 
@@ -38,9 +39,12 @@ If the installation fails, you can still follow along. Every output is on the re
 
 ## What we run in the room
 
-We run `05_miad.qmd` one chunk at a time, and we stop for questions at the end of every stage. Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks, which take a few seconds between them. We run the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk on the projector, because those are slow enough that a room full of laptops would be waiting on them.
+We run two files together after the break.
 
-We then run `06_cad.qmd` from top to bottom with nothing skipped. That page takes about fifteen seconds over thirty chunks, and it loads its own packages and data, so it does not depend on the Chapter 5 session.
+- **`05_miad.qmd`**, one chunk at a time, with a stop for questions at the end of every stage. Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the four fast ones, which are the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks. We run the three slow ones on the projector, which are the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk.
+- **`06_cad.qmd`**, from top to bottom with nothing skipped. It takes about fifteen seconds over thirty chunks, and it loads its own packages and data, so it does not depend on the Chapter 5 session.
+
+If a chunk fails for you, do not stop. Every stage of `05_miad.qmd` from Stage 2 on opens with a line that loads `checkpoints/stage_N.RData`, which restores every object from the end of the previous stage.
 
 `07_mcad.qmd` and `flowcharts.qmd` are yours to read afterwards, along with the exercises and the own-data template at the end of `05_miad.qmd`.
 

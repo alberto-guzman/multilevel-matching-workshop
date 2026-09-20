@@ -1,0 +1,102 @@
+---
+title: "The hands-on part"
+subtitle: "Matching Methods for Multilevel Data in Education Research · SREE 2026"
+author: "Alberto Guzman-Alvarez"
+format:
+  revealjs:
+    theme: [default, hands_on.scss]
+    slide-number: true
+    footer: "alberto-guzman.github.io/multilevel-matching-workshop"
+    code-line-numbers: false
+---
+
+# Before the break
+
+## Where everything is
+
+::: {.columns}
+::: {.column width="62%"}
+**The site**
+
+[alberto-guzman.github.io/multilevel-matching-workshop](https://alberto-guzman.github.io/multilevel-matching-workshop/)
+
+- Every page we run, with all of its output
+- Jordan's slides and this deck, under Slides
+- The zip of the repository, under the GitHub icon
+:::
+::: {.column width="38%"}
+![](../figures/site_qr.png){width="100%"}
+:::
+:::
+
+## Before you stand up
+
+- Run the setup chunk at the top of the Chapter 5 page. It loads the packages and the data.
+- Take a few sticky notes of each color as they come around.
+
+**During the hands-on part**
+
+- A pink note on your laptop lid means you are stuck. One of us comes to you.
+- A green note means the chunk ran and you are ready to move on.
+
+# After the break
+
+## How we run the two chapters
+
+- We run Chapter 5 one chunk at a time. I say the heading before every chunk.
+- We stop for questions at the end of every stage.
+- Stage 2 is split. You run four of the seven score chunks. I run the three slow ones on the projector.
+- Do not use "Run all chunks above" on the Chapter 5 page.
+- Chapter 6 runs from top to bottom in about fifteen seconds. Skip nothing.
+
+## If a chunk fails, do not stop
+
+Every stage from Stage 2 on opens with one line.
+
+```r
+load("checkpoints/stage_1.RData")
+```
+
+It restores every object from the end of the previous stage.
+
+Run it. Put up a pink note. Continue with the room.
+
+# Close
+
+## Six stages, two designs
+
+| Stage | Chapter 5, students within schools | Chapter 6, whole schools |
+|:--|:--|:--|
+| 1. Estimand | Effect on the treated students | Effect on the treated schools |
+| 2. Distance | Fixed effects score, one of eight | School-level score |
+| 3. Matching | Global versus within site, one argument | Cluster-global, sequential, network flow |
+| 4. Assessment | Pooled and per-school balance | Cluster-level and student-level balance |
+| 5. Outcomes | Individual-average and site-average | Individual-, cluster-average, precision-weighted |
+| 6. Sensitivity | `sensemakr`, robustness value 57% | `sensemakr`, robustness value 17% |
+
+## What we did not get to
+
+- Chapter 7, the multisite cluster design, which combines the two. It is on the site as a reference.
+- The "Try it" block at the end of the Chapter 5 page. It has three variations on the matching call.
+- The decision flowcharts, for choosing the options for your own study.
+- The "Your own data" template. It lists the five objects to replace.
+
+The site and the repository stay up.
+
+## Questions
+
+Especially questions of this kind:
+
+- Which of the two designs is my study?
+- Which stage would I do differently for my data, and why?
+
+::: {.columns}
+::: {.column width="62%"}
+Tell us what worked and what did not. The form also asks whether you would test the handbook before it is final.
+
+[forms.cloud.microsoft/r/XZpKK1aEmY](https://forms.cloud.microsoft/r/XZpKK1aEmY)
+:::
+::: {.column width="38%"}
+![](../figures/feedback_qr.png){width="100%"}
+:::
+:::
