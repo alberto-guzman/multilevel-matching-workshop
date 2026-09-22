@@ -6,8 +6,9 @@ Please complete these steps at home. The wifi in the room may be slow, so downlo
 
 ## What to bring
 
-- **A laptop** on which you can install software.
-- **Your own dataset**, if you have one. Nothing in the workshop requires it. It should have one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the Chapter 5 page is a template for pointing the code at your data.
+- **A laptop** on which you can install software. That is all you need.
+
+**Optional.** If you have a dataset of your own, you are welcome to bring it, but nothing in the session uses it. Everything we run uses the TIMSS data in the repository. The last block of the Chapter 5 page is a template for pointing the code at your data after the session, and it expects one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome.
 
 ## What to install
 

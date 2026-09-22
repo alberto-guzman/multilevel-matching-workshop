@@ -213,9 +213,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-to-bring" class="level2">
 <h2 class="anchored" data-anchor-id="what-to-bring">What to bring</h2>
 <ul>
-<li><strong>A laptop</strong> on which you can install software.</li>
-<li><strong>Your own dataset</strong>, if you have one. Nothing in the workshop requires it. It should have one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the Chapter 5 page is a template for pointing the code at your data.</li>
+<li><strong>A laptop</strong> on which you can install software. That is all you need.</li>
 </ul>
+<p><strong>Optional.</strong> If you have a dataset of your own, you are welcome to bring it, but nothing in the session uses it. Everything we run uses the TIMSS data in the repository. The last block of the Chapter 5 page is a template for pointing the code at your data after the session, and it expects one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome.</p>
 </section>
 <section id="what-to-install" class="level2">
 <h2 class="anchored" data-anchor-id="what-to-install">What to install</h2>
@@ -704,31 +704,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to bring</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A laptop** on which you can install software.</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**Your own dataset**, if you have one. Nothing in the workshop requires it. It should have one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome. The last block of the Chapter 5 page is a template for pointing the code at your data.</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to install</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**R.** Install R 4.3 or later from <span class="ot">&lt;https://cran.r-project.org&gt;</span>.</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**RStudio or Positron.** Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**This repository.** Download the zip file from the green Code button at <span class="ot">&lt;https://github.com/alberto-guzman/multilevel-matching-workshop&gt;</span>, or clone it. Unzip it. In RStudio, open <span class="in">`multilevel-matching-workshop.Rproj`</span>. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**The packages.** Open <span class="in">`00_install_packages.R`</span> and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**The setup check.** Open <span class="in">`00_check_setup.R`</span> and run it. The last line should read <span class="in">`MatchIt test run: matched 710 students`</span>. Two other lines are fine and need no action, a <span class="in">`FALSE`</span> on the Quarto line and a note reading <span class="in">`Registered S3 method overwritten by 'car'`</span>. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Download the zip even if you plan to follow along on this site, because the pages are large.</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to know</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Basic R, meaning running a script, reading a data frame, and using the pipe. The code uses the tidyverse verbs <span class="in">`filter`</span>, <span class="in">`mutate`</span>, and <span class="in">`summarise`</span> throughout.</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Nothing else in advance. The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, the propensity score, and the standardized mean difference.</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">## If the installation fails</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>You can still follow along. Every output in every document is on this site, so you can watch on screen without running anything, fix the installation afterwards, and run the documents at home.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>**A laptop** on which you can install software. That is all you need.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>**Optional.** If you have a dataset of your own, you are welcome to bring it, but nothing in the session uses it. Everything we run uses the TIMSS data in the repository. The last block of the Chapter 5 page is a template for pointing the code at your data after the session, and it expects one row per individual, a 0/1 treatment column, a site or cluster identifier, a few covariates, and an outcome.</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to install</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>**R.** Install R 4.3 or later from <span class="ot">&lt;https://cran.r-project.org&gt;</span>.</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>**RStudio or Positron.** Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>**This repository.** Download the zip file from the green Code button at <span class="ot">&lt;https://github.com/alberto-guzman/multilevel-matching-workshop&gt;</span>, or clone it. Unzip it. In RStudio, open <span class="in">`multilevel-matching-workshop.Rproj`</span>. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>**The packages.** Open <span class="in">`00_install_packages.R`</span> and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>**The setup check.** Open <span class="in">`00_check_setup.R`</span> and run it. The last line should read <span class="in">`MatchIt test run: matched 710 students`</span>. Two other lines are fine and need no action, a <span class="in">`FALSE`</span> on the Quarto line and a note reading <span class="in">`Registered S3 method overwritten by 'car'`</span>. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>Download the zip even if you plan to follow along on this site, because the pages are large.</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## What to know</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Basic R, meaning running a script, reading a data frame, and using the pipe. The code uses the tidyverse verbs <span class="in">`filter`</span>, <span class="in">`mutate`</span>, and <span class="in">`summarise`</span> throughout.</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Nothing else in advance. The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, the propensity score, and the standardized mean difference.</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## If the installation fails</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>You can still follow along. Every output in every document is on this site, so you can watch on screen without running anything, fix the installation afterwards, and run the documents at home.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

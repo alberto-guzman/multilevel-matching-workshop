@@ -1221,7 +1221,7 @@ table(match.data(m_global_rep)$weights)
 
 ## Your own data
 
-Five objects set the whole workflow. Fill them in, and the chunks above will run on your study.
+This block is optional and for after the session. Five objects set the whole workflow. Fill them in, and the chunks above will run on your study.
 
 ```{r}
 #| eval: false

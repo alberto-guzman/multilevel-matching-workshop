@@ -27,7 +27,7 @@ The three chapter files contain the R code from Chapters 5, 6, and 7 of the hand
 
 Please do the installation at home, because the wifi in the room may be slow. The [Before you come](https://alberto-guzman.github.io/multilevel-matching-workshop/before_you_come.html) page has the details.
 
-1. **A laptop** on which you can install software. Bring your own dataset if you have one, with one row per individual, a 0/1 treatment indicator, a site identifier, covariates, and an outcome.
+1. **A laptop** on which you can install software. Bringing your own dataset is optional. Nothing in the session uses it, and the template at the end of `05_miad.qmd` is for pointing the code at your data afterwards.
 2. **R 4.3 or later**, and either RStudio or Positron.
 3. **This repository.** Download it as a zip file or clone it. Open `multilevel-matching-workshop.Rproj` in RStudio, or open the folder in Positron.
 4. **The packages.** Run `00_install_packages.R` once. It installs 15 packages from CRAN.

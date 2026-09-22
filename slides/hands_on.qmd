@@ -53,7 +53,7 @@ format:
 - Chapter 7, the multisite cluster design, which combines the two. It is on the site as a reference.
 - The "Try it" block at the end of the Chapter 5 page. It has three variations on the matching call.
 - The decision flowcharts, for choosing the options for your own study.
-- The "Your own data" template. It lists the five objects to replace.
+- The "Your own data" template, for afterwards. It lists the five objects to replace.
 
 The site and the repository stay up.
 

@@ -75,7 +75,7 @@ The three treatment indicators were constructed from observed covariates to illu
 
 ## Using the code with your own data
 
-Your data should have one row per individual, with four kinds of columns.
+This is optional and for after the session. Everything we run in the room uses the TIMSS data in the repository. Your data should have one row per individual, with four kinds of columns.
 
 - A 0/1 treatment column.
 - A site or cluster identifier.
