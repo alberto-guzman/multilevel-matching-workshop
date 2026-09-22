@@ -144,63 +144,21 @@
     "href": "index.html",
     "title": "Matching Methods for Multilevel Data in Education Research",
     "section": "",
-    "text": "SREE 2026 workshop · Baltimore · Wednesday, September 23, 2026 · Laurel AB, 9:30 a.m. · 2 hours\nInstructors: Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)\nRepository: https://github.com/alberto-guzman/multilevel-matching-workshop. Download the zip from the Code button, or clone it. The repository holds everything on this site, including the data and the checkpoints.\nThis site holds the hands-on materials for the workshop. Each chapter page contains the R code from one chapter of the handbook Propensity Score Matching in Multilevel Educational Settings, with the explanatory text removed so that the code runs from top to bottom."
-  },
-  {
-    "objectID": "index.html#before-the-workshop",
-    "href": "index.html#before-the-workshop",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "Before the workshop",
-    "text": "Before the workshop\nDo these steps at home, because the wifi in the room may be slow.\n\nInstall R and either RStudio or Positron.\nDownload this repository and open it.\nRun 00_install_packages.R. The last line should read Setup complete.\n\nThe Before you come page has the details for each step."
+    "text": "SREE 2026 workshop · Baltimore · Wednesday, September 23, 2026 · Laurel AB, 9:30 a.m. · 2 hours\nInstructors: Jordan Rickles (UCLA) and Alberto Guzman-Alvarez (American Institutes for Research)\nRepository: https://github.com/alberto-guzman/multilevel-matching-workshop. Download the zip from the Code button, or clone it. The repository holds everything on this site, including the data and the checkpoints.\nThe first hour is a lecture on the ideas. The second hour is hands-on, and we run the R code for two matching designs together, chunk by chunk. The code comes from the handbook Propensity Score Matching in Multilevel Educational Settings, with the explanatory text removed so that it runs from top to bottom."
   },
   {
     "objectID": "index.html#schedule",
     "href": "index.html#schedule",
     "title": "Matching Methods for Multilevel Data in Education Research",
     "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\nTime\nActivity\n\n\n\n\n9:30\nFoundational concepts, the typology of designs, and the six stages (lecture), then Chapter 4, the data and the R packages\n\n\n10:20\nBreak. Finish installing if you have not.\n\n\n10:30\nChapter 5, the multisite individual assignment design, run together stage by stage\n\n\n11:12\nChapter 6, the cluster assignment design, a tour with Stages 3 and 4 run together\n\n\n11:25\nClose and questions"
+    "text": "Schedule\n\n\n\n\n\n\n\nTime\nActivity\n\n\n\n\n9:30\nFoundational concepts, multilevel designs, and the six stages (lecture), then Chapter 4, the data and the R packages\n\n\n10:20\nBreak\n\n\n10:30\nChapter 5, multisite individual assignment design (MIAD)\n\n\n11:12\nChapter 6, cluster assignment design (CAD)\n\n\n11:25\nClose and questions"
   },
   {
-    "objectID": "index.html#how-the-session-runs",
-    "href": "index.html#how-the-session-runs",
+    "objectID": "index.html#where-to-go",
+    "href": "index.html#where-to-go",
     "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "How the session runs",
-    "text": "How the session runs\nJordan opens with the lecture, which covers the foundational concepts, the typology of multilevel designs, and the six-stage matching workflow. He then shows the data and the packages from Chapter 4 of the handbook.\nAfter the break, we work through two pages.\n\nChapter 5. One chunk at a time, with a stop for questions at the end of every stage.\nChapter 6. Partly a tour and partly hands-on. Alberto shows Stages 1 and 2 on the projector, you run Stages 3 and 4 with him, and he shows Stages 5 and 6. Run the whole page at home.\n\nBy the end of the session you should be able to do five things.\n\nState the estimand for a multisite or a cluster design.\nFit a propensity score that accounts for the sites.\nRun the matching call that fits your design.\nJudge the matched sample at the pooled level and at the site level.\nEstimate the individual-average and the site-average effect."
-  },
-  {
-    "objectID": "index.html#if-a-chunk-fails-during-the-session",
-    "href": "index.html#if-a-chunk-fails-during-the-session",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "If a chunk fails during the session",
-    "text": "If a chunk fails during the session\nDo not stop. Every stage on the Chapter 5 page from Stage 2 on opens with one line, load(\"checkpoints/stage_N.RData\"), which restores every object from the end of the previous stage. Run it and continue with the room."
-  },
-  {
-    "objectID": "index.html#the-pages",
-    "href": "index.html#the-pages",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "The pages",
-    "text": "The pages\nEach page follows the same six stages. First, define the estimand. Second, define the distance measure. Third, implement the matching method. Fourth, assess the matched sample. Fifth, analyze the outcomes. Sixth, run a sensitivity analysis.\n\n\n\nPage\nChapter\nWhat it covers\nIn the session\n\n\n\n\nMIAD\n5\nStudents are assigned to treatment within schools. Eight propensity scores, four matching approaches, balance pooled and within site, individual-average and site-average effects, the FIRC model, and a sensitivity analysis.\nWe run it together. It ends with a “Try it” block and a template for your own data.\n\n\nCAD\n6\nWhole schools are assigned to treatment. The cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis.\nAfter Chapter 5. Stages 1, 2, 5, and 6 on the projector; Stages 3 and 4 run together. Run the whole page at home.\n\n\nMCAD\n7\nTeachers are assigned within schools, with students nested in teachers. This design combines the other two.\nReference only.\n\n\nDecision flowcharts\n3\nThe guiding questions and the options at each stage, for the MIAD and the CAD.\nFor your own study, after the session."
-  },
-  {
-    "objectID": "index.html#slides",
-    "href": "index.html#slides",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "Slides",
-    "text": "Slides\nThe Slides page has Jordan’s lecture slides for the first hour as a PDF and Alberto’s short deck for the hands-on portion."
-  },
-  {
-    "objectID": "index.html#the-data",
-    "href": "index.html#the-data",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "The data",
-    "text": "The data\nAll examples use data/timss_df.rds, the TIMSS 2015 Grade 4 mathematics data for Canada, with 2,478 students nested in teachers, who are nested in schools.\nThe three treatment indicators were constructed from observed covariates to illustrate the three designs. They are not real interventions, and the estimates on these pages illustrate the workflow rather than report findings. See data/README.md for the variable list and the caveats."
-  },
-  {
-    "objectID": "index.html#using-the-code-with-your-own-data",
-    "href": "index.html#using-the-code-with-your-own-data",
-    "title": "Matching Methods for Multilevel Data in Education Research",
-    "section": "Using the code with your own data",
-    "text": "Using the code with your own data\nThis is optional and for after the session. Everything we run in the room uses the TIMSS data in the repository. Your data should have one row per individual, with four kinds of columns.\n\nA 0/1 treatment column.\nA site or cluster identifier.\nThe covariates.\nThe outcome.\n\nThe dataset, the treatment indicator, the site identifier, and the covariate formulas are set near the top of each stage. Replace those objects with your own. The “Your own data” block at the end of the Chapter 5 page lists the five objects to change."
+    "section": "Where to go",
+    "text": "Where to go\n\nBefore you come. Install R, download the repository, and run the setup script at home, because the wifi in the room may be slow. Start here.\nSlides. Jordan’s lecture slides and Alberto’s short deck for the hands-on portion.\nCh5: MIAD and Ch6: CAD. The two pages we run in the room. Each opens with a note on the data and on how we use the page in the session.\nCh7: MCAD. The multisite cluster assignment design, which combines the other two. We do not run it in the session, so it is there for you to run at home.\nFlowcharts. The guiding questions and the options at each stage, for choosing an approach for your own study after the session."
   },
   {
     "objectID": "index.html#feedback-and-testers",

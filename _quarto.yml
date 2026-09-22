@@ -23,14 +23,14 @@ website:
         text: Before you come
       - href: slides.qmd
         text: Slides
-      - href: flowcharts.qmd
-        text: Flowcharts
       - href: 05_miad.qmd
         text: "Ch5: MIAD"
       - href: 06_cad.qmd
         text: "Ch6: CAD"
       - href: 07_mcad.qmd
         text: "Ch7: MCAD"
+      - href: flowcharts.qmd
+        text: Flowcharts
     right:
       - icon: github
         href: https://github.com/alberto-guzman/multilevel-matching-workshop
