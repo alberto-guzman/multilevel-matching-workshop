@@ -195,7 +195,7 @@ Three things to know before you start.
 :::
 """,
         "06_cad.qmd": """::: {.callout-important title="In the workshop"}
-**We tour this page on the projector during the session, and you run it at home.** Run every chunk from top to bottom. Each takes a few seconds, and there is nothing to skip. The page loads its own packages and data, so it does not depend on Chapter 5 and runs in a fresh session.
+**During the session we tour Stages 1 and 2 on the projector, you run Stages 3 and 4 with us, and we tour Stages 5 and 6. Run the whole page at home.** Run every chunk from top to bottom. Each takes a few seconds, and there is nothing to skip. The page loads its own packages and data, so it does not depend on Chapter 5 and runs in a fresh session.
 :::
 """}
 

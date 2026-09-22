@@ -7,18 +7,18 @@
     "text": "Where everything is\n\n\nThe site\nalberto-guzman.github.io/multilevel-matching-workshop\n\nThe code we will run and the output\nJordan’s slides and this deck, under Slides\nThe zip of the repository, under the GitHub icon (or clone the repo)"
   },
   {
-    "objectID": "slides/hands_on.html#before-we-go-on-break",
-    "href": "slides/hands_on.html#before-we-go-on-break",
+    "objectID": "slides/hands_on.html#before-we-start",
+    "href": "slides/hands_on.html#before-we-start",
     "title": "The hands-on portion",
-    "section": "Before we go on break",
-    "text": "Before we go on break\n\nRun the setup chunk at the top of the Chapter 5 page. It loads the packages and the data.\nTake a pink sticky note as they come around.\n\nDuring the hands-on part\n\nA pink note on your laptop lid means you are stuck. One of us comes to you."
+    "section": "Before we start",
+    "text": "Before we start\n\nOpen the project and the Chapter 5 page, 05_miad.qmd.\nRun the setup chunk at the top. It loads the packages and the data.\nTake a pink sticky note as they come around.\n\nDuring the hands-on portion\n\nA pink note on your laptop lid means you are stuck. One of us comes to you."
   },
   {
     "objectID": "slides/hands_on.html#how-we-run-through-the-code",
     "href": "slides/hands_on.html#how-we-run-through-the-code",
     "title": "The hands-on portion",
     "section": "How we run through the code",
-    "text": "How we run through the code\n\nWe will run Chapter 5 (MIAD) together, one chunk at a time.\nI will stop for questions at the end of every stage.\nChapter 6 (CAD) is a tour. I will run the main chunks on the projector and you can follow along.\nChapter 7 (MCAD) if time allows."
+    "text": "How we run through the code\n\nWe will run Chapter 5 (MIAD) together, one chunk at a time.\nI will stop for questions at the end of every stage.\nChapter 6 (CAD) is partly a tour. I will show Stages 1 and 2 on the projector, you will run Stages 3 and 4 with me, and I will show Stages 5 and 6.\nChapter 7 (MCAD) if time allows."
   },
   {
     "objectID": "slides/hands_on.html#what-we-did-not-get-to",
@@ -158,14 +158,14 @@
     "href": "index.html#schedule",
     "title": "Matching Methods for Multilevel Data in Education Research",
     "section": "Schedule",
-    "text": "Schedule\n\n\n\n\n\n\n\nTime\nActivity\n\n\n\n\n9:30\nFoundational concepts, the typology of designs, and the six stages (lecture)\n\n\n10:20\nChapter 4, the data and the R packages, and the setup chunk\n\n\n10:30\nBreak. Finish installing if you have not.\n\n\n10:40\nChapter 5, the multisite individual assignment design, run together stage by stage\n\n\n11:21\nChapter 6, the cluster assignment design, a tour on the projector\n\n\n11:27\nClose and questions"
+    "text": "Schedule\n\n\n\n\n\n\n\nTime\nActivity\n\n\n\n\n9:30\nFoundational concepts, the typology of designs, and the six stages (lecture), then Chapter 4, the data and the R packages\n\n\n10:20\nBreak. Finish installing if you have not.\n\n\n10:30\nChapter 5, the multisite individual assignment design, run together stage by stage\n\n\n11:12\nChapter 6, the cluster assignment design, a tour with Stages 3 and 4 run together\n\n\n11:25\nClose and questions"
   },
   {
     "objectID": "index.html#how-the-session-runs",
     "href": "index.html#how-the-session-runs",
     "title": "Matching Methods for Multilevel Data in Education Research",
     "section": "How the session runs",
-    "text": "How the session runs\nJordan opens with the lecture, which covers the foundational concepts, the typology of multilevel designs, and the six-stage matching workflow. Alberto then shows the data and the packages from Chapter 4 of the handbook.\nAfter the break, we work through two pages.\n\nChapter 5. One chunk at a time, with a stop for questions at the end of every stage.\nChapter 6. A tour on the projector. Alberto runs the main chunks and explains what changes when whole schools are assigned. You run the page at home.\n\nBy the end of the session you should be able to do five things.\n\nState the estimand for a multisite or a cluster design.\nFit a propensity score that accounts for the sites.\nRun the matching call that fits your design.\nJudge the matched sample at the pooled level and at the site level.\nEstimate the individual-average and the site-average effect."
+    "text": "How the session runs\nJordan opens with the lecture, which covers the foundational concepts, the typology of multilevel designs, and the six-stage matching workflow. He then shows the data and the packages from Chapter 4 of the handbook.\nAfter the break, we work through two pages.\n\nChapter 5. One chunk at a time, with a stop for questions at the end of every stage.\nChapter 6. Partly a tour and partly hands-on. Alberto shows Stages 1 and 2 on the projector, you run Stages 3 and 4 with him, and he shows Stages 5 and 6. Run the whole page at home.\n\nBy the end of the session you should be able to do five things.\n\nState the estimand for a multisite or a cluster design.\nFit a propensity score that accounts for the sites.\nRun the matching call that fits your design.\nJudge the matched sample at the pooled level and at the site level.\nEstimate the individual-average and the site-average effect."
   },
   {
     "objectID": "index.html#if-a-chunk-fails-during-the-session",
@@ -179,7 +179,7 @@
     "href": "index.html#the-pages",
     "title": "Matching Methods for Multilevel Data in Education Research",
     "section": "The pages",
-    "text": "The pages\nEach page follows the same six stages. First, define the estimand. Second, define the distance measure. Third, implement the matching method. Fourth, assess the matched sample. Fifth, analyze the outcomes. Sixth, run a sensitivity analysis.\n\n\n\nPage\nChapter\nWhat it covers\nIn the session\n\n\n\n\nMIAD\n5\nStudents are assigned to treatment within schools. Eight propensity scores, four matching approaches, balance pooled and within site, individual-average and site-average effects, the FIRC model, and a sensitivity analysis.\nWe run it together. It ends with a “Try it” block and a template for your own data.\n\n\nCAD\n6\nWhole schools are assigned to treatment. The cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis.\nA tour on the projector after Chapter 5. Run it at home.\n\n\nMCAD\n7\nTeachers are assigned within schools, with students nested in teachers. This design combines the other two.\nReference only.\n\n\nDecision flowcharts\n3\nThe guiding questions and the options at each stage, for the MIAD and the CAD.\nFor your own study, after the session."
+    "text": "The pages\nEach page follows the same six stages. First, define the estimand. Second, define the distance measure. Third, implement the matching method. Fourth, assess the matched sample. Fifth, analyze the outcomes. Sixth, run a sensitivity analysis.\n\n\n\nPage\nChapter\nWhat it covers\nIn the session\n\n\n\n\nMIAD\n5\nStudents are assigned to treatment within schools. Eight propensity scores, four matching approaches, balance pooled and within site, individual-average and site-average effects, the FIRC model, and a sensitivity analysis.\nWe run it together. It ends with a “Try it” block and a template for your own data.\n\n\nCAD\n6\nWhole schools are assigned to treatment. The cluster-level propensity score, cluster-global, sequential, and network-flow matching, balance at two levels, cluster-average and individual-average effects, permutation inference, and a sensitivity analysis.\nAfter Chapter 5. Stages 1, 2, 5, and 6 on the projector; Stages 3 and 4 run together. Run the whole page at home.\n\n\nMCAD\n7\nTeachers are assigned within schools, with students nested in teachers. This design combines the other two.\nReference only.\n\n\nDecision flowcharts\n3\nThe guiding questions and the options at each stage, for the MIAD and the CAD.\nFor your own study, after the session."
   },
   {
     "objectID": "index.html#slides",
@@ -228,7 +228,7 @@
     "href": "slides.html#hands-on-slides",
     "title": "Slides",
     "section": "Hands-on slides",
-    "text": "Hands-on slides\nAlberto’s short deck for the hands-on portion covers how the room runs, the checkpoints, and the closing summary. Use the arrow keys to move through it, or open it in its own tab.\nOpen the hands-on slides in full screen"
+    "text": "Hands-on slides\nAlberto’s short deck for the hands-on portion covers where the materials are, how the room runs, and the closing summary. Use the arrow keys to move through it, or open it in its own tab.\nOpen the hands-on slides in full screen"
   },
   {
     "objectID": "05_miad.html",

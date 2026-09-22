@@ -10,7 +10,7 @@ format:
     code-line-numbers: false
 ---
 
-# Before the break
+# Getting started
 
 ## Where everything is
 
@@ -29,22 +29,21 @@ format:
 :::
 :::
 
-## Before we go on break
+## Before we start
 
-- Run the setup chunk at the top of the Chapter 5 page. It loads the packages and the data.
+- Open the project and the Chapter 5 page, `05_miad.qmd`.
+- Run the setup chunk at the top. It loads the packages and the data.
 - Take a pink sticky note as they come around.
 
-**During the hands-on part**
+**During the hands-on portion**
 
 - A pink note on your laptop lid means you are stuck. One of us comes to you.
-
-# After the break
 
 ## How we run through the code
 
 - We will run Chapter 5 (MIAD) together, one chunk at a time. 
 - I will stop for questions at the end of every stage.
-- Chapter 6 (CAD) is a tour. I will run the main chunks on the projector and you can follow along. 
+- Chapter 6 (CAD) is partly a tour. I will show Stages 1 and 2 on the projector, you will run Stages 3 and 4 with me, and I will show Stages 5 and 6. 
 - Chapter 7 (MCAD) if time allows.
 
 # Close

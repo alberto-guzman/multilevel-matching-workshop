@@ -11,7 +11,7 @@ The three chapter files contain the R code from Chapters 5, 6, and 7 of the hand
 | File | Handbook chapter | Contents |
 |---|---|---|
 | `05_miad.qmd` | 5 | The multisite individual assignment design (MIAD). We run this file in the room. Exercises and a template for your own data are at the end. |
-| `06_cad.qmd` | 6 | The cluster assignment design (CAD). We run this file in the room as well, after Chapter 5. |
+| `06_cad.qmd` | 6 | The cluster assignment design (CAD). After Chapter 5, we run Stages 3 and 4 of this file in the room and show the rest on the projector. |
 | `07_mcad.qmd` | 7 | The multisite cluster assignment design (MCAD). This file is a reference and is not covered in the workshop. |
 | `flowcharts.qmd` | 3 | The decision flowcharts for the MIAD and the CAD, for use with your own study. |
 | `before_you_come.qmd` | | The full list of what to bring and what to install. |
@@ -42,7 +42,7 @@ If the installation fails, you can still follow along. Every output is on the re
 We work through two files after the break.
 
 - **`05_miad.qmd`**, one chunk at a time, with a stop for questions at the end of every stage. Stage 2 estimates eight propensity scores across seven chunks, and we split them. You run the four fast ones, which are the single-level, the fixed effects (intercepts only), the partially-pooled, and the random intercepts chunks. We run the three slow ones on the projector, which are the fully interacted fixed effects, the random intercepts and slopes, and the machine learning chunk.
-- **`06_cad.qmd`**, as a tour on the projector. Alberto runs the main chunks and explains what changes when whole schools are assigned. Run the page at home. It takes about fifteen seconds over thirty chunks, and it loads its own packages and data, so it does not depend on the Chapter 5 session.
+- **`06_cad.qmd`**, partly as a tour and partly together. Alberto shows Stages 1 and 2 on the projector, you run Stages 3 and 4 with him, and he shows Stages 5 and 6. Run the whole page at home. It takes about fifteen seconds over thirty chunks, and it loads its own packages and data, so it does not depend on the Chapter 5 session.
 
 If a chunk fails for you, do not stop. Every stage of `05_miad.qmd` from Stage 2 on opens with a line that loads `checkpoints/stage_N.RData`, which restores every object from the end of the previous stage.
 
