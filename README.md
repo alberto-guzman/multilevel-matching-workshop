@@ -19,3 +19,5 @@ Everything is on the workshop site, including the setup instructions, the schedu
 | `tools/build_from_book.py` | Rebuilds the chapter files from the handbook source. |
 
 Feedback form: https://forms.cloud.microsoft/r/XZpKK1aEmY
+
+The materials are licensed under CC BY 4.0. See `LICENSE`.
