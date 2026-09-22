@@ -16,8 +16,7 @@ The three chapter files contain the R code from Chapters 5, 6, and 7 of the hand
 | `flowcharts.qmd` | 3 | The decision flowcharts for the MIAD and the CAD, for use with your own study. |
 | `before_you_come.qmd` | | The full list of what to bring and what to install. |
 | `index.qmd` | | The home page of the rendered site. |
-| `00_install_packages.R` | | Installs the fifteen packages the documents need. Run once. |
-| `00_check_setup.R` | | Confirms the installation worked. Run after the install script. |
+| `00_install_packages.R` | | Installs the fifteen packages the documents need, then checks that they load and that the data file is found. Run once. |
 | `data/` | | The analytic dataset and a description of its variables and caveats. |
 | `checkpoints/` | | One `.RData` file per stage of Chapter 5, holding every object as it stands at the end of that stage. If a chunk fails for you during the session, load the previous stage's file and continue. |
 | `slides.qmd`, `slides/` | | The Slides page, with the lecture slides for the first hour as a PDF and the short deck for the hands-on portion. |
@@ -30,8 +29,7 @@ Please do the installation at home, because the wifi in the room may be slow. Th
 1. **A laptop** on which you can install software. Bringing your own dataset is optional. Nothing in the session uses it, and the template at the end of `05_miad.qmd` is for pointing the code at your data afterwards.
 2. **R 4.3 or later**, and either RStudio or Positron.
 3. **This repository.** Download it as a zip file or clone it. Open `multilevel-matching-workshop.Rproj` in RStudio, or open the folder in Positron.
-4. **The packages.** Run `00_install_packages.R` once. It installs 15 packages from CRAN.
-5. **The setup check.** Run `00_check_setup.R`. The last line should read `MatchIt test run: matched 710 students`. If it does not, bring the output with you.
+4. **The packages.** Run `00_install_packages.R` once. It installs 15 packages from CRAN and checks that they load. The last line should read `Setup complete`. If it does not, bring the output with you.
 
 You should be comfortable with basic R, including scripts, data frames, and the pipe. The first hour of the workshop covers the ideas the code relies on, which are potential outcomes, propensity scores, and standardized mean differences.
 

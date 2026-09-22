@@ -123,7 +123,7 @@
     "href": "before_you_come.html#what-to-install",
     "title": "Before you come",
     "section": "What to install",
-    "text": "What to install\n\nR. Install R 4.3 or later from https://cran.r-project.org.\nRStudio or Positron. Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.\nThis repository. Download the zip file from the green Code button at https://github.com/alberto-guzman/multilevel-matching-workshop, or clone it. Unzip it. In RStudio, open multilevel-matching-workshop.Rproj. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.\nThe packages. Open 00_install_packages.R and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.\nThe setup check. Open 00_check_setup.R and run it. The last line should read MatchIt test run: matched 710 students. Two other lines are fine and need no action, a FALSE on the Quarto line and a note reading Registered S3 method overwritten by 'car'. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.\n\nDownload the zip even if you plan to follow along on this site, because the pages are large."
+    "text": "What to install\n\nR. Install R 4.3 or later from https://cran.r-project.org.\nRStudio or Positron. Either one. Both include Quarto, which you need only if you want to render the documents rather than run the chunks.\nThis repository. Download the zip file from the green Code button at https://github.com/alberto-guzman/multilevel-matching-workshop, or clone it. Unzip it. In RStudio, open multilevel-matching-workshop.Rproj. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.\nThe packages. Open 00_install_packages.R and run it. It installs 15 packages from CRAN, then loads them and reads the data. If R asks whether to install a package from source, answer no. The last line should read Setup complete. If the script stops with an error instead, bring the output with you and we will fix it at the start of the session.\n\nDownload the zip even if you plan to follow along on this site, because the pages are large."
   },
   {
     "objectID": "before_you_come.html#what-to-know",
@@ -151,7 +151,7 @@
     "href": "index.html#before-the-workshop",
     "title": "Matching Methods for Multilevel Data in Education Research",
     "section": "Before the workshop",
-    "text": "Before the workshop\nDo these steps at home, because the wifi in the room may be slow.\n\nInstall R and either RStudio or Positron.\nDownload this repository and open it.\nRun 00_install_packages.R, then 00_check_setup.R.\n\nThe Before you come page has the details for each step."
+    "text": "Before the workshop\nDo these steps at home, because the wifi in the room may be slow.\n\nInstall R and either RStudio or Positron.\nDownload this repository and open it.\nRun 00_install_packages.R. The last line should read Setup complete.\n\nThe Before you come page has the details for each step."
   },
   {
     "objectID": "index.html#schedule",

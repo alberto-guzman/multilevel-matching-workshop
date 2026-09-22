@@ -18,9 +18,7 @@ Please complete these steps at home. The wifi in the room may be slow, so downlo
 
 3. **This repository.** Download the zip file from the green Code button at <https://github.com/alberto-guzman/multilevel-matching-workshop>, or clone it. Unzip it. In RStudio, open `multilevel-matching-workshop.Rproj`. In Positron, open the folder. Either way, the working directory is then the repository, which the scripts assume.
 
-4. **The packages.** Open `00_install_packages.R` and run it. It installs 15 packages from CRAN. If R asks whether to install a package from source, answer no.
-
-5. **The setup check.** Open `00_check_setup.R` and run it. The last line should read `MatchIt test run: matched 710 students`. Two other lines are fine and need no action, a `FALSE` on the Quarto line and a note reading `Registered S3 method overwritten by 'car'`. If the script reports a missing package or an error, bring the output with you and we will fix it at the start of the session.
+4. **The packages.** Open `00_install_packages.R` and run it. It installs 15 packages from CRAN, then loads them and reads the data. If R asks whether to install a package from source, answer no. The last line should read `Setup complete`. If the script stops with an error instead, bring the output with you and we will fix it at the start of the session.
 
 Download the zip even if you plan to follow along on this site, because the pages are large.
 
